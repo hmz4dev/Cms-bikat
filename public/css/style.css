@@ -1,0 +1,276 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #424F63;
+	font-family: 'Roboto', sans-serif;
+	background-size: cover;
+	
+}
+.box{
+	width: 400px;;
+	padding: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	letter-spacing: 50%;
+	transform:translate(-50%,-50%);
+	background: #191919;
+	text-align: center;
+	border-radius: 1em;
+}
+.box h1{
+	color: white;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+.box input[type="text"],.box input[type="password"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border:2px solid #3498db;
+	width: 200px;
+	outline: none;
+	color: white;
+	padding: 14px 10px;
+	border-radius: 24px;
+	transition: 0.25s;
+	width: 300px;
+}
+.box input[type="text"]:focus,.box input[type="password"]{
+	width: 280px;
+	border-color: #2ecc71;
+}
+
+
+.box input[type ="submit"]{
+	border: 0;
+	background: none;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid #3498db;
+	padding: 14px 10px;
+	width: 200px;
+	outline: none;
+	color: white;
+	border-radius: 24px;
+	transition: 0.25s;
+}
+.box input[type ="submit"]:hover{
+	background: #424f63;
+	font-size: 20px;
+}
+.sidebar{
+	width: 250px;
+	height: 655px;
+	position: fixed;
+	background-color:  green;
+	color: white;
+}
+.sidebar-logo{
+	padding: 15px;
+	height: 50px;
+	margin-top: 20px;
+	font-size:25px;
+
+}
+.conter {
+	margin-left: 195px;
+	width: 86%;
+	height: 100%;
+
+}
+
+.hder {
+	width: 100%;
+	position: fixed;
+	z-index: inherit;
+	z-index: 2;
+}
+
+h5 {
+	padding-top: 20px;
+	margin-bottom: 40px;
+	border-bottom: .5px solid rgb(22, 54, 56);
+	text-align: left;
+	font-size: 13pt;
+	padding-bottom: 10px;
+
+}
+
+.form {
+	background-color: #424F63;
+	height: 100%;
+	width: 98%;
+	background-color: #424F63;
+	border-radius: 1em;
+	
+	color: white;
+	padding-bottom: 50px;
+	
+}
+
+.input {
+	width: 150px;
+	padding: 3px;
+
+	border-radius: .5em;
+}
+
+.degree {
+
+	width: 10%;
+	color: white;
+	float: left;
+	
+}
+
+.dat {
+	float: left;
+	color: white;
+	width: 11%;
+	margin-left: 40px;
+}
+
+.dat input {
+	padding: 2px;
+	width: 160px;
+	border-radius: .5em;
+
+}
+
+.date {
+	float: left;
+	color: white;
+	width: 10%;
+	margin-left: 39px;
+}
+
+.date input {
+	padding: 2px;
+	width: 160px;
+	border-radius: .5em;
+}
+
+.institute {
+
+	width: 10%;
+	color: white;
+	float: left;
+	margin-left: 49px;
+
+}
+
+.board {
+
+	width: 10%;
+	color: white;
+	float: left;
+	margin-left: 40px;
+  
+}
+
+.obtain {
+
+	width: 10%;
+	color: white;
+	float: left;
+	margin-left: 40px;
+   
+}
+
+.obtain input {
+	width: 110px;
+}
+
+.total {
+
+	width: 10%;
+	color: white;
+	float: left;
+	margin-left: px;
+  
+}
+
+.total input {
+	width: 110px;
+}
+
+.percent {
+	width: 10%;
+	color: white;
+	float: left;
+	margin-left: px;
+	
+
+}
+
+.percent input {
+	width: 110px;
+}
+.grade {
+margin-top: 10px;
+width: 10%;
+color: white;
+float: left;
+ve
+}
+.grade input {
+	width: 110px;
+}
+.cgpa{
+	float: left;
+	color: white;
+	width: 10%;
+	margin-top:10px;
+	margin-left: 0px;
+}
+.cgpa input {
+	width: 110px;
+}
+.degreelevel{
+	width: 10%;
+	color: white;
+	float: left;
+	margin-top:10px;
+	margin-left: 0px;
+	
+}
+.degreelevel select{
+	width: 130px;
+	padding:5.5px;
+}
+.chkbox{
+	width: 10%;
+	color: white;
+	float: left;
+	margin-top:10px;
+	margin-left: 30px;
+ 
+}
+.chkbox input{
+	width:100px;
+	height:35px;
+}
+.finacne{
+	width: 30%;
+	color: white;
+	float: left;
+	margin-top:30px;
+	margin-left: 30px;
+  
+}
+.finance input{
+	width:100px;
+	height:35px;
+	margin-top:30px;
+	margin-left: 30px;
+	padding-top:40px;
+}
+.finance input label{
+	float:left;
+	margin-top:30px;
+	padding:
+}

@@ -1,0 +1,48 @@
+.navbar {
+    background-color: #2B333C;
+    color: white;
+    position: relative;
+}
+
+a {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar {
+    height: 100%;
+    width: 15%;
+    float: left;
+    margin-top: 55px;
+    background-color: #424F63;
+    position: fixed;
+    color: white;
+    text-align: center;
+}
+
+.sidebar div:hover {
+    background-color: #2B333C;
+    color: rgb(255, 255, 255);
+    font-size: 12pt;
+    transition: .5s;
+    border-left: 5px solid white;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    z-index: inherit;
+    z-index: 2;
+}
+
+.course {
+    margin-left: 240px;
+    padding-top: 100px;
+    width: 80%;
+    height: 100%;
+}

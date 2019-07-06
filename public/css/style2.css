@@ -1,0 +1,384 @@
+body {
+    margin: 0;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    background-image: url("./css/images/h.jpg");
+    background-size: cover;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+.reg-form {
+    background-color: #005A57;
+    color: white;
+    border-radius: 1em;
+}
+
+.form {
+    height: 100%;
+    padding-top: 50px;
+    margin-top: 10px;
+}
+
+.pad {
+    margin-bottom: 10px;
+}
+
+.input {
+    float: left;
+    padding-left: 15px;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    content: inherit;
+    padding: 5px;
+    border-bottom: 2px solid lightblue;
+    margin-left: 35px;
+}
+
+.enrl {
+    width: 40%;
+    height: 110px;
+    background-color: #424F63;
+    margin-top: 200px;
+    color: rgb(6, 115, 134);
+    border-radius: 1em;
+    padding-left: 10px;
+    float: left;
+    margin-left: 20px;
+}
+
+.enrl h4 {
+    text-align: left;
+    color: white;
+    margin-top: 30px;
+    color: rgb(104, 206, 224);
+    float: left;
+}
+
+.enrl i {
+    float: right;
+    font-size: 50pt;
+    color: rgb(104, 206, 224);
+    margin-bottom: 20px;
+    margin-top: 25px;
+    opacity: .5;
+}
+
+.contner {
+    margin-left: 250px;
+}
+
+.sec {
+    font-size: 12pt;
+    padding: 10px;
+    border-top: .5px solid rgb(22, 54, 56);
+    border-bottom: .5px solid rgb(22, 54, 56);
+    text-align: left;
+    color: rgb(104, 206, 224);
+}
+
+.sec:hover {
+    background-color: #2B333C;
+    color: rgb(255, 255, 255);
+    font-size: 12pt;
+    transition: .5s;
+    border-left: 5px solid white;
+}
+
+.conter {
+    padding-bottom: 50px;
+}
+
+.hder {
+    width: 100%;
+    position: fixed;
+    margin-bottom: 30px;
+    z-index: inherit;
+    z-index: 2;
+}
+
+h5 {
+    padding-top: 20px;
+    margin-bottom: 40px;
+    border-bottom: .5px solid rgb(22, 54, 56);
+    text-align: left;
+    font-size: 13pt;
+    padding-bottom: 10px;
+}
+
+i {
+    float: right;
+}
+
+.conter {
+    margin-left: 195px;
+    width: 86%;
+    height: 100%;
+}
+
+.hder {
+    width: 100%;
+    position: fixed;
+    z-index: inherit;
+    z-index: 2;
+}
+
+h5 {
+    padding-top: 20px;
+    margin-bottom: 40px;
+    border-bottom: .5px solid rgb(22, 54, 56);
+    text-align: left;
+    font-size: 13pt;
+    padding-bottom: 10px;
+}
+
+.form {
+    background-color: #424F63;
+    height: 100%;
+    width: 100%;
+    background-color: #424F63;
+    border-radius: 1em;
+    color: white;
+    padding-bottom: 50px;
+}
+
+.input {
+    width: 190px;
+    padding: 3px;
+    border-radius: .5em;
+}
+
+.degree {
+    width: 10%;
+    color: white;
+    float: left;
+}
+
+.dat {
+    float: left;
+    color: white;
+    width: 11%;
+    margin-left: 40px;
+}
+
+.dat input {
+    padding: 2px;
+    width: 160px;
+    border-radius: .5em;
+}
+
+.date {
+    float: left;
+    color: white;
+    width: 10%;
+    margin-left: 39px;
+}
+
+.date input {
+    padding: 2px;
+    width: 160px;
+    border-radius: .5em;
+}
+
+.institute {
+    width: 10%;
+    color: white;
+    float: left;
+    margin-left: 49px;
+}
+
+.board {
+    width: 10%;
+    color: white;
+    float: left;
+    margin-left: 40px;
+}
+
+.obtain {
+    width: 10%;
+    color: white;
+    float: left;
+    margin-left: 40px;
+}
+
+.obtain input {
+    width: 110px;
+}
+
+.total {
+    width: 10%;
+    color: white;
+    float: left;
+    margin-left: px;
+}
+
+.total input {
+    width: 110px;
+}
+
+.percent {
+    width: 10%;
+    color: white;
+    float: left;
+    margin-left: px;
+}
+
+.percent input {
+    width: 110px;
+}
+
+.grade {
+    margin-top: 10px;
+    width: 10%;
+    color: white;
+    float: left;
+}
+
+.grade input {
+    width: 110px;
+}
+
+.cgpa {
+    float: left;
+    color: white;
+    width: 10%;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+.cgpa input {
+    width: 110px;
+}
+
+.degreelevel {
+    width: 10%;
+    color: white;
+    float: left;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+.degreelevel select {
+    width: 130px;
+    padding: 5.5px;
+}
+
+.chkbox {
+    width: 10%;
+    color: white;
+    float: left;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.chkbox input {
+    width: 100px;
+    height: 35px;
+}
+
+.doc-chcklist {
+    height: 600px;
+    width: 100%;
+    background-color: #424F63;
+    border-radius: 1em;
+    color: white;
+    padding-bottom: 35px;
+    margin-top: 5px;
+}
+
+.chklist {
+    height: 80%;
+    width: 50%;
+    background-color: #424F63;
+    border-radius: 1em;
+    color: white;
+    margin-top: 5px;
+    overflow: scroll;
+    padding-bottom: 10px;
+    overflow-x: hidden;
+    float: left;
+}
+
+.doc {
+    width: 70%;
+    float: left;
+    margin: 0px;
+}
+
+.doc select {
+    width: 100%;
+}
+
+.doc label {
+    padding-top: 20px;
+}
+
+.copies {
+    width: 30%;
+    float: left;
+    margin: 0px;
+}
+
+.copies input {
+    width: 100%;
+    padding: .5px;
+    border-radius: .5em;
+}
+
+.copies label {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.gardian {
+    height: auto;
+    width: 50%;
+    background-color: #424F63;
+    border-radius: 1em;
+    color: white;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    float: left;
+}
+
+.gardian input {
+    width: 220px;
+    padding: 3px;
+    border-radius: .5em;
+    float: right;
+    margin-right: 0px;
+}
+
+.gardian select {
+    float: right;
+    width: 220px;
+    padding: 3px;
+    border-radius: .5em;
+}
+
+.chckbox {
+    width: 50px;
+    height: 50px;
+    ;
+    float: left;
+    margin-top: 15px;
+}
+
+.btns {
+    border: 1px white;
+}
+
+.btns input {
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 15%;
+    width: 60%;
+    height: 40px;
+}

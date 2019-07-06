@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\studentinfo;
 use App\Session;
 use App\Degree;
+use App\Decipline;
 
 class StudentInfoController extends Controller
 {
@@ -14,7 +15,8 @@ class StudentInfoController extends Controller
         $students=studentinfo::all();
         $sessions=Session::all();
         $degrees=Degree::all();
-        return view('enrollment.studentRegistration.registration',compact('students','sessions','degrees'));
+        $deciplines=Decipline::all();
+        return view('enrollment.studentRegistration.registration',compact('students','sessions','degrees','deciplines'));
     }
    
  

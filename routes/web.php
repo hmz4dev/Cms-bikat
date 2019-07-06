@@ -62,7 +62,7 @@ Route::post('/enrollment/instructor','InstructorController@store');
 Route::get('enrollment', 'EnrollmentController@enrollment');
 Route::get('studentEnroll','EnrollmentController@index');
 Route::post('StudentEnrollment','EnrollmentController@store');
-Route::get('offeredCourses','EnrollmentController@offeredCourses');
+Route::get('offeredCourses','OfferedCourseController@index');
 Route::get('attendence','AttendenceController@attendence');
 Route::post('/125987dese','EnrollmentController@spicifySessiondegree')->name('enrollment.sede');
 Auth::routes();

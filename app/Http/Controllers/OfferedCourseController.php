@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\OfferedCourse;
+
+use App\MarksDiv;
+use App\CourseGroup;
+use App\Course;
+use App\instructor;
+use App\Degree;
+use App\Session;
 use Illuminate\Http\Request;
 
 class OfferedCourseController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,14 @@ class OfferedCourseController extends Controller
      */
     public function index()
     {
-        //
+        $Degrees=Degree::all();
+        $marks=MarksDiv::all();
+        $CourseGroups=CourseGroup::all();
+        $instructors=instructor::all();
+        $courses=Course::all();
+        $sessions=Session::all();
+        return view('enrollment.offeredCourses', compact('Degrees','marks','CourseGroups','instructors','courses','sessions'));
+
     }
 
     /**

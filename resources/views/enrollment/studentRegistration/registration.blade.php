@@ -129,8 +129,13 @@
                             <option value="{{$degree->degree}}">{{$degree->degree}}</option>
                           @endforeach
                     </select>
-                    <label for="decipline_subject"> Decipline/Subject</label>
-                    <input type="text" name="decipline_subject" class="form-control" required> 
+                    <label for="decipline"> Decipline/Subject</label>
+                    <select class="form-control" name="decipline" required>
+                    <option value="">N/A</option>
+                          @foreach($deciplines as $decipline)
+                            <option value="{{$decipline->decipline}}">{{$decipline->decipline}}</option>
+                          @endforeach
+                    </select>
                     <label for="seat_type"> Seat Type</label>
                     <select class="form-control" name="seat_type" required>
                         <option value="Regular" >Regular</option>

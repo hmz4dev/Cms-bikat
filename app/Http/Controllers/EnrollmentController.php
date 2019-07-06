@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Enrollment;
-use Illuminate\Http\Request;
+
 use App\Session;
 use App\studentinfo;
 use App\Course;
+use App\Degree;
 
 use App\instructor;
+use Illuminate\Http\Request;
 class EnrollmentController extends Controller
 {
+
+    public  $students;
+    public function __construct()
+    {
+
+        $this->students = studentinfo::all();
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,14 +35,16 @@ class EnrollmentController extends Controller
     public function enrollment(){
         return view('enrollment.enrollment');
     }
-    public function index()
+    public function index(Request $request)
     {
+       
         $sessions=Session::all();
-        $students=studentinfo::all();
         $courses=Course::all();
         $instructors=instructor::all();
+        $degrees=Degree::all();
+        $students = $this->students;
        
-        return view('enrollment.studentEnroll',compact('sessions','students','courses','instructors'));
+        return view('enrollment.studentEnroll',compact('sessions','students','courses','instructors','degrees'));
     }
 
     /**
@@ -176,8 +188,18 @@ class EnrollmentController extends Controller
                     'regNo'      => $student->reg_no
                     ]);
             }
-            
-               
-       
+   
      }
+
+     public function sessiondegree(Request $request)
+     
+     {dd($request->session);
+        $this->students=studentinfo::where('session', $request->session)
+                         //    ->where('degree', $request->degree)
+                            ->get();
+                            return response()->json(['success' => 'successful operating']); 
+     }
+
+
+    
 }

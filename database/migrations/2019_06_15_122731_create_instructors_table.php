@@ -15,8 +15,7 @@ class CreateInstructorsTable extends Migration
     {
         Schema::create('instructors', function (Blueprint $table) {
             $table->bigIncrements('id')->index();
-            $table->string('fname')->index();
-            $table->string('lastname');
+            $table->string('name')->index();
             $table->string('email');
             $table->string('cellno');
             $table->string('type');

@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\studentinfo;
+use App\Session;
+use App\Degree;
 
 class StudentInfoController extends Controller
 {
     //
     function registration(){
         $students=studentinfo::all();
-        return view('enrollment.studentRegistration.registration',compact('students'));
+        $sessions=Session::all();
+        $degrees=Degree::all();
+        return view('enrollment.studentRegistration.registration',compact('students','sessions','degrees'));
     }
    
  

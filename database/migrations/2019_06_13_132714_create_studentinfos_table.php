@@ -16,7 +16,7 @@ class CreateStudentinfosTable extends Migration
         Schema::create('studentinfos', function (Blueprint $table) {
             $table->bigIncrements('st_id');
             $table->string('status');
-            $table->boolean('ceased')->default(false)->nullable();           
+            $table->string('session');           
             $table->integer('semester');
             $table->string('degree');
             $table->string('shift');

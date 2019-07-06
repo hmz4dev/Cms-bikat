@@ -86,23 +86,15 @@
             <form class="form col-md-12" id="form" >
                 {{csrf_field()}}
         <div class="form-group">
-            <label for="name" class="cols-sm-2 control-label">First Name</label>
+            <label for="name" class="cols-sm-2 control-label">Full Name</label>
             <div class="cols-sm-10">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter first Name" required>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter full Name" required>
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="name" class="cols-sm-2 control-label">Last Name</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter Last Name" required>
-                </div>
-            </div>
-        </div>
+     
         <div class="form-group">
             <label for="email" class="cols-sm-2 control-label"> Email</label>
             <div class="cols-sm-10">
@@ -181,7 +173,7 @@
                 <tbody>
                 @foreach($instructors as $row)
                     <tr id="tr_{{$row['id']}}">
-                        <td>{{$row['fname']}} {{$row['lastname']}}</td>
+                        <td>{{$row['name']}}</td>
                         <td>{{$row['email']}}</td>
                         <td>{{$row['cellno']}}</td>
                         <td>{{$row['type']}}</td>
@@ -278,8 +270,7 @@
         dataType:"json",
         success:function(html){
         $('#hidden_id').val(html.data.id);
-        $('#fname').val(html.data.fname);
-        $('#lastname').val(html.data.lastname);
+        $('#name').val(html.data.name);
         $('#email').val(html.data.email);
         $('#cellno').val(html.data.cellno);
         selectElem('type', html.data.type);
@@ -323,10 +314,9 @@
         }
         if(data.success)
         {
-       console.log(data.success.fname);
       $('#myModal').modal('hide');
       if ($('#tr_' + data.success.id).length) {
-    var newHtml = '<td>' + data.success.fname + ' '+ data.success.lastname +'</td>'
+    var newHtml = '<td>' + data.success.name +'</td>'
             + '<td>' + data.success.email + '</td>'
             + '<td>' + data.success.cellno + '</td>'
             + '<td>' + data.success.type + '</td>'

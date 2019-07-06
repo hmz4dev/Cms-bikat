@@ -10,13 +10,11 @@ class instructor extends Model
         return $this->hasMany('\App\Enrollment');
     }
     protected  $fillable=[
-        'fname',
-        'lastname',
+        'name',
         'email',
         'cellno',
         'type',
         'department',
-       'specialization',
-        'department'
+
     ];
 }

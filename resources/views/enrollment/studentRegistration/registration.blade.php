@@ -113,16 +113,21 @@
                     <div class="column col-md-4">
                     
                 
-                    <label for="ceased">Ceased</label>
-                    <input type="checkbox" name="ceased" value="1" id="" class="form-control">
+                    <label for="ce">Session</label>
+                    <select class="form-control" name="session" required>
+                    <option value="">N/A</option>
+                    @foreach($sessions as $row)
+                        
+                        <option value="{{$row->session}}">{{$row->session}}</option>
+                     @endforeach
+                     </select>
                     <label for="degree"> Degree</label>
                      
                     <select class="form-control" name="degree" required>
-                        <option value="">N/A</option>
-                        <option value="BSCS">BSCS</option>
-                        <option value="BSIT">BSIT</option>
-                        <option value="BBA">BBA</option>
-                        <option value="MBA">MBA</option>
+                    <option value="">N/A</option>
+                          @foreach($degrees as $degree)
+                            <option value="{{$degree->degree}}">{{$degree->degree}}</option>
+                          @endforeach
                     </select>
                     <label for="decipline_subject"> Decipline/Subject</label>
                     <input type="text" name="decipline_subject" class="form-control" required> 

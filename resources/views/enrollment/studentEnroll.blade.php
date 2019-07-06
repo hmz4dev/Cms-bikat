@@ -94,23 +94,24 @@
                   <h3>Student Selection</h3>
                   <div class="row2-enrol-col1">
                   <label for="session">Session (Student Admitted in)</label>
-                  <select name="row[0][Session]" id="" class="form-control" required>
+                  <select name="row[0][Session]" id="session" class="form-control" required>
+                  <option value="noselect">N/A</option>
+
                 @foreach ($sessions as $session)
-                          <option value="{{$session->id}}">{{$session->session}}</option>
+                          <option value="{{$session->session}}">{{$session->session}}</option>
                           @endforeach
                         </select>
                  </div>        
                  <div class="row2-enrol-col1">
                   <label for="Degree">Degree</label>
-                  <select name="row[0][Degree]" id="" class="form-control" required>
-                          <option value="">N/A</option>
-                            <option value="BSCS">BSCS</option>
-                            <option value="BSIT">BSIT</option>                            
-                            <option value="BBA">BBA</option>
-                            <option value="MBA">MBA</option>
+                  <select name="row[0][Degree]" id="degree" class="form-control" required>
+                          <option value="noselect">N/A</option>
+                          @foreach($degrees as $degree)
+                            <option value="{{$degree->degree}}">{{$degree->degree}}</option>
+                          @endforeach
                      </select>
                  </div>
-                 <div class="row2-enrol-col2">
+                 <div class="row2-enrol-col2 hidden ifhassesdegr" >
                   <label for="Student Name">Student Name</label>
                   <select name="row[0][Student_name]" id="choosestudent" class="form-control" required>
                     <option value="noneselected">choose student</option>
@@ -613,13 +614,48 @@
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
+
+$('#session').on('change', function(){
+ var session= $(this).val();
+ console.log(session)
+ if ($(this).val() === "noselect") {
+     
+ } else {
+   $('#degree').on('change', function(){
+     var degree = $(this).val();
+     console.log(degree)
+  if($('#degree').val() === "noselect"){
+        $('.ifhassesdegr').addClass('hidden');
+      }
+      else{
+        var sessionValue = $("#session").val();
+              var degreeValue = $("#degree").val();
+              $.ajax({
+              url:"{{ route('studentEnroll.sessiondegree') }}",
+        method:"POST",
+        data: {session:sessionValue},
+        contentType: false,
+        cache: false,
+        processData: false,
+        dataType:"json",
+        success:function(data)
+        {  
+        $('.ifhassesdegr').removeClass('hidden');
+        }
+      
+   })
+ }
+
+})
+}
+})
           $('#choosestudent').on('change', function() {
             if ($(this).val() === "noneselected") {
               $('.ifstudent').addClass('hidden');
              
             } else {
               var name = $(this).val();
-              console.log(name)
+             
               $.ajax({
         url:"/12589kur/"+name,
         method:"GET",

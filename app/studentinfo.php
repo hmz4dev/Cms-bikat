@@ -19,9 +19,12 @@ class studentinfo extends Model
     public function Enrollment(){
         return $this->hasMany('\App\Enrollment');
     }
+    public function Degree(){
+        return $this->belongsTo('\App\Degree');
+    }
     protected  $fillable=[
         'status',
-        'ceased',
+        'session',
         'semester',
         'degree',
         'shift',

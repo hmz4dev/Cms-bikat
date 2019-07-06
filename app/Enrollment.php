@@ -19,6 +19,9 @@ class Enrollment extends Model
     public function instructor(){
         return $this->belongsTo('\App\instructor');
     }
+    public function Degree(){
+        return $this->belongsTo('\App\Degree');
+    }
 
     protected $fillable=[
         'enrolldate',

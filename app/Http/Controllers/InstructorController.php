@@ -41,8 +41,7 @@ class InstructorController extends Controller
     {
         //
         $create=instructor::create([
-            'fname'=>$request->fname,
-            'lastname'=>$request->lastname,
+            'name'=>$request->name,
             'email'=>$request->email,
             'cellno'=>$request->cellno,
             'type'=>$request->type,
@@ -88,9 +87,9 @@ class InstructorController extends Controller
      */
     public function update(Request $request)
     {
+       
         $rules = array(
-            'fname'    =>  'required',
-            'lastname'     =>  'required',
+            'name'    =>  'required',
             'email'     =>  'required | email',
             'cellno'     =>  'required',
             'type'     =>  'required',
@@ -105,8 +104,7 @@ class InstructorController extends Controller
 
  
     $form_data = array(
-        'fname'       =>   $request->fname,
-        'lastname'        =>   $request->lastname,
+        'name'       =>   $request->name,
         'email'        =>   $request->email,
         'cellno'        =>   $request->cellno,
         'type'        =>   $request->type,

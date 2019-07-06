@@ -23,7 +23,7 @@ class StudentInfoController extends Controller
        
         $create=studentinfo::create([
             'status'=>$request->status,
-            'ceased'=>$request->ceased,
+            'session'=>$request->session,
             'semester'=>$request->semester,
             'degree'=>$request->degree,
             'shift'=>$request->shift,
@@ -38,8 +38,7 @@ class StudentInfoController extends Controller
             'dob'=>$request->dob,
             'reg_no'=>$request->reg_no,
             'previous_degree'=>$request->previous_degree,
-            'department'=>$request->department,
-
+            'section'=>$request->section,
             'father_name'=>$request->father_name,
             'father_income'=>$request->father_income,
             'father_cnic'=>$request->father_cnic,

@@ -113,7 +113,7 @@
                     <div class="column col-md-4">
                     
                 
-                    <label for="ce">Session</label>
+                    <label for="Session">Session</label>
                     <select class="form-control" name="session" required>
                     <option value="">N/A</option>
                     @foreach($sessions as $row)
@@ -168,12 +168,12 @@
                 <label for="registration#">Registration No</label>
                     <input type="text" name="reg_no" id="regno" maxlength="13" class="form-control">
                     <label for="predegree">Previous Degree</label>
-                    <select class="form-control" name="previous_degree">
-                        <option value="BSCS">BSCS</option>
-                        <option value="BBA">BBA</option>
-                        <option value="MBA">MBA</option>
-                        <option value="MS">MS</option>
-                        <option value="PHD">PHD</option>
+                    <select name="previous_degree" id="degree" class="form-control" required>
+                          <option value="noselect">N/A</option>
+                          @foreach($degrees as $degree)
+                            <option value="{{$degree->degree}}">{{$degree->degree}}</option>
+                          @endforeach
+                     </select>
                     </select>
                     <label for="name">Date of Birth</label>
                     <input type="date" name="dob" class="form-control" required>
@@ -181,13 +181,9 @@
                         <input type="integer" name="telephone" id="telephone" maxlength="11" class="form-control"> 
                    
                 </div>
-                <div class="column1">
-                <label for="status"> Department</label>
-                    <select class="form-control" name="department" required>
-                        <option value="Computer Sciences">Computer Sciences</option>
-                        <option value="Management Sciences">Management Sciences</option>
-                      
-                    </select>
+                <div class="column1"> 
+                <label for="status"> Section</label>
+                    <input type="text" name="section" class="form-control">
                     <label for="nationality">Nationality</label>
                     
                     <select class="form-control" name="nationality" required>

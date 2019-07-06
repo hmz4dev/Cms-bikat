@@ -132,7 +132,7 @@
                 </div>
                <div class="row-4">
                      
-               <!-------------------marks --------->
+               <!!-------------------marks --------->
 
                <h3>Marks Distribution  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -216,7 +216,7 @@
                  <select name="" id="" class="form-control">
                      <option value="">N/A</option>
                      <option value="">Artificial Intelligence</option>
-                     <option value="">Comprihenssive</option>
+                     <option value="">Comprehenssive</option>
                      <option value="">Computer Science Education</option>
                      <option value="">Computer Science Elective</option>
                      <option value="">Core Major Course</option>

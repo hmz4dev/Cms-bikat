@@ -50,9 +50,37 @@ class OfferedCourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+   
+        $degree=$request->row[0]['degree'];
+        $semester=$request->row[0]['Semester'];
+        $rows =$request->input('row');
+ foreach($rows as $row)
+ {
+       if(!empty($row['Course_code']))
+       {
+        $records []=array(
+            'degree'=>$degree,
+            'semester'=>$semester,
+            'course_code'=>$row['Course_code'],
+            'course_name'=>$row['Course_name'],
+            'credit_hours'=>$row['Credit_hours'],
+            'mid'=>$row['mid'],
+            'internal'=>$row['internal'],
+            'final'=>$row['final'],
+            'practical'=>$row['practical'],
+            'total'=>$row['total'],
+            'course_group'=>$row['Course_group'],
+            'pre_req'=>$row['Pre_req'],
+            'section'=>$row['Section'],
+            'course_incharge'=>$row['Course_incharge'],
+        );
+       };
+      
     }
+    OfferedCourse::insert($records);
 
+    return redirect('offeredCourses')->with('message', 'submitted successfully');
+    }
     /**
      * Display the specified resource.
      *
@@ -97,4 +125,21 @@ class OfferedCourseController extends Controller
     {
         //
     }
+    public function getcourses($name)
+    {
+      
+             $courses= Course::where('course_name', $name)->first();
+           if (!$courses) {
+               return response()->json(['errors' => $error->errors()->all()]);
+           } else {
+               
+               return response()->json([
+                   'Course_code' => $courses->Course_code,
+                   'Credit_hours'      => $courses->Credit_hours,
+                  
+                   ]);
+           }
+  
+    }
+    
 }

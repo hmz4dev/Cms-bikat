@@ -109,8 +109,6 @@ class EnrollmentController extends Controller
                 'course_status'=>$row['Course_Status'],
                 'credit_hours'=>$row['Credit_hours'],
                 'course_incharge'=>$row['Course_incharge'],
-
- 
             );
            };
 
@@ -185,7 +183,8 @@ class EnrollmentController extends Controller
                 
                 return response()->json([
                     'fatherName' => $student->father_name,
-                    'regNo'      => $student->reg_no
+                    'regNo'      => $student->reg_no,
+                    'section'      => $student->section
                     ]);
             }
    

@@ -61,7 +61,7 @@
                 <div class="column col-md-4">
                 <label for="status"> Student Status</label>
                     <select class="form-control" name="status" required>
-                        <option value="N/A">N/A</option>
+                        <option value="">N/A</option>
                         <option value="admitted">admitted</option>
                         <option value="cancel">cancel</option>
                         <option value="Discontinued">Discontinued</option>

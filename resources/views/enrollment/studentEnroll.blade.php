@@ -62,8 +62,9 @@
            {{csrf_field()}}
                <div class="row1">
                <div class="enrol-col1">
+                   
                     <label for="">Enrolling Date</label>
-                    <input type="date" name="row[0][Enrolldate]" class="form-control" required>
+                     <p><span id="datetime"></span> </p>
                  </div>
                  <div class="enrol-col1">
                      <label for="">Semester (Enrolling in)</label>
@@ -139,7 +140,7 @@
                   <label for="Section">Section</label>
                   <input type="text" name="row[0][Section]" id="section" class="form-control">
                  </div>                
-                
+                  
               </div>
 
               <div class="row2">
@@ -185,23 +186,26 @@
               <!--------------Enrollment Status-------->
 
               <div class="row3">
-                  <div class="row3-col1">
+                  <div class="row3-col1" style="padding-top:10px;">
                   <label for="">Enrollment Status</label>
+                  <select name="row[0][Enroll_status]" id="" class="form-control" required>
+                  <option value="">N/A</option>
+                        <option value="admitted">admitted</option>
+                        <option value="cancel">cancel</option>
+                        <option value="Discontinued">Discontinued</option>
+                        <option value="enrolled">enrolled</option>
+                  </select>
                   </div>
                 
-                  <div class="row3-col3">
-                  <select name="row[0][Enroll_status]" id="" class="form-control" required>
-                    <option value="">N/A</option>
-                    <option value="Enrolled">Enrolled</option>
-                    <option value="Pending">Pending</option>
-                  </select>
+                  <div class="row3-col3" style="padding-top:30px;padding-left:60px;">
+                 <input type="button" value="Select All Courses" class="btn btn-primary btn-lg">
                        
                   </div>
                  
               </div>
               <div class="row4">
               <div class="row4-col1">
-                       <label for="">Total Enrolled</label>
+                       <label for="">Course Code</label>
                        <input type="text" name="CourseCode" class="form-control">
                        <input type="text" name="CourseCode" class="form-control">
                        <input type="text" name="CourseCode" class="form-control">
@@ -675,6 +679,7 @@ $('#session').on('change', function(){
         {
           $('#regNo').val(data.regNo);
           $('#fathername').val(data.fatherName);
+          $('#section').val(data.section);
           $('.ifstudent').removeClass('hidden');
         }
       
@@ -686,6 +691,10 @@ $('#session').on('change', function(){
 });
          
         </script>
+          <script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+</script>
 </body>
 
 </html>

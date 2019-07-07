@@ -57,13 +57,13 @@
     <div class="panel panel-default">
         <div class="panel-heading ">All Courses Offered</div>
         <div class="panel-body">
-           <form action="{{url('OfferedCourses')}}" method="post" class="form">
+           <form action="{{url('offeredCourses')}}" method="POST" class="form">
            {{csrf_field()}}
     
     <div class="row3 ">
                   <div>
                   <label for="degree">Degree</label>
-                       <select name="degree-level" id="" class="form-control col-md-6">
+                       <select name="row[0][degree]" id="" class="form-control col-md-6">
                        <option value="">N/A</option>
                         @foreach($Degrees as $degree)
                         <option value="{{$degree->degree}}">{{$degree->degree}}</option>
@@ -72,7 +72,7 @@
                   </div> 
                 <div>
                 <label for="Semester">Semester</label>
-                <select name="rows[0][degree]" id="" class="form-control">
+                <select name="row[0][Semester]" id="" class="form-control">
                        <option value="">N/A</option>
                         @foreach($sessions as $session)
                         <option value="{{$session->session}}">{{$session->session}}</option>
@@ -88,55 +88,55 @@
                 <div class="stenroll">
             
                 <label for="">Course Code</label>
-                <select name="row[0][course_code]" id="" class="form-control" required>
+                <select name="row[0][Course_code]" id="Course_code" class="form-control" required>
                        <option value="">N/A</option>
                        
                 @foreach ($courses as $course)
                           <option value="{{$course->course_code}}">{{$course->course_code}}</option>
                           @endforeach
                         </select>
-                        <select name="row[1][course_code]" id="" class="form-control" required>
+                        <select name="row[1][Course_code]" id="Course_code" class="form-control" required>
                           <option value="">N/A</option>
                                       
                 @foreach ($courses as $course)
                           <option value="{{$course->course_code}}">{{$course->course_code}}</option>
                           @endforeach
                         </select>
-                        <select name="row[2][course_code]" id="" class="form-control" required>
+                        <select name="row[2][Course_code]" id="Course_code" class="form-control" required>
                            <option value="">N/A</option>
                 @foreach ($courses as $course)
                           <option value="{{$course->course_code}}">{{$course->course_code}}</option>
                           @endforeach
                         </select>
-                        <select name="row[3][course_code]" id="" class="form-control" required>
+                        <select name="row[3][Course_code]" id="Course_code" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_code}}">{{$course->course_code}}</option>
                           @endforeach
                         </select>
-                        <select name="row[4][course_code]" id="" class="form-control" required>
+                        <select name="row[4][Course_code]" id="Course_code" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_code}}">{{$course->course_code}}</option>
                           @endforeach
                         </select>
-                        <select name="row[5][course_code]" id="" class="form-control" required>
+                        <select name="row[5][Course_code]" id="Course_code" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_code}}">{{$course->course_code}}</option>
                           @endforeach
                         </select>
-                        <select name="row[6][course_code]" id="" class="form-control">
+                        <select name="row[6][Course_code]" id="Course_code" class="form-control">
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_code}}">{{$course->course_code}}</option>
                           @endforeach
                         </select>
-                        <select name="row[7][course_code]" id="" class="form-control">
+                        <select name="row[7][Course_code]" id="Course_code" class="form-control">
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
@@ -147,54 +147,54 @@
        <div class="stenroll2">
     
        <label for="coursetitle">Course Title</label>
-                    <select name="row[0][Course_name]" id="" class="form-control" required>
+                    <select name="row[0][Course_name]" id="Course_name" class="form-control" required>
                        <option value="">N/A</option>
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[1][Course_name]" id="" class="form-control" required>
+                        <select name="row[1][Course_name]" id="Course_name" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[2][Course_name]" id="" class="form-control" required>
+                        <select name="row[2][Course_name]" id="Course_name" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[3][Course_name]" id="" class="form-control" required>
+                        <select name="row[3][Course_name]" id="Course_name" class="form-control" required>
                         <option value="">N/A</option>                        
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[4][Course_name]" id="" class="form-control" required>
+                        <select name="row[4][Course_name]" id="Course_name" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[5][Course_name]" id="" class="form-control" required>
+                        <select name="row[5][Course_name]" id="Course_name" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[6][Course_name]" id="" class="form-control">
+                        <select name="row[6][Course_name]" id="Course_name" class="form-control">
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[7][Course_name]" id="" class="form-control">
+                        <select name="row[7][Course_name]" id="Course_name" class="form-control">
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
@@ -207,55 +207,55 @@
     
        <div class="stenroll">
        <label for="credithours">Credit Hours</label>
-                    <select name="row[0][Credit_hours]" id="" class="form-control" required>
+                    <select name="row[0][Credit_hours]" id="Credit_hours" class="form-control" required>
                        <option value="">N/A</option>
                        
                 @foreach ($courses as $course)
                           <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
                           @endforeach
                         </select>
-                        <select name="row[1][Credit_hours]" id="" class="form-control" required>
+                        <select name="row[1][Credit_hours]" id="Credit_hours" class="form-control" required>
                           <option value="">N/A</option>
                                       
                 @foreach ($courses as $course)
                           <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
                           @endforeach
                         </select>
-                        <select name="row[2][Credit_hours]" id="" class="form-control" required>
+                        <select name="row[2][Credit_hours]" id="Credit_hours" class="form-control" required>
                            <option value="">N/A</option>
                 @foreach ($courses as $course)
                           <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
                           @endforeach
                         </select>
-                        <select name="row[3][Credit_hours]" id="" class="form-control" required>
+                        <select name="row[3][Credit_hours]" id="Credit_hours" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
                           @endforeach
                         </select>
-                        <select name="row[4][Credit_hours]" id="" class="form-control" required>
+                        <select name="row[4][Credit_hours]" id="Credit_hours" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
                           @endforeach
                         </select>
-                        <select name="row[5][Credit_hours]" id="" class="form-control" required>
+                        <select name="row[5][Credit_hours]" id="Credit_hours" class="form-control" required>
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
                           @endforeach
                         </select>
-                        <select name="row[6][Credit_hours]" id="" class="form-control">
+                        <select name="row[6][Credit_hours]" id="Credit_hours" class="form-control">
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
                           @endforeach
                         </select>
-                        <select name="row[7][Credit_hours]" id="" class="form-control">
+                        <select name="row[7][Credit_hours]" id="Credit_hours" class="form-control">
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
@@ -270,12 +270,12 @@
                      
                <!!-------------------marks --------->
 
-               <h3>Marks Distribution  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <h3>Marks Distribution &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     Pre-Requisite Course</h3>
 
        
-            <div class="stenroll4">
+         <div class="stenroll4">
             
             <label for="Mid">Mid Term</label>
             <select name="row[0][mid]" class="form-control">
@@ -284,43 +284,43 @@
                      <option value="{{$mark->mid}}">{{$mark->mid}}</option>
                 @endforeach
             </select>
-            <select name="row[0][mid]" class="form-control">
+            <select name="row[1][mid]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->mid}}">{{$mark->mid}}</option>
                 @endforeach
             </select>
-            <select name="row[0][mid]" class="form-control">
+            <select name="row[2][mid]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->mid}}">{{$mark->mid}}</option>
                 @endforeach
             </select>
-            <select name="row[0][mid]" class="form-control">
+            <select name="row[3][mid]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->mid}}">{{$mark->mid}}</option>
                 @endforeach
             </select>
-            <select name="row[0][mid]" class="form-control">
+            <select name="row[4][mid]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->mid}}">{{$mark->mid}}</option>
                 @endforeach
             </select>
-            <select name="row[0][mid]" class="form-control">
+            <select name="row[5][mid]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->mid}}">{{$mark->mid}}</option>
                 @endforeach
             </select>
-            <select name="row[0][mid]" class="form-control">
+            <select name="row[6][mid]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->mid}}">{{$mark->mid}}</option>
                 @endforeach
             </select>
-            <select name="row[0][mid]" class="form-control">
+            <select name="row[7][mid]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->mid}}">{{$mark->mid}}</option>
@@ -328,7 +328,7 @@
             </select>
            
             </div> 
-            <div class="stenroll4">
+         <div class="stenroll4">
             
             <label for="Internal">Internal</label>
             <select name="row[0][internal]" class="form-control">
@@ -337,43 +337,43 @@
                      <option value="{{$mark->internal}}">{{$mark->internal}}</option>
                 @endforeach
             </select>
-            <select name="row[0][internal]" class="form-control">
+            <select name="row[1][internal]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->internal}}">{{$mark->internal}}</option>
                 @endforeach
             </select>
-            <select name="row[0][internal]" class="form-control">
+            <select name="row[2][internal]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->internal}}">{{$mark->internal}}</option>
                 @endforeach
             </select>
-            <select name="row[0][internal]" class="form-control">
+            <select name="row[3][internal]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->internal}}">{{$mark->internal}}</option>
                 @endforeach
             </select>
-            <select name="row[0][internal]" class="form-control">
+            <select name="row[4][internal]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->internal}}">{{$mark->internal}}</option>
                 @endforeach
             </select>
-            <select name="row[0][internal]" class="form-control">
+            <select name="row[5][internal]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->internal}}">{{$mark->internal}}</option>
                 @endforeach
             </select>
-            <select name="row[0][internal]" class="form-control">
+            <select name="row[6][internal]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->internal}}">{{$mark->internal}}</option>
                 @endforeach
             </select>
-            <select name="row[0][internal]" class="form-control">
+            <select name="row[7][internal]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->internal}}">{{$mark->internal}}</option>
@@ -381,7 +381,7 @@
             </select>
              
             </div> 
-            <div class="stenroll4">
+         <div class="stenroll4">
             
             <label for="Final">Final</label>
             <select name="row[0][final]" class="form-control">
@@ -390,50 +390,50 @@
                      <option value="{{$mark->final}}">{{$mark->final}}</option>
                 @endforeach
             </select>
-            <select name="row[0][final]" class="form-control">
+            <select name="row[1][final]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->final}}">{{$mark->final}}</option>
                 @endforeach
             </select>
-            <select name="row[0][final]" class="form-control">
+            <select name="row[2][final]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->final}}">{{$mark->final}}</option>
                 @endforeach
             </select>
-            <select name="row[0][final]" class="form-control">
+            <select name="row[3][final]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->final}}">{{$mark->final}}</option>
                 @endforeach
             </select>
-            <select name="row[0][final]" class="form-control">
+            <select name="row[4][final]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->final}}">{{$mark->final}}</option>
                 @endforeach
             </select>
-            <select name="row[0][final]" class="form-control">
+            <select name="row[5][final]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->final}}">{{$mark->final}}</option>
                 @endforeach
             </select>
-            <select name="row[0][final]" class="form-control">
+            <select name="row[6][final]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->final}}">{{$mark->final}}</option>
                 @endforeach
             </select>
-            <select name="row[0][final]" class="form-control">
+            <select name="row[7][final]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->final}}">{{$mark->final}}</option>
                 @endforeach
             </select>
 </div>
-            <div class="stenroll4">
+        <div class="stenroll4">
             
             <label for="Practical">Practical</label>
             
@@ -443,43 +443,43 @@
                      <option value="{{$mark->practical}}">{{$mark->practical}}</option>
                 @endforeach
             </select>
-            <select name="row[0][practical]" class="form-control">
+            <select name="row[1][practical]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->practical}}">{{$mark->practical}}</option>
                 @endforeach
             </select>
-            <select name="row[0][practical]" class="form-control">
+            <select name="row[2][practical]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->practical}}">{{$mark->practical}}</option>
                 @endforeach
             </select>
-            <select name="row[0][practical]" class="form-control">
+            <select name="row[3][practical]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->practical}}">{{$mark->practical}}</option>
                 @endforeach
             </select>
-            <select name="row[0][practical]" class="form-control">
+            <select name="row[4][practical]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->practical}}">{{$mark->practical}}</option>
                 @endforeach
             </select>
-            <select name="row[0][practical]" class="form-control">
+            <select name="row[5][practical]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->practical}}">{{$mark->practical}}</option>
                 @endforeach
             </select>
-            <select name="row[0][practical]" class="form-control">
+            <select name="row[6][practical]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->practical}}">{{$mark->practical}}</option>
                 @endforeach
             </select>
-            <select name="row[0][practical]" class="form-control">
+            <select name="row[7][practical]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->practical}}">{{$mark->practical}}</option>
@@ -487,7 +487,7 @@
             </select> 
       
             </div> 
-            <div class="stenroll4">
+        <div class="stenroll4">
             
             <label for="Total">Total</label>
           
@@ -497,43 +497,43 @@
                      <option value="{{$mark->total}}">{{$mark->total}}</option>
                 @endforeach
             </select>
-            <select name="row[0][total]" class="form-control">
+            <select name="row[1][total]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->total}}">{{$mark->total}}</option>
                 @endforeach
             </select>
-            <select name="row[0][total]" class="form-control">
+            <select name="row[2][total]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->total}}">{{$mark->total}}</option>
                 @endforeach
             </select>
-            <select name="row[0][total]" class="form-control">
+            <select name="row[3][total]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->total}}">{{$mark->total}}</option>
                 @endforeach
             </select>
-            <select name="row[0][total]" class="form-control">
+            <select name="row[4][total]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->total}}">{{$mark->total}}</option>
                 @endforeach
             </select>
-            <select name="row[0][total]" class="form-control">
+            <select name="row[5][total]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->total}}">{{$mark->total}}</option>
                 @endforeach
             </select>
-            <select name="row[0][total]" class="form-control">
+            <select name="row[6][total]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->total}}">{{$mark->total}}</option>
                 @endforeach
             </select>
-            <select name="row[0][total]" class="form-control">
+            <select name="row[7][total]" class="form-control">
                 <option value="">N/A</option>   
                 @foreach ($marks as $mark)
                      <option value="{{$mark->total}}">{{$mark->total}}</option>
@@ -543,56 +543,56 @@
             </div> 
             <div class="stenroll5">
                 <label for="">Course Offer Group</label>
-                 <select name="CourseGroups" id="" class="form-control">
+                 <select name="row[0][Course_group]" id="" class="form-control">
                      <option value="">N/A</option>
                      
                     @foreach ($CourseGroups as $row)
                     <option value="{{$row->course_group}}">{{$row->course_group}}</option>
                     @endforeach
                  </select>
-                 <select name="CourseGroups" id="" class="form-control">
+                 <select name="row[1][Course_group]" id="" class="form-control">
                      <option value="">N/A</option>
                      
                     @foreach ($CourseGroups as $row)
                     <option value="{{$row->course_group}}">{{$row->course_group}}</option>
                     @endforeach
                  </select>
-                 <select name="CourseGroups" id="" class="form-control">
+                 <select name="row[2][Course_group]" id="" class="form-control">
                      <option value="">N/A</option>
                      
                     @foreach ($CourseGroups as $row)
                     <option value="{{$row->course_group}}">{{$row->course_group}}</option>
                     @endforeach
                  </select>
-                 <select name="CourseGroups" id="" class="form-control">
+                 <select name="row[3][Course_group]" id="" class="form-control">
                      <option value="">N/A</option>
                      
                     @foreach ($CourseGroups as $row)
                     <option value="{{$row->course_group}}">{{$row->course_group}}</option>
                     @endforeach
                  </select>
-                 <select name="CourseGroups" id="" class="form-control">
+                 <select name="row[4][Course_group]" id="" class="form-control">
                      <option value="">N/A</option>
                      
                     @foreach ($CourseGroups as $row)
                     <option value="{{$row->course_group}}">{{$row->course_group}}</option>
                     @endforeach
                  </select>
-                 <select name="CourseGroups" id="" class="form-control">
+                 <select name="row[5][Course_group]" id="" class="form-control">
                      <option value="">N/A</option>
                      
                     @foreach ($CourseGroups as $row)
                     <option value="{{$row->course_group}}">{{$row->course_group}}</option>
                     @endforeach
                  </select>
-                 <select name="CourseGroups" id="" class="form-control">
+                 <select name="row[6][Course_group]" id="" class="form-control">
                      <option value="">N/A</option>
                      
                     @foreach ($CourseGroups as $row)
                     <option value="{{$row->course_group}}">{{$row->course_group}}</option>
                     @endforeach
                  </select>
-                 <select name="CourseGroups" id="" class="form-control">
+                 <select name="row[7][Course_group]" id="" class="form-control">
                      <option value="">N/A</option>
                      
                     @foreach ($CourseGroups as $row)
@@ -603,116 +603,59 @@
 
             </div>
 
-            <div class="stenroll4">
-            
-            <label for="Mid">Code</label>
-            <select name="row[0][course_code]" id="" class="form-control" required>
-                       <option value="">N/A</option>
-                       
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_code}}">{{$course->course_code}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[1][course_code]" id="" class="form-control" required>
-                          <option value="">N/A</option>
-                                      
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_code}}">{{$course->course_code}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[2][course_code]" id="" class="form-control" required>
-                           <option value="">N/A</option>
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_code}}">{{$course->course_code}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[3][course_code]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_code}}">{{$course->course_code}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[4][course_code]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_code}}">{{$course->course_code}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[5][course_code]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_code}}">{{$course->course_code}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[6][course_code]" id="" class="form-control">
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_code}}">{{$course->course_code}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[7][course_code]" id="" class="form-control">
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_code}}">{{$course->course_code}}</option>
-                          @endforeach
-                        </select>
-             
-            </div>
+          
             <div class="stenroll5">
                 <label for="">Course Name</label>
-                <select name="row[0][Course_name]" id="" class="form-control" required>
+                <select name="row[0][Pre_req]" id="Pre_req" class="form-control" >
                        <option value="">N/A</option>
                 @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
+                   
+                        <option value="{{$course->course_name}}">{{$course->course_name}}</option>
+
                           @endforeach
                         </select>
-                        <select name="row[1][Course_name]" id="" class="form-control" required>
+                        <select name="row[1][Pre_req]" id="Pre_req" class="form-control" >
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[2][Course_name]" id="" class="form-control" required>
+                        <select name="row[2][Pre_req]" id="Pre_req" class="form-control" >
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[3][Course_name]" id="" class="form-control" required>
+                        <select name="row[3][Pre_req]" id="Pre_req" class="form-control" >
                         <option value="">N/A</option>                        
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[4][Course_name]" id="" class="form-control" required>
+                        <select name="row[4][Pre_req]" id="Pre_req" class="form-control" >
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[5][Course_name]" id="" class="form-control" required>
+                        <select name="row[5][Pre_req]" id="Pre_req" class="form-control" >
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[6][Course_name]" id="" class="form-control">
+                        <select name="row[6][Pre_req]" id="Pre_req" class="form-control">
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
                           <option value="{{$course->course_name}}">{{$course->course_name}}</option>
                           @endforeach
                         </select>
-                        <select name="row[7][Course_name]" id="" class="form-control">
+                        <select name="row[7][Pre_req]" id="Pre_req" class="form-control">
                         <option value="">N/A</option>
                         
                 @foreach ($courses as $course)
@@ -728,20 +671,20 @@
          <div class="stenroll">
             <br><br>
                     <label for="coursecode">Section</label>
-                    <input type="text" name="coursecode" class="form-control">
-                    <input type="text" name="coursecode" class="form-control">
-                    <input type="text" name="coursecode" class="form-control">
-                    <input type="text" name="coursecode" class="form-control">
-                    <input type="text" name="coursecode" class="form-control">
-                    <input type="text" name="coursecode" class="form-control">
-                    <input type="text" name="coursecode" class="form-control">
-                    <input type="text" name="coursecode" class="form-control">
+                    <input type="text" name="row[0][Section]" class="form-control">
+                    <input type="text" name="row[1][Section]" class="form-control">
+                    <input type="text" name="row[2][Section]" class="form-control">
+                    <input type="text" name="row[3][Section]" class="form-control">
+                    <input type="text" name="row[4][Section]" class="form-control">
+                    <input type="text" name="row[5][Section]" class="form-control">
+                    <input type="text" name="row[6][Section]" class="form-control">
+                    <input type="text" name="row[7][Section]" class="form-control">
                     
                </div>
                <div class="stenroll2">
                <br><br>
                     <label for="coursetitle">Course Incharge</label>
-              <select name="Incharge" id="" class="form-control">
+              <select name="row[0][Course_incharge]" id="" class="form-control">
                   <option value="">N/A</option>
                     @foreach($instructors as $instructor)
                     <option value="{{$instructor->name}}">{{$instructor->name}}</option>
@@ -749,7 +692,7 @@
                     @endforeach
                 
                     </select> 
-                    <select name="Incharge" id="" class="form-control">
+                    <select name="row[1][Course_incharge]" id="" class="form-control">
                   <option value="">N/A</option>
                     @foreach($instructors as $instructor)
                     <option value="{{$instructor->name}}">{{$instructor->name}}</option>
@@ -757,7 +700,7 @@
                     @endforeach
                 
                     </select> 
-                    <select name="Incharge" id="" class="form-control">
+                    <select name="row[2][Course_incharge]" id="" class="form-control">
                   <option value="">N/A</option>
                     @foreach($instructors as $instructor)
                     <option value="{{$instructor->name}}">{{$instructor->name}}</option>
@@ -765,7 +708,7 @@
                     @endforeach
                 
                     </select> 
-                    <select name="Incharge" id="" class="form-control">
+                    <select name="row[3][Course_incharge]" id="" class="form-control">
                   <option value="">N/A</option>
                     @foreach($instructors as $instructor)
                     <option value="{{$instructor->name}}">{{$instructor->name}}</option>
@@ -773,7 +716,7 @@
                     @endforeach
                 
                     </select> 
-                    <select name="Incharge" id="" class="form-control">
+                    <select name="row[4][Course_incharge]" id="" class="form-control">
                   <option value="">N/A</option>
                     @foreach($instructors as $instructor)
                     <option value="{{$instructor->name}}">{{$instructor->name}}</option>
@@ -781,7 +724,7 @@
                     @endforeach
                 
                     </select> 
-                    <select name="Incharge" id="" class="form-control">
+                    <select name="row[5][Course_incharge]" id="" class="form-control">
                   <option value="">N/A</option>
                     @foreach($instructors as $instructor)
                     <option value="{{$instructor->name}}">{{$instructor->name}}</option>
@@ -789,7 +732,7 @@
                     @endforeach
                 
                     </select> 
-                    <select name="Incharge" id="" class="form-control">
+                    <select name="row[6][Course_incharge]" id="" class="form-control">
                   <option value="">N/A</option>
                     @foreach($instructors as $instructor)
                     <option value="{{$instructor->name}}">{{$instructor->name}}</option>
@@ -797,7 +740,7 @@
                     @endforeach
                 
                     </select> 
-                    <select name="Incharge" id="" class="form-control">
+                    <select name="row[7][Course_incharge]" id="" class="form-control">
                   <option value="">N/A</option>
                     @foreach($instructors as $instructor)
                     <option value="{{$instructor->name}}">{{$instructor->name}}</option>
@@ -810,7 +753,7 @@
                
                     <div class="row col-md-12">
                        <div style="padding:20px 0px 20px 40px; width:100%" class="btn ">
-                        <input type="button" value="Submit" class="btn btn-primary btn-outline-primary " style="float:left; width:50%">
+                        <input type="submit" value="Submit" class="btn btn-primary btn-outline-primary " style="float:left; width:50%">
                         <input type="button" value="Cancel" class="btn btn-danger btn-outline-primary " style="float:left; padding-left:10px; width:50%">
                        </div>
                        
@@ -841,6 +784,18 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../css/sb-admin-2.js"></script>
+        <script>
+        $("#Course_name").change(function(){
+            var CourseName= $("#Course_name").val();
+            //alert(CourseName); send request to server with course name
+            $.get( "ajax/getcourses", function( data ) {
+                $( ".result" ).html( data );
+                });
+        })
+                
+        
+        </script>
+
     <main class="py-4">
             @yield('content')
         </main>

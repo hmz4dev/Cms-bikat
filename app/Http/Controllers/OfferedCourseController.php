@@ -135,9 +135,10 @@ class OfferedCourseController extends Controller
                
                return response()->json([
                    'Coursecode' => $courses->course_code,
-                   'Credithours'      => $courses->credit_hours,
-                  
+                   'Credithours'=> $courses->credit_hours,
+                    'Prereq'    =>$courses->pre_req,
                    ]);
+                   
            }
   
     }

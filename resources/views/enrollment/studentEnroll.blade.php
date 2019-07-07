@@ -611,170 +611,170 @@
             @yield('content')
         </main>
 
-        <script>
-          $.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-
-
-$('#session').on('change', function(){
-  $('.ifhassesdegr').addClass('hidden');
-  $('.ifstudent').addClass('hidden');
-  $('#fathername').val('');
-  $('#regNo').val('');
-  $('#section').val('');
-  $('#choosestudent').val('');
- var session= $(this).val();
-
- if ($(this).val() === "noselect") {
-     
- } else {
-   $('#degree').on('change', function(){
-    $('.ifhassesdegr').addClass('hidden');
-
-     var degree = $(this).val();
-    
-  if($('#degree').val() === "noselect"){
-        $('.ifhassesdegr').addClass('hidden');
+  <script>
+              $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       }
-      else{
-        var sessionValue = $("#session").val();
-              var degreeValue = $("#degree").val();
-              
-              $.ajax({
-        method:"POST",
-        url:"/12589kur",
-        data:{session:sessionValue, degree:degreeValue},
-       
-        success:function(data)
-        {  
-          var len = 0;
-          
-           if(data.students != null){
-             len = data.students.length;
-           }
-           if(len > 0){
-             var htmlstudents = '<option value="noselect">N/A</option>';
-             for(var i=0; i<len; i++){
-               var name = data.students[i].name;
-                     htmlstudents+='<option value="'+data.students[i].name+'">'+ data.students[i].name +'</option>';
-                     $('.ifhassesdegr').removeClass('hidden');
-            
-           }
-             }else{
-              $('.ifhassesdegr').addClass('hidden');
-             }
-  
-       $('#choosestudent').html(htmlstudents);
-      
-        }
-      
-   })
- }
+    });
 
-})
-}
-})
 
-$('#degree').on('change', function(){
-  $('.ifhassesdegr').addClass('hidden');
-  $('.ifstudent').addClass('hidden');
-  $('#fathername').val('');
-  $('#regNo').val('');
-  $('#section').val('');
-  $('#choosestudent').val('');
- var degree= $(this).val();
+    $('#session').on('change', function(){
+      $('.ifhassesdegr').addClass('hidden');
+      $('.ifstudent').addClass('hidden');
+      $('#fathername').val('');
+      $('#regNo').val('');
+      $('#section').val('');
+      $('#choosestudent').val('');
+    var session= $(this).val();
 
- if ($(this).val() === "noselect") {
-     
- } else {
-   $('#session').on('change', function(){
-    $('.ifhassesdegr').addClass('hidden');
-
-     var session = $(this).val();
-    
-  if($('#session').val() === "noselect"){
-        $('.ifhassesdegr').addClass('hidden');
-      }
-      else{
-        var sessionValue = $("#session").val();
-              var degreeValue = $("#degree").val();
-              
-              $.ajax({
-        method:"POST",
-        url:"/12589kur",
-        data:{session:sessionValue, degree:degreeValue},
-       
-        success:function(data)
-        {  
-          var len = 0;
-          
-           if(data.students != null){
-             len = data.students.length;
-           }
-           if(len > 0){
-             var htmlstudents = '<option value="noselect">N/A</option>';
-             for(var i=0; i<len; i++){
-               var name = data.students[i].name;
-                     htmlstudents+='<option value="'+data.students[i].name+'">'+ data.students[i].name +'</option>';
-                     $('.ifhassesdegr').removeClass('hidden');
-             }
-            
-           }else{
-            $('.ifhassesdegr').addClass('hidden');
-           }
-  
-       $('#choosestudent').html(htmlstudents);
-      
-        }
-      
-   })
- }
-
-})
-}
-})
-
-          $('.choosestudent').on('change', function() {
-             console.log(name)
-            var name = $(this).val();
-            if (name === "noselect") {
-              $('.ifstudent').addClass('hidden');
-             
-            } else {
-             
-              $.ajax({
-        url:"/125987dese/"+name,
-        method:"GET",
-        data: name,
-        contentType: false,
-        cache:false,
-        processData: false,
-        dataType:"json",
-        success:function(data)
-        {
-      
-        if(data.errors)
-        {
+    if ($(this).val() === "noselect") {
         
-        }
-        if(data)
-        {
-          $('#regNo').val(data.regNo);
-          $('#fathername').val(data.fatherName);
-          $('#section').val(data.section);
-          $('.ifstudent').removeClass('hidden');
-        }
+    } else {
+      $('#degree').on('change', function(){
+        $('.ifhassesdegr').addClass('hidden');
+
+        var degree = $(this).val();
+        
+      if($('#degree').val() === "noselect"){
+            $('.ifhassesdegr').addClass('hidden');
+          }
+          else{
+            var sessionValue = $("#session").val();
+                  var degreeValue = $("#degree").val();
+                  
+                  $.ajax({
+            method:"POST",
+            url:"/12589kur",
+            data:{session:sessionValue, degree:degreeValue},
+          
+            success:function(data)
+            {  
+              var len = 0;
+              
+              if(data.students != null){
+                len = data.students.length;
+              }
+              if(len > 0){
+                var htmlstudents = '<option value="noselect">N/A</option>';
+                for(var i=0; i<len; i++){
+                  var name = data.students[i].name;
+                        htmlstudents+='<option value="'+data.students[i].name+'">'+ data.students[i].name +'</option>';
+                        $('.ifhassesdegr').removeClass('hidden');
+                
+              }
+                }else{
+                  $('.ifhassesdegr').addClass('hidden');
+                }
       
-        }
-        })
-             
+          $('#choosestudent').html(htmlstudents);
+          
             }
- 
-});
-         
+          
+      })
+    }
+
+    })
+    }
+    })
+
+    $('#degree').on('change', function(){
+      $('.ifhassesdegr').addClass('hidden');
+      $('.ifstudent').addClass('hidden');
+      $('#fathername').val('');
+      $('#regNo').val('');
+      $('#section').val('');
+      $('#choosestudent').val('');
+    var degree= $(this).val();
+
+    if ($(this).val() === "noselect") {
+        
+    } else {
+      $('#session').on('change', function(){
+        $('.ifhassesdegr').addClass('hidden');
+
+        var session = $(this).val();
+        
+      if($('#session').val() === "noselect"){
+            $('.ifhassesdegr').addClass('hidden');
+          }
+          else{
+            var sessionValue = $("#session").val();
+                  var degreeValue = $("#degree").val();
+                  
+                  $.ajax({
+            method:"POST",
+            url:"/12589kur",
+            data:{session:sessionValue, degree:degreeValue},
+          
+            success:function(data)
+            {  
+              var len = 0;
+              
+              if(data.students != null){
+                len = data.students.length;
+              }
+              if(len > 0){
+                var htmlstudents = '<option value="noselect">N/A</option>';
+                for(var i=0; i<len; i++){
+                  var name = data.students[i].name;
+                        htmlstudents+='<option value="'+data.students[i].name+'">'+ data.students[i].name +'</option>';
+                        $('.ifhassesdegr').removeClass('hidden');
+                }
+                
+              }else{
+                $('.ifhassesdegr').addClass('hidden');
+              }
+      
+          $('#choosestudent').html(htmlstudents);
+          
+            }
+          
+      })
+    }
+
+    })
+    }
+    })
+
+              $('.choosestudent').on('change', function() {
+                console.log(name)
+                var name = $(this).val();
+                if (name === "noselect") {
+                  $('.ifstudent').addClass('hidden');
+                
+                } else {
+                
+                  $.ajax({
+            url:"/125987dese/"+name,
+            method:"GET",
+            data: name,
+            contentType: false,
+            cache:false,
+            processData: false,
+            dataType:"json",
+            success:function(data)
+            {
+          
+            if(data.errors)
+            {
+            
+            }
+            if(data)
+            {
+              $('#regNo').val(data.regNo);
+              $('#fathername').val(data.fatherName);
+              $('#section').val(data.section);
+              $('.ifstudent').removeClass('hidden');
+            }
+          
+            }
+            })
+                
+                }
+    
+    });
+            
         </script>
           <script>
 var dt = new Date();

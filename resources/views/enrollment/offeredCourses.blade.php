@@ -454,6 +454,8 @@
             </div> 
             <div class="stenroll5">
                 <label for="">Course Offer Group</label>
+
+
                  <select name="row[0][Course_group]" id="" class="form-control">
                      <option value="">N/A</option>
                      
@@ -515,65 +517,17 @@
             </div>
 
           
-            <div class="stenroll5">
+            <div class="stenroll5  ifstudent hidden">
                 <label for="">Course Name</label>
-                <select name="row[0][Pre_req]" id="Pre_req" class="form-control" >
-                       <option value="">N/A</option>
-                @foreach ($courses as $course)
-                   
-                        <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-
-                          @endforeach
-                        </select>
-                        <select name="row[1][Pre_req]" id="Pre_req" class="form-control" >
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[2][Pre_req]" id="Pre_req" class="form-control" >
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[3][Pre_req]" id="Pre_req" class="form-control" >
-                        <option value="">N/A</option>                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[4][Pre_req]" id="Pre_req" class="form-control" >
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[5][Pre_req]" id="Pre_req" class="form-control" >
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[6][Pre_req]" id="Pre_req" class="form-control">
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[7][Pre_req]" id="Pre_req" class="form-control">
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-         
+                <input type="text" name="row[0][Course_code]" id="Prereq" class="form-control"  >
+                 <input type="text" name="row[1][Course_code]" id="Prereq" class="form-control"  >
+                 <input type="text" name="row[2][Course_code]" id="Prereq" class="form-control"  >
+                 <input type="text" name="row[3][Course_code]" id="Prereq" class="form-control"  >
+                 <input type="text" name="row[4][Course_code]" id="Prereq" class="form-control"  >
+                 <input type="text" name="row[5][Course_code]" id="Prereq" class="form-control"  >
+                 <input type="text" name="row[6][Course_code]" id="Prereq" class="form-control"  >
+                 <input type="text" name="row[7][Course_code]" id="Prereq" class="form-control"  >
+                              
             </div>
 
                </div>
@@ -728,6 +682,7 @@ $('#choosestudent').on('change', function() {
         {
           $('#Coursecode').val(data.Coursecode);
           $('#Credithours').val(data.Credithours);
+          $('#Prereq').val(data.Prereq);
           $('.ifstudent').removeClass('hidden');
         }
       

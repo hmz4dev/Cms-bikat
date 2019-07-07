@@ -274,6 +274,12 @@
          border: 1px solid white;
      }
      
+     .row3 div {
+         width: 50%;
+         float: left;
+         padding-left: 10px;
+     }
+     
      .row-3 {
          height: 320px;
          width: 100%;

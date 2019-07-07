@@ -39,7 +39,7 @@ class studentinfo extends Model
         'dob',
         'reg_no',
         'previous_degree',
-        'department',
+        'section',
         'father_name',
         'father_income',
         'father_cnic',

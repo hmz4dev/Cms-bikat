@@ -21,7 +21,7 @@ class CreateStudentinfosTable extends Migration
             $table->string('degree');
             $table->string('shift');
             $table->string('urban_rural');
-            $table->string('decipline_subject');
+            $table->string('decipline');
             $table->string('domicile');
             $table->string('seat_type');
             $table->string('image')->nullable();
@@ -31,7 +31,7 @@ class CreateStudentinfosTable extends Migration
             $table->date('dob');
             $table->string('reg_no')->unique()->index();
             $table->string('previous_degree')->nullable();
-            $table->string('department');
+            $table->string('section');
             $table->string('father_name');
             $table->biginteger('father_income');
             $table->string('father_cnic');

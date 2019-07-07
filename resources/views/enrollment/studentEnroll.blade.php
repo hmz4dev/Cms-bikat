@@ -624,6 +624,7 @@ $('#session').on('change', function(){
   $('.ifstudent').addClass('hidden');
   $('#fathername').val('');
   $('#regNo').val('');
+  $('#section').val('');
   $('#choosestudent').val('');
  var session= $(this).val();
 
@@ -682,6 +683,7 @@ $('#degree').on('change', function(){
   $('.ifstudent').addClass('hidden');
   $('#fathername').val('');
   $('#regNo').val('');
+  $('#section').val('');
   $('#choosestudent').val('');
  var degree= $(this).val();
 

@@ -18,7 +18,7 @@ class EnrollmentController extends Controller
     public function __construct()
     {
 
-        $this->students = studentinfo::all();
+        $this->students = new studentinfo();
 
     }
     /**
@@ -37,14 +37,14 @@ class EnrollmentController extends Controller
     }
     public function index(Request $request)
     {
-       
+      
         $sessions=Session::all();
         $courses=Course::all();
         $instructors=instructor::all();
         $degrees=Degree::all();
-        $students = $this->students;
-       
-        return view('enrollment.studentEnroll',compact('sessions','students','courses','instructors','degrees'));
+        $students = new studentinfo();
+      
+        return view('enrollment.studentEnroll',compact('sessions','courses','instructors','degrees'));
     }
 
     /**
@@ -191,12 +191,12 @@ class EnrollmentController extends Controller
      }
 
      public function sessiondegree(Request $request)
-     
-     {dd($request->session);
+     {
+         
         $this->students=studentinfo::where('session', $request->session)
-                         //    ->where('degree', $request->degree)
+                             ->where('degree', $request->degree)
                             ->get();
-                            return response()->json(['success' => 'successful operating']); 
+                            return response()->json(['students' => $this->students]); 
      }
 
 

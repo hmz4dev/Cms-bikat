@@ -112,16 +112,15 @@
                           @endforeach
                      </select>
                  </div>
-                 <div class="row2-enrol-col2 hidden ifhassesdegr" >
-                  <label for="Student Name">Student Name</label>
-                  <select name="row[0][Student_name]" id="choosestudent" class="form-control" required>
-                    <option value="noneselected">choose student</option>
-                @foreach ($students as $student)
-                          <option value="{{$student->name}}">{{$student->name}}</option>
-                          @endforeach
-                        </select>
-                
-                 </div> 
+
+             
+
+                   <div class="row2-enrol-col2 hidden ifhassesdegr" >
+                     <label for="Student Name">Student Name</label>
+                       <select name="row[0][Student_name]" id="choosestudent" class="form-control choosestudent" required>
+                           
+                      </select>
+                   </div> 
                  <div class="row2-enrol-col2 ifstudent hidden">
                   <label for="fname">Father Name</label>
                   <input type="text" name="row[0][Father_name]" id="fathername" class="form-control" required>
@@ -619,32 +618,56 @@
   }
 });
 
+
 $('#session').on('change', function(){
+  $('.ifhassesdegr').addClass('hidden');
+  $('.ifstudent').addClass('hidden');
+  $('#fathername').val('');
+  $('#regNo').val('');
+  $('#choosestudent').val('');
  var session= $(this).val();
- console.log(session)
+
  if ($(this).val() === "noselect") {
      
  } else {
    $('#degree').on('change', function(){
+    $('.ifhassesdegr').addClass('hidden');
+
      var degree = $(this).val();
-     console.log(degree)
+    
   if($('#degree').val() === "noselect"){
         $('.ifhassesdegr').addClass('hidden');
       }
       else{
         var sessionValue = $("#session").val();
               var degreeValue = $("#degree").val();
+              
               $.ajax({
-              url:"{{ route('studentEnroll.sessiondegree') }}",
         method:"POST",
-        data: {session:sessionValue},
-        contentType: false,
-        cache: false,
-        processData: false,
-        dataType:"json",
+        url:"/12589kur",
+        data:{session:sessionValue, degree:degreeValue},
+       
         success:function(data)
         {  
-        $('.ifhassesdegr').removeClass('hidden');
+          var len = 0;
+          
+           if(data.students != null){
+             len = data.students.length;
+           }
+           if(len > 0){
+             var htmlstudents = '<option value="noselect">N/A</option>';
+             for(var i=0; i<len; i++){
+               var name = data.students[i].name;
+                     htmlstudents+='<option value="'+data.students[i].name+'">'+ data.students[i].name +'</option>';
+                     $('.ifhassesdegr').removeClass('hidden');
+            
+           }
+             }else{
+              $('.ifhassesdegr').addClass('hidden');
+             }
+  
+       $('#choosestudent').html(htmlstudents);
+      
         }
       
    })
@@ -653,15 +676,75 @@ $('#session').on('change', function(){
 })
 }
 })
-          $('#choosestudent').on('change', function() {
-            if ($(this).val() === "noneselected") {
+
+$('#degree').on('change', function(){
+  $('.ifhassesdegr').addClass('hidden');
+  $('.ifstudent').addClass('hidden');
+  $('#fathername').val('');
+  $('#regNo').val('');
+  $('#choosestudent').val('');
+ var degree= $(this).val();
+
+ if ($(this).val() === "noselect") {
+     
+ } else {
+   $('#session').on('change', function(){
+    $('.ifhassesdegr').addClass('hidden');
+
+     var session = $(this).val();
+    
+  if($('#session').val() === "noselect"){
+        $('.ifhassesdegr').addClass('hidden');
+      }
+      else{
+        var sessionValue = $("#session").val();
+              var degreeValue = $("#degree").val();
+              
+              $.ajax({
+        method:"POST",
+        url:"/12589kur",
+        data:{session:sessionValue, degree:degreeValue},
+       
+        success:function(data)
+        {  
+          var len = 0;
+          
+           if(data.students != null){
+             len = data.students.length;
+           }
+           if(len > 0){
+             var htmlstudents = '<option value="noselect">N/A</option>';
+             for(var i=0; i<len; i++){
+               var name = data.students[i].name;
+                     htmlstudents+='<option value="'+data.students[i].name+'">'+ data.students[i].name +'</option>';
+                     $('.ifhassesdegr').removeClass('hidden');
+             }
+            
+           }else{
+            $('.ifhassesdegr').addClass('hidden');
+           }
+  
+       $('#choosestudent').html(htmlstudents);
+      
+        }
+      
+   })
+ }
+
+})
+}
+})
+
+          $('.choosestudent').on('change', function() {
+             console.log(name)
+            var name = $(this).val();
+            if (name === "noselect") {
               $('.ifstudent').addClass('hidden');
              
             } else {
-              var name = $(this).val();
              
               $.ajax({
-        url:"/12589kur/"+name,
+        url:"/125987dese/"+name,
         method:"GET",
         data: name,
         contentType: false,

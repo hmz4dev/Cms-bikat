@@ -65,12 +65,16 @@ Route::post('StudentEnrollment','EnrollmentController@store');
 Route::get('offeredCourses','OfferedCourseController@index');
 Route::post('offeredCourses','OfferedCourseController@store');
 Route::get('attendence','AttendenceController@attendence');
-Route::post('/125987dese','EnrollmentController@spicifySessiondegree')->name('enrollment.sede');
+Route::get('/125987dese/{name}','EnrollmentController@spisifierStudent');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
 Route::post('/12589kur','EnrollmentController@sessiondegree')->name('studentEnroll.sessiondegree');
 
 /*---------------------selcet course_code and Credits hours from course table---------*/
 
 Route::get('getcourses/{id}','OfferedCourseController@getcourses');
+=======
+Route::post('/12589kur','EnrollmentController@sessiondegree');
+>>>>>>> 21d8dbfe0502f0b6b0ef625f1a396684feea4ea6

@@ -68,7 +68,7 @@
                  </div>
                  <div class="enrol-col1">
                      <label for="">Semester (Enrolling in)</label>
-                     <select name="row[0][Enrollsemester]" id="" class="form-control" required>
+                     <select name="row[0][Enrollsemester]" id="semester" class="form-control" required>
                      @foreach ($sessions as $session)
                           <option value="{{$session->session}}">{{$session->session}}</option>
                           @endforeach
@@ -192,327 +192,90 @@
                   </div>
                 
                   <div class="row3-col3" style="padding-top:30px;padding-left:60px;">
-                 <input type="button" value="Select All Courses" class="btn btn-primary btn-lg">
+                 <input type="button" id="allcourses"  value="Select All Courses" class="btn btn-primary btn-lg">
                        
                   </div>
                  
               </div>
-              <div class="row4">
+              <div class="row4 hidden" id="allcourseshide">
+
               <div class="row4-col1">
                        <label for="">Course Code</label>
-                       <input type="text" name="CourseCode" class="form-control">
-                       <input type="text" name="CourseCode" class="form-control">
-                       <input type="text" name="CourseCode" class="form-control">
-                       <input type="text" name="CourseCode" class="form-control">
-                       <input type="text" name="CourseCode" class="form-control">
-                       <input type="text" name="CourseCode" class="form-control">
-                       <input type="text" name="CourseCode" class="form-control">
-                       <input type="text" name="CourseCode" class="form-control">
+                       @for ($i = 0; $i < 8; $i++)
+                       <input type="text" name="row[{{ $i }}][CourseCode]" class="form-control">
+                           
+                       @endfor
+                      
                      
                        
                   </div>
                  
                   <div class="row4-col2">
                        <label for="">Course Name</label>
-                       <select name="row[0][Course_name]" id="" class="form-control" required>
-                       <option value="">N/A</option>
-                       
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[1][Course_name]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[2][Course_name]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[3][Course_name]" id="" class="form-control" required>
-                        <option value="">N/A</option>                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[4][Course_name]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[5][Course_name]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[0\6][Course_name]" id="" class="form-control">
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[7][Course_name]" id="" class="form-control">
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-                          @endforeach
-                        </select>
-         
-                        
+                       @for ($i = 0; $i < 8; $i++)
+                  <select name="row[{{$i}}][Course_name]" id="coursesname{{$i}}" class="form-control" required>
+                     
+                               </select>
+                       @endfor
+               
+                    </div>
                  
-                  </div>
-                    <div class="row4-col3">
+                 
+                  <div class="row4-col3">
                        <label for="">Course Type</label>
-                       <select name="row[0][Course_type]" id="" class="form-control">
+                       @for ($i = 0; $i < 8; $i++)
+                           
+                       <select name="row[{{$i}}][Course_type]" id="" class="form-control">
                      <option value="">N/A</option>
                      
                     @foreach ($CourseGroups as $row)
                     <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
                     @endforeach
                  </select>
-                 <select name="row[1][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[2][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[3][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[4][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[5][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[6][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[7][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
-                    @endforeach
-                 </select>
-                 
-                       
-                  </div>
+                       @endfor
+                    </div>
+
+
+
                   <div class="row4-col3">
                       <label for="">Course Status</label>
-                      <select name="row[0][Course_Status]" id="" class="form-control">
+                      @for ($i = 0; $i < 8; $i++)
+                      <select name="row[{{$i}}][Course_Status]" id="" class="form-control">
                      <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[1][Course_Status]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[2][Course_Status]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[3][Course_Status]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[4][Course_Status]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[5][Course_Status]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[6][Course_Status]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
-                    @endforeach
-                 </select>
-                 <select name="row[7][Course_Status]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
-                    @endforeach
-                 </select>
-                     
+                     @foreach ($CourseGroups as $row)
+                     <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
+                     @endforeach
+                  </select>
+                          
+                      @endfor
+               
                   </div>
+
                   <div class="row4-col3">
                        <label for="">Credit Hours</label>
-                       <select name="row[0][Credit_hours]" id="" class="form-control" required>
-                       <option value="">N/A</option>
+
+                       @for ($i = 0; $i < 8; $i++)
+                       <select name="row[{{$i}}][Credit_hours]" id="credithours{{$i}}" class="form-control" required>
                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
-                          @endforeach
+               
                         </select>
-                        <select name="row[1][Credit_hours]" id="" class="form-control" required>
-                          <option value="">N/A</option>
-                                      
-                @foreach ($courses as $course)
-                          <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[2][Credit_hours]" id="" class="form-control" required>
-                           <option value="">N/A</option>
-                @foreach ($courses as $course)
-                          <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[3][Credit_hours]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[4][Credit_hours]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[5][Credit_hours]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[6][Credit_hours]" id="" class="form-control">
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[7][Credit_hours]" id="" class="form-control">
-                        <option value="">N/A</option>
-                        
-                @foreach ($courses as $course)
-                          <option value="{{$course->credit_hours}}">{{$course->credit_hours}}</option>
-                          @endforeach
-                        </select>
+                           
+                       @endfor
+                      
                         
                   </div>
+
+
+
                   <div class="row4-col4">
                        <label for="">Course Incharge</label>
-                       <select name="row[0][Course_incharge]" id="" class="form-control" required>
-                       <option value="">N/A</option>
+                       @for ($i = 0; $i < 7; $i++)
+                           
+                       <select name="row[{{$i}}][Course_incharge]" id="courseincharge{{$i}}" class="form-control" required>
                        
-                       @foreach ($instructors as $instructor)
-                          <option value="{{$instructor->id}}">{{$instructor->fname}} {{$instructor->lastname}}</option>
-                          @endforeach
                         </select>
-                        <select name="row[1][Course_incharge]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                       @foreach ($instructors as $instructor)
-                          <option value="{{$instructor->id}}">{{$instructor->fname}} {{$instructor->lastname}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[2][Course_incharge]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                       @foreach ($instructors as $instructor)
-                          <option value="{{$instructor->id}}">{{$instructor->fname}} {{$instructor->lastname}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[3][Course_incharge]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                       @foreach ($instructors as $instructor)
-                          <option value="{{$instructor->id}}">{{$instructor->fname}} {{$instructor->lastname}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[4][Course_incharge]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                       @foreach ($instructors as $instructor)
-                          <option value="{{$instructor->id}}">{{$instructor->fname}} {{$instructor->lastname}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[5][Course_incharge]" id="" class="form-control" required>
-                        <option value="">N/A</option>
-                        
-                       @foreach ($instructors as $instructor)
-                          <option value="{{$instructor->id}}">{{$instructor->fname}} {{$instructor->lastname}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[6][Course_incharge]" id="" class="form-control">
-                        <option value="">N/A</option>
-                        
-                       @foreach ($instructors as $instructor)
-                          <option value="{{$instructor->id}}">{{$instructor->fname}} {{$instructor->lastname}}</option>
-                          @endforeach
-                        </select>
-                        <select name="row[7][Course_incharge]" id="" class="form-control">
-                        <option value="">N/A</option>
-                        
-                       @foreach ($instructors as $instructor)
-                          <option value="{{$instructor->id}}">{{$instructor->fname}} {{$instructor->lastname}}</option>
-                          @endforeach
-                        </select>
-                        
-                  </div>
+                       @endfor
+             </div>
                   <div class="row col-md-12">
                        <div style="padding:20px 0px 20px 40px; width:100%" class="btn ">
                         <input type="submit" value="Save" class="btn btn-primary btn-outline-primary " style="float:left; width:50%">
@@ -718,6 +481,57 @@
           <script>
 var dt = new Date();
 document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+
+$(document).on('click', '#allcourses', function(){
+    var semester = $("#semester").val();
+    var degree = $("#degree").val();
+  $.ajax({
+            url:"/getcources/",
+            method:"POST",
+            data: {semester:semester, degree:degree},
+           
+            success:function(data)
+            {
+          
+            if(data.errors)
+            {
+            
+            }
+            else(data)
+            {
+              var len = 0;
+              
+              if(data.courses != null){
+                len = data.courses.length;
+              }
+              if(len > 0){
+                var htmlcoursename = '<option value="noselect">N/A</option>';
+                var htmlcourseincharge = '<option value="noselect">N/A</option>';
+                var htmlcredithours = '<option value="noselect">N/A</option>';
+                for(var i=0; i<len; i++){
+                  var course_name = data.courses[i].course_name;
+                  var course_incharge = data.courses[i].course_incharge;
+                  var credit_hours = data.courses[i].credit_hours;
+                        htmlcoursename+='<option value="'+course_name+'">'+course_name +'</option>';
+                        htmlcourseincharge+='<option value="'+course_incharge+'">'+course_incharge +'</option>';
+                        htmlcredithours+='<option value="'+credit_hours+'">'+credit_hours +'</option>';
+
+                }
+                for (let i = 0; i < 8; i++) {
+                 
+              $("#coursesname"+i).html(htmlcoursename);
+              $("#courseincharge"+i).html(htmlcourseincharge);
+              $("#credithours"+i).html(htmlcredithours);
+                  
+                }
+ $('#allcourseshide').removeClass('hidden')
+              console.log(len)
+              }
+            }
+          
+            }
+            })
+})
 </script>
 </body>
 

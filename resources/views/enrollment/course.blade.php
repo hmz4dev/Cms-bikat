@@ -26,171 +26,175 @@
 <link rel="stylesheet" type="text/css" href="fonts/css/all.css">
     <title>CMS-BIKAT</title>
 <style>
- .modal{
+  .panel-heading{
+        font-size:20pt;
+        background-color:#005A57;
+        color:white;
+       text-align:center;
+    }
+    .panel-body{
+       
+        background-color:#005A57;
+        color:white;
+       
+    }
+    .modal{
         background-color:#005A57;
         color:white;        
     }
     .modal-header{
         color:#005A57; 
     }
-    label{
-        color:white;
-    }
 </style>
 </head>
 
-<body style="color:white">
+<body >
+
 <div id="soft-all-wrapper">
 
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-    @include('admin.inc.header')
-    @include('admin.inc.sidebar')
-    
-    <!-- /.navbar-static-side -->
-</nav>
-
-<div id="page-wrapper">
-    
-         
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="text-center">Add Courses <span ></span></h4>
-                    </div>
-                    <div class="panel-body">
-                    <button class="btn btn-info btn-lg"  id="add" >Add Course</button>
-
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">...</h4>
-                <div id="result"></div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form class="form col-md-12" id="form" >
-                {{csrf_field()}}
-  
-     
-        <div class="form-group">
-            <label for="email" class="cols-sm-2 control-label"> Course Code</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"></span>
-                    <input type="text" name="Course_code" id="coursecode" class="form-control col-md-1" required>                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="cols-sm-2 control-label">Course Name</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"></span>
-                    <input type="text" name="Course_name" id="coursename" class="form-control col-md-4" required>                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="username" class="cols-sm-2 control-label">Pre Requisit</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"></span>
-                    <input type="text" name="Pre_req" id="prereq" class="form-control col-md-1" >
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="username" class="cols-sm-2 control-label">Credit Hourse</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"></span>
-                    <input type="text" name="Credit_hours" id="credithours" class="form-control col-md-1" required>
-                </div>
-            </div>
-        </div>
-
-        <div class="row col-md-8 ">
-        <input name="hidden_id" id="hidden_id"  type="hidden" >
-                       <input type="hidden" id="action" >    
-          <input type="submit" value="Submit" class="btn btn-primary "  style="float:left;margin-left:100px; width:100%">
-                            
-                            
-        </div>
-
-        </form>
-           
-  </div>
-</div>
-
-
-                       
-               
-</div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            @include('admin.inc.header')
+            @include('admin.inc.sidebar')
             
-</div>
-<table class="table table-bordered table-responsive-md table-responsive " id="dtBasicExample" width="100%">
-                            <thead >
-                            <tr>
-                            <th class="col-md-1">Course Code</th>
-                            <th class="col-md-4">Course Name</th>
-                            <th class="col-md-1">Pre-Req</th>
-                            <th class="col-md-1">Credit Hours</th>
-                            <th class="col-md-1">Action</th>
-                            </tr>
-                            </thead>
-                                <tbody>
-                           
-                                    @foreach($courses as $row)
-                                    <tr id="tr_{{$row['id']}}">
-                                        <td>{{$row['course_code']}}</td>
-                                        <td>{{$row['course_name']}}</td>
-                                        <td>{{$row['pre_req']}}</td>
-                                        <td>{{$row['credit_hours']}}</td>
-                                        <td><a type="button" class="btn btn-warning" id="edit" idAtt="{{$row['id']}}"><i  class="fa fa-edit"></i></a>
-                                        <a href="" class="btn btn-danger" id="delete" idattr="{{$row['id']}}"><i  class="fa fa-trash"></i></a></td>
-                                    </tr>
-                                    @endforeach
-                                    
-                                    
-                                </tbody>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+                
+                    
+                            <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="text-center">Add Courses <span ></span></h4>
+                                        </div>
+                                        <div class="panel-body">
+                                        <button class="btn btn-info btn-lg"  id="add" >Add Course</button>
+
+                                                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header text-center">
+                                                            <h4 class="modal-title w-100 font-weight-bold">...</h4>
+                                                            <div id="result"></div>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <form class="form col-md-12" id="form" >
+                                                            {{csrf_field()}}
+                                            
+                                                
+                                                    <div class="form-group">
+                                                        <label for="email" class="cols-sm-2 control-label"> Course Code</label>
+                                                        <div class="cols-sm-10">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"></span>
+                                                                <input type="text" name="Course_code" id="coursecode" class="form-control col-md-1" required>                </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email" class="cols-sm-2 control-label">Course Name</label>
+                                                        <div class="cols-sm-10">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"></span>
+                                                                <input type="text" name="Course_name" id="coursename" class="form-control col-md-4" required>                </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="username" class="cols-sm-2 control-label">Pre Requisit</label>
+                                                        <div class="cols-sm-10">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"></span>
+                                                                <input type="text" name="Pre_req" id="prereq" class="form-control col-md-1" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="username" class="cols-sm-2 control-label">Credit Hourse</label>
+                                                        <div class="cols-sm-10">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"></span>
+                                                                <input type="text" name="Credit_hours" id="credithours" class="form-control col-md-1" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row col-md-8 ">
+                                                    <input name="hidden_id" id="hidden_id"  type="hidden" >
+                                                                <input type="hidden" id="action" >    
+                                                    <input type="submit" value="Submit" class="btn btn-primary "  style="float:left;margin-left:100px; width:100%">
+                                                                        
+                                                                        
+                                                    </div>
+
+                                                    </form>
                                                     
-                            </table>
-                 
-                  <div class="align-right" style="float:right">{{$courses->links()}}</div>
-              
-                   
+                                            </div>
+                                            </div>
 
 
-    
-       
-    
+                                        
+                                
+                    </div>
+                    <br><br>
+                    <table class="table table-bordered table-responsive-md table-responsive " id="dtBasicExample" width="100%">
+                                                <thead >
+                                                <tr style="background-color:#31B0D5">
+                                                <th class="col-md-1">Course Code</th>
+                                                <th class="col-md-4">Course Name</th>
+                                                <th class="col-md-1">Pre-Req</th>
+                                                <th class="col-md-1">Credit Hours</th>
+                                                <th class="col-md-1">Action</th>
+                                                </tr>
+                                                </thead>
+                                                    <tbody>
+                                            
+                                                        @foreach($courses as $row)
+                                                        <tr id="tr_{{$row['id']}}">
+                                                            <td>{{$row['course_code']}}</td>
+                                                            <td>{{$row['course_name']}}</td>
+                                                            <td>{{$row['pre_req']}}</td>
+                                                            <td>{{$row['credit_hours']}}</td>
+                                                            <td><a type="button" class="btn btn-warning" id="edit" idAtt="{{$row['id']}}"><i  class="fa fa-edit"></i></a>
+                                                            <a href="" class="btn btn-danger" id="delete" idattr="{{$row['id']}}"><i  class="fa fa-trash"></i></a></td>
+                                                        </tr>
+                                                        @endforeach
+                                                        
+                                                        
+                                                    </tbody>
+                                                                        
+                                                </table>
+                                    
+                                    <div class="align-right" style="float:right">{{$courses->links()}}</div>
+                                
+                                
+                                
+                                </div>
+                        
 
-
+                    </div>
+                    <!-- /#page-wrapper -->
+                        <!-- delete Modal  -->
+                        <div class="modal fade" id="confirmdeleteModal" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true"> 
+                                
+                            <div class="modal-dialog modal-frame modal-bottom modal-notify modal-success" role="document">
+                            
+                            
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header text-center">
+                                
+                                        <h4 class="modal-title w-100 font-weight-bold" id="deletemodeltitle"> Are you sure for delete this instructor ?  </h4>
+                                
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" id="delete_ok_action" class="btn btn-primary">Delete</button>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+        </div>
 </div>
-<!-- /#page-wrapper -->
-    <!-- delete Modal  -->
-    <div class="modal fade" id="confirmdeleteModal" tabindex="-1" role="dialog" aria-labelledby="delete"
- aria-hidden="true"> 
- 
- <div class="  modal-dialog modal-frame modal-bottom modal-notify modal-success
- " role="document">
- 
- 
- <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header text-center">
- 
-         <h4 class="modal-title w-100 font-weight-bold" id="deletemodeltitle"> Are you sure for delete this instructor ?  </h4>
- 
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-         <button type="button" id="delete_ok_action" class="btn btn-primary">Delete</button>
-       </div>
-     </div>
-   </div>
- </div>
- </div>
-</div>
-
     <!-- /#wrapper -->
 
     <!-- jQuery -->

@@ -57,166 +57,164 @@
 
 <div id="soft-all-wrapper">
 
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-    @include('admin.inc.header')
-    @include('admin.inc.sidebar')
-    
-    <!-- /.navbar-static-side -->
-</nav>
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            @include('admin.inc.header')
+            @include('admin.inc.sidebar')
+            
+            <!-- /.navbar-static-side -->
+        </nav>
 
-<div id="page-wrapper">
-    <div class="panel panel-default  offset-4 ">
-        <div class="panel-heading ">Add Teacher</div>
-        <div class="panel-body" >
+        <div id="page-wrapper">
+            <div class="panel panel-default  offset-4 ">
+                <div class="panel-heading ">Add Teacher</div>
+                <div class="panel-body" >
 
-        <button class="btn btn-info btn-lg"  id="add" >Add Teacher</button>
+                <button class="btn btn-info btn-lg"  id="add" >Add Teacher</button>
 
-      
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">...</h4>
-                <div id="result"></div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form class="form col-md-12" id="form" >
-                {{csrf_field()}}
-        <div class="form-group">
-            <label for="name" class="cols-sm-2 control-label">Full Name</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter full Name" required>
-                </div>
-            </div>
-        </div>
-     
-        <div class="form-group">
-            <label for="email" class="cols-sm-2 control-label"> Email</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="email" id="email" placeholder="Enter  Email" required>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="cols-sm-2 control-label">Cell No</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" name="cellno" id="cellno" placeholder="Enter Cell No" required>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="username" class="cols-sm-2 control-label">Teacher Type</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-marker fa" aria-hidden="true"></i></span>
-                    <select class="form-control" name="type" id="type" required>
-                        <option value="N/A">N/A</option>
-                        <option value="Permanent">Permanent</option>
-                        <option value="Visiting">Visiting</option>
-                    
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="username" class="cols-sm-2 control-label">Department</label>
-            <div class="cols-sm-10">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-building fa" aria-hidden="true"></i></span>
-                    <select class="form-control" name="department" id="department" placeholder="Enter Department" required>
-                        <option value="N/A">N/A</option>
-                        <option value="Computer Sciences">Computer Sciences</option>
-                        <option value="Management Sciences">Management Sciences</option>
-                    
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="row col-md-8 ">
-        <input name="hidden_id" id="hidden_id"  type="hidden" >
-                       <input type="hidden" id="action" >    
-          <input type="submit" value="Submit" class="btn btn-primary "  style="float:left;margin-left:100px; width:100%">
+            
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h4 class="modal-title w-100 font-weight-bold">...</h4>
+                                        <div id="result"></div>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form class="form col-md-12" id="form" >
+                                        {{csrf_field()}}
+                                <div class="form-group">
+                                    <label for="name" class="cols-sm-2 control-label">Full Name</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter full Name" required>
+                                        </div>
+                                    </div>
+                                </div>
                             
-                            
-        </div>
+                                <div class="form-group">
+                                    <label for="email" class="cols-sm-2 control-label"> Email</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                            <input type="text" class="form-control" name="email" id="email" placeholder="Enter  Email" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="cols-sm-2 control-label">Cell No</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                                            <input type="text" class="form-control" name="cellno" id="cellno" placeholder="Enter Cell No" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username" class="cols-sm-2 control-label">Teacher Type</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-marker fa" aria-hidden="true"></i></span>
+                                            <select class="form-control" name="type" id="type" required>
+                                                <option value="N/A">N/A</option>
+                                                <option value="Permanent">Permanent</option>
+                                                <option value="Visiting">Visiting</option>
+                                            
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="username" class="cols-sm-2 control-label">Department</label>
+                                    <div class="cols-sm-10">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-building fa" aria-hidden="true"></i></span>
+                                            <select class="form-control" name="department" id="department" placeholder="Enter Department" required>
+                                                <option value="N/A">N/A</option>
+                                                <option value="Computer Sciences">Computer Sciences</option>
+                                                <option value="Management Sciences">Management Sciences</option>
+                                            
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
 
-        </form>
-           
-  </div>
-</div>
+                                <div class="row col-md-8 ">
+                                <input name="hidden_id" id="hidden_id"  type="hidden" >
+                                            <input type="hidden" id="action" >    
+                                <input type="submit" value="Submit" class="btn btn-primary "  style="float:left;margin-left:100px; width:100%">
+                                                    
+                                                    
+                                </div>
+
+                                </form>
+                                
+                        </div>
+                        </div>
 
 
+                
+                </div>
+            <br><br><br>
+                    <table class="table table-bordered table-responsive-md " id="dtBasicExample" width="100%">
+                        <thead>
+                            <tr style="background-color:#31B0D5">
+                                <th>Teacher Name</th>
+                                <th>Email Address</th>
+                                <th>Cell No</th>
+                                <th>Type </th>
+                                <th>Department</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($instructors as $row)
+                            <tr id="tr_{{$row['id']}}">
+                                <td>{{$row['name']}}</td>
+                                <td>{{$row['email']}}</td>
+                                <td>{{$row['cellno']}}</td>
+                                <td>{{$row['type']}}</td>
+                                <td>{{$row['department']}}</td>
+                                <td><a type="button" class="btn btn-warning" id="edit" idAtt="{{$row['id']}}"><i  class="fa fa-edit"></i></a>
+                                <a href="" class="btn btn-danger" id="delete" idattr="{{$row['id']}}"><i  class="fa fa-trash"></i></a></td>
+                                
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <div class="align-right" style="float:right">{{$instructors->links()}}</div> 
+
+                
         
+            </div>
+            </div>
+        <!-- /#page-wrapper -->
+        <!-- delete Modal  -->
+            <div class="modal fade" id="confirmdeleteModal" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true"> 
+            
+                    <div class="  modal-dialog modal-frame modal-bottom modal-notify modal-success" role="document">
+                    
+                    
+                                <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header text-center">
+                                
+                                        <h4 class="modal-title w-100 font-weight-bold" id="deletemodeltitle"> Are you sure for delete this instructor ?  </h4>
+                                
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" id="delete_ok_action" class="btn btn-primary">Delete</button>
+                                        </div>
+                                        </div>
+                                </div>
+                    </div>
+            </div>
+            <!-- delete Modal  -->
         </div>
-       <br><br><br>
-            <table class="table table-bordered table-responsive-md " id="dtBasicExample" width="100%">
-                <thead>
-                    <tr style="background-color:#31B0D5">
-                        <th>Teacher Name</th>
-                        <th>Email Address</th>
-                        <th>Cell No</th>
-                        <th>Type </th>
-                        <th>Department</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach($instructors as $row)
-                    <tr id="tr_{{$row['id']}}">
-                        <td>{{$row['name']}}</td>
-                        <td>{{$row['email']}}</td>
-                        <td>{{$row['cellno']}}</td>
-                        <td>{{$row['type']}}</td>
-                        <td>{{$row['department']}}</td>
-                        <td><a type="button" class="btn btn-warning" id="edit" idAtt="{{$row['id']}}"><i  class="fa fa-edit"></i></a>
-                        <a href="" class="btn btn-danger" id="delete" idattr="{{$row['id']}}"><i  class="fa fa-trash"></i></a></td>
-                        
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-            <div class="align-right" style="float:right">{{$instructors->links()}}</div> 
-
-           
-   
-    </div>
-    
-<!-- /#page-wrapper -->
- <!-- delete Modal  -->
- <div class="modal fade" id="confirmdeleteModal" tabindex="-1" role="dialog" aria-labelledby="delete"
- aria-hidden="true"> 
- 
- <div class="  modal-dialog modal-frame modal-bottom modal-notify modal-success
- " role="document">
- 
- 
- <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header text-center">
- 
-         <h4 class="modal-title w-100 font-weight-bold" id="deletemodeltitle"> Are you sure for delete this instructor ?  </h4>
- 
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-         <button type="button" id="delete_ok_action" class="btn btn-primary">Delete</button>
-       </div>
-     </div>
-   </div>
- </div>
- </div>
- <!-- delete Modal  -->
+            <!-- /#wrapper -->
 </div>
-    <!-- /#wrapper -->
-
     <!-- jQuery -->
     <script src="../css/jquery/jquery.min.js"></script>
 

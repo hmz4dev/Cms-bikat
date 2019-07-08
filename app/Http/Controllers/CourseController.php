@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
+
 use App\Course;
 use Illuminate\Http\Request;
-
+use Validator;
 class CourseController extends Controller
 {
     /**
@@ -15,9 +15,9 @@ class CourseController extends Controller
     public function index()
     {
        
-        $course =Course::paginate(15);
+        $courses =Course::paginate(15);
        
-        return view('enrollment.course', compact('course'));
+        return view('enrollment.course', compact('courses'));
        
     }
 
@@ -29,7 +29,7 @@ class CourseController extends Controller
     public function create()
     {
         
-        return view('enrollment.course');
+      
     }
 
     /**
@@ -41,24 +41,18 @@ class CourseController extends Controller
     public function store(Request $request)
     {
        
-        $rows = $request->input('rows');
-      
-         foreach ($rows as $row)
-        {
-      
-            $Courses []= array(
-                'course_code'=>$row['Course_code'],
-            'course_name'=>$row['Course_name'],
-            'credit_hours'=>$row['Credit_hours'],
-            'pre_req'=>$row['Pre_req']  
-          
-            );
-            
-        }
-        Course::insert($Courses);
-
+        
+        $create=Course::create([
+            'course_code'=>$request->Course_code,
+            'course_name'=>$request->Course_name,
+            'credit_hours'=>$request->Credit_hours,
+            'pre_req'=>$request->Pre_req,
+           
+        ]);
+        if($create){
             return redirect('/course')->with('message', 'submitted successfully');
-            }
+        }
+    }
 
     /**
      * Display the specified resource.
@@ -79,9 +73,12 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        
-        $course=Course::find($id);
-        return redirect('course',compact('course','id')); 
+        if(request()->ajax())
+        {
+            $data = Course::findOrFail($id);
+            return response()->json(['data' => $data]);
+        }
+       
     }
 
     /**
@@ -93,12 +90,28 @@ class CourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $course=Course::find($id);
-        $course->course_code=$request->get('course_code');
-        $course->course_name=$request->get('course_name');
-        $course->credit_hours=$request->get('credit_hours');
-        $course->save();
-        return redirect('/course')->with('message', 'submitted successfully');
+        $rules = array(
+            'course_code'    =>  'required',
+            'course_name'     =>  'required',
+            'credit_hours'     =>  'required',
+            'pre_req'          =>   'required'
+            
+        );
+        $error = Validator::make($request->all(), $rules);
+        if($error->fails())
+        {
+            return response()->json(['errors' => $error->errors()->all()]);
+        }
+        $form_data = array(
+            'course_code'       =>   $request->Course_code,
+            'course_name'        =>   $request->Course_name,
+            'credit_hours'        =>   $request->Credit_hours,
+            'pre_req'                =>   $request->Pre_req
+           
+        );
+        Course::whereId($request->hidden_id)->update($form_data);
+        $form_data['id']= $request->hidden_id;
+            return response()->json(['success' => $form_data]);
     }
 
     /**
@@ -109,12 +122,9 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
+        $data = Course::findOrFail($id);
+        $data->delete();
        
-        $course_code=Course::find($id);
-       $deleted=$course_code->delete();
-       if($deleted){
-        return redirect('/course')->with('message', 'submitted successfully'); 
-        } 
         }
    
 }

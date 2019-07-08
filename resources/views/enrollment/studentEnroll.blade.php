@@ -280,179 +280,123 @@
                   </div>
                     <div class="row4-col3">
                        <label for="">Course Type</label>
-                     <select name="row[0][Course_type]" id="" class="form-control" required>
+                       <select name="row[0][Course_type]" id="" class="form-control">
                      <option value="">N/A</option>
-                     <option value="Deficiency">Deficiency</option>
-                     <option value="Minor">Minor</option>
-                     <option value="Audit">Audit</option>
-                     <option value="Specialization">Specialization</option>
-                     <option value="Thesis">Thesis</option>
-                     <option value="Internship">Internship</option>
-                     <option value="Major/core">Major/core</option>
-                   
-                     </select>
-                     <select name="row[1][Course_type]" id="" class="form-control" required>
-                     <option value="">N/A</option>
-                     <option value="Deficiency">Deficiency</option>
-                     <option value="Minor">Minor</option>
-                     <option value="Audit">Audit</option>
-                     <option value="Specialization">Specialization</option>
-                     <option value="Thesis">Thesis</option>
-                     <option value="Internship">Internship</option>
-                     <option value="Major/core">Major/core</option>
-                   
-                     </select>
-                     <select name="row[2][Course_type]" id="" class="form-control" required>
-                     <option value="">N/A</option>
-                     <option value="Deficiency">Deficiency</option>
-                     <option value="Minor">Minor</option>
-                     <option value="Audit">Audit</option>
-                     <option value="Specialization">Specialization</option>
-                     <option value="Thesis">Thesis</option>
-                     <option value="Internship">Internship</option>
-                     <option value="Major/core">Major/core</option>
-                   
-                     </select>
-                     <select name="row[3][Course_type]" id="" class="form-control" required>
-                     <option value="">N/A</option>
-                     <option value="Deficiency">Deficiency</option>
-                     <option value="Minor">Minor</option>
-                     <option value="Audit">Audit</option>
-                     <option value="Specialization">Specialization</option>
-                     <option value="Thesis">Thesis</option>
-                     <option value="Internship">Internship</option>
-                     <option value="Major/core">Major/core</option>
-                   
-                     </select>
-                     <select name="row[4][Course_type]" id="" class="form-control" required>
-                     <option value="">N/A</option>
-                     <option value="Deficiency">Deficiency</option>
-                     <option value="Minor">Minor</option>
-                     <option value="Audit">Audit</option>
-                     <option value="Specialization">Specialization</option>
-                     <option value="Thesis">Thesis</option>
-                     <option value="Internship">Internship</option>
-                     <option value="Major/core">Major/core</option>
-                   
-                     </select>
-                     <select name="row[5][Course_type]" id="" class="form-control" required>
-                     <option value="">N/A</option>
-                     <option value="Deficiency">Deficiency</option>
-                     <option value="Minor">Minor</option>
-                     <option value="Audit">Audit</option>
-                     <option value="Specialization">Specialization</option>
-                     <option value="Thesis">Thesis</option>
-                     <option value="Internship">Internship</option>
-                     <option value="Major/core">Major/core</option>
-                   
-                     </select>
-                     <select name="row[6][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     <option value="Deficiency">Deficiency</option>
-                     <option value="Minor">Minor</option>
-                     <option value="Audit">Audit</option>
-                     <option value="Specialization">Specialization</option>
-                     <option value="Thesis">Thesis</option>
-                     <option value="Internship">Internship</option>
-                     <option value="Major/core">Major/core</option>
-                   
-                     </select>
-                     <select name="row[7][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     <option value="Deficiency">Deficiency</option>
-                     <option value="Minor">Minor</option>
-                     <option value="Audit">Audit</option>
-                     <option value="Specialization">Specialization</option>
-                     <option value="Thesis">Thesis</option>
-                     <option value="Internship">Internship</option>
-                     <option value="Major/core">Major/core</option>
-                   
-                     </select>
                      
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[1][Course_type]" id="" class="form-control">
+                     <option value="">N/A</option>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[2][Course_type]" id="" class="form-control">
+                     <option value="">N/A</option>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[3][Course_type]" id="" class="form-control">
+                     <option value="">N/A</option>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[4][Course_type]" id="" class="form-control">
+                     <option value="">N/A</option>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[5][Course_type]" id="" class="form-control">
+                     <option value="">N/A</option>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[6][Course_type]" id="" class="form-control">
+                     <option value="">N/A</option>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[7][Course_type]" id="" class="form-control">
+                     <option value="">N/A</option>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
+                    @endforeach
+                 </select>
+                 
                        
                   </div>
                   <div class="row4-col3">
                       <label for="">Course Status</label>
-                  <select name="row[0][Course_Status]" id="" class="form-control" required>
+                      <select name="row[0][Course_Status]" id="" class="form-control">
                      <option value="">N/A</option>
-                     <option value="Regular">Regular</option>
-                     <option value="Reappear">Reappear</option>
-                     <option value="Exampted">Exampted</option>
-                     <option value="Improvement">Improvement</option>
-                     <option value="Inprocess">Inprocess</option>
-                     <option value="Comprehansive">Comprehansive</option>
-                     <option value="Attended">Attended</option>
-                     </select>
-                     <select name="row[1][Course_Status]" id="" class="form-control" required>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[1][Course_Status]" id="" class="form-control">
                      <option value="">N/A</option>
-                     <option value="Regular">Regular</option>
-                     <option value="Reappear">Reappear</option>
-                     <option value="Exampted">Exampted</option>
-                     <option value="Improvement">Improvement</option>
-                     <option value="Inprocess">Inprocess</option>
-                     <option value="Comprehansive">Comprehansive</option>
-                     <option value="Attended">Attended</option>
-                     </select>
-                     <select name="row[2][Course_Status]" id="" class="form-control" required>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[2][Course_Status]" id="" class="form-control">
                      <option value="">N/A</option>
-                     <option value="Regular">Regular</option>
-                     <option value="Reappear">Reappear</option>
-                     <option value="Exampted">Exampted</option>
-                     <option value="Improvement">Improvement</option>
-                     <option value="Inprocess">Inprocess</option>
-                     <option value="Comprehansive">Comprehansive</option>
-                     <option value="Attended">Attended</option>
-                     </select>
-                     <select name="row[3][Course_Status]" id="" class="form-control" required>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[3][Course_Status]" id="" class="form-control">
                      <option value="">N/A</option>
-                     <option value="Regular">Regular</option>
-                     <option value="Reappear">Reappear</option>
-                     <option value="Exampted">Exampted</option>
-                     <option value="Improvement">Improvement</option>
-                     <option value="Inprocess">Inprocess</option>
-                     <option value="Comprehansive">Comprehansive</option>
-                     <option value="Attended">Attended</option>
-                     </select>
-                     <select name="row[4][Course_Status]" id="" class="form-control" required>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[4][Course_Status]" id="" class="form-control">
                      <option value="">N/A</option>
-                     <option value="Regular">Regular</option>
-                     <option value="Reappear">Reappear</option>
-                     <option value="Exampted">Exampted</option>
-                     <option value="Improvement">Improvement</option>
-                     <option value="Inprocess">Inprocess</option>
-                     <option value="Comprehansive">Comprehansive</option>
-                     <option value="Attended">Attended</option>
-                     </select>
-                     <select name="row[5][Course_Status]" id="" class="form-control" required>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[5][Course_Status]" id="" class="form-control">
                      <option value="">N/A</option>
-                     <option value="Regular">Regular</option>
-                     <option value="Reappear">Reappear</option>
-                     <option value="Exampted">Exampted</option>
-                     <option value="Improvement">Improvement</option>
-                     <option value="Inprocess">Inprocess</option>
-                     <option value="Comprehansive">Comprehansive</option>
-                     <option value="Attended">Attended</option>
-                     </select>
-                     <select name="row[6][Course_Status]" id="" class="form-control">
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[6][Course_Status]" id="" class="form-control">
                      <option value="">N/A</option>
-                     <option value="Regular">Regular</option>
-                     <option value="Reappear">Reappear</option>
-                     <option value="Exampted">Exampted</option>
-                     <option value="Improvement">Improvement</option>
-                     <option value="Inprocess">Inprocess</option>
-                     <option value="Comprehansive">Comprehansive</option>
-                     <option value="Attended">Attended</option>
-                     </select>
-                     <select name="row[7][Course_Status]" id="" class="form-control" >
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
+                    @endforeach
+                 </select>
+                 <select name="row[7][Course_Status]" id="" class="form-control">
                      <option value="">N/A</option>
-                     <option value="Regular">Regular</option>
-                     <option value="Reappear">Reappear</option>
-                     <option value="Exampted">Exampted</option>
-                     <option value="Improvement">Improvement</option>
-                     <option value="Inprocess">Inprocess</option>
-                     <option value="Comprehansive">Comprehansive</option>
-                     <option value="Attended">Attended</option>
-                     </select>
+                     
+                    @foreach ($CourseGroups as $row)
+                    <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
+                    @endforeach
+                 </select>
                      
                   </div>
                   <div class="row4-col3">

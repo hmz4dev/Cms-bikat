@@ -32,12 +32,12 @@ Route::post('siblings', 'SiblingController@store');
 
 /**------------------------------------courses routes----------------------------------*/
 
-Route::get('course', 'CourseController@create');
-Route::post('/course', 'CourseController@store');
+
+Route::post('/enrollment/course', 'CourseController@store');
 Route::get('/course', 'CourseController@index');
-Route::get('course/{id}/edit', 'CourseController@edit');
-Route::get('/course/{id}/update', 'CourseController@update');
-Route::get('enrollment/{id}/course', 'CourseController@destroy');
+Route::get('courseEdit/{id}', 'CourseController@edit');
+Route::get('/courseUupdate', 'CourseController@update')->name('course.update');
+Route::get('/course/destroy/{id}', 'CourseController@destroy');
 
 
 /**------------------------------------instructor routes----------------------------------*/
@@ -71,3 +71,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/12589kur','EnrollmentController@sessiondegree');
 Route::get('/123courses/{name}','OfferedCourseController@getcourses');
+
+Route::get('StudentReport','ReportStudentController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

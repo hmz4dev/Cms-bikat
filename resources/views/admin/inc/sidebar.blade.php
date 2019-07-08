@@ -44,13 +44,13 @@
                 </li>
              
                 <li>
-                    <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-files-o fa-fw"></i> Reports<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="blank.html"><i class="fa fa-angle-double-right"></i>Blank Page</a>
+                            <a href="#"><i class="fa fa-angle-double-right"></i>Total Enrolled</a>
                         </li>
                         <li>
-                            <a href="login.html"><i class="fa fa-angle-double-right"></i>Login Page</a>
+                            <a href="{{url('StudentReport')}}"><i class="fa fa-angle-double-right"></i>Student Registered</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

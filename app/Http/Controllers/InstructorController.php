@@ -15,8 +15,8 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        //
-        $instructors=instructor::all();
+        $instructors =instructor::paginate(8);
+       
         return view('enrollment.instructor', compact('instructors'));
     }
 

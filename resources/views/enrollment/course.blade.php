@@ -21,8 +21,7 @@
 <!-- Morris Charts CSS -->
 <link href="../css/morrisjs/morris.css" rel="stylesheet">
 
-<!-- Custom Fonts -->
-<link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
 <link rel="stylesheet" type="text/css" href="fonts/css/all.css">
     <title>CMS-BIKAT</title>
@@ -35,12 +34,12 @@
         color:#005A57; 
     }
     label{
-        color:#005A57;
+        color:white;
     }
 </style>
 </head>
 
-<body>
+<body style="color:white">
 <div id="soft-all-wrapper">
 
 <!-- Navigation -->
@@ -59,10 +58,77 @@
                         <h4 class="text-center">Add Courses <span ></span></h4>
                     </div>
                     <div class="panel-body">
-                        
-                <form method="POST" action="{{url('course')}}">
+                    <button class="btn btn-info btn-lg"  id="add" >Add Course</button>
+
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">...</h4>
+                <div id="result"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form col-md-12" id="form" >
                 {{csrf_field()}}
-                        <table class="table table-bordered table-responsive-md " id="dtBasicExample" width="100%">
+  
+     
+        <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label"> Course Code</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" name="Course_code" id="coursecode" class="form-control col-md-1" required>                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Course Name</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" name="Course_name" id="coursename" class="form-control col-md-4" required>                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Pre Requisit</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" name="Pre_req" id="prereq" class="form-control col-md-1" >
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="cols-sm-2 control-label">Credit Hourse</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <input type="text" name="Credit_hours" id="credithours" class="form-control col-md-1" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-md-8 ">
+        <input name="hidden_id" id="hidden_id"  type="hidden" >
+                       <input type="hidden" id="action" >    
+          <input type="submit" value="Submit" class="btn btn-primary "  style="float:left;margin-left:100px; width:100%">
+                            
+                            
+        </div>
+
+        </form>
+           
+  </div>
+</div>
+
+
+                       
+               
+</div>
+            
+</div>
+<table class="table table-bordered table-responsive-md table-responsive " id="dtBasicExample" width="100%">
                             <thead >
                             <tr>
                             <th class="col-md-1">Course Code</th>
@@ -73,64 +139,56 @@
                             </tr>
                             </thead>
                                 <tbody>
-                                    <tr>
-                                  
-                                        <td><input type="text" name="rows[0][Course_code]" id="coursecode" class="form-control col-md-1" required></td>
-                                        <td><input type="text" name="rows[0][Course_name]" id="coursename" class="form-control col-md-4" required></td>
-                                        <td><input type="text" name="rows[0][Pre_req]" id="credithours" class="form-control col-md-1" ></td>
-                                        <td><input type="text" name="rows[0][Credit_hours]" id="credithours" class="form-control col-md-1" required></td>
-                                            <td> </td>
-                                    </tr>
-                                    <tr> 
-                                  
-                                    <td><input type="text" name="rows[1][Course_code]" id="coursecode" class="form-control col-md-1" required></td>
-                                    <td><input type="text" name="rows[1][Course_name]" id="coursename" class="form-control col-md-4" required></td>
-                                    <td><input type="text" name="rows[1][Pre_req]" id="credithours" class="form-control col-md-1"></td>                                   
-                                    <td><input type="text" name="rows[1][Credit_hours]" id="credithours" class="form-control col-md-1" required></td>
-                                    <td> <button type="submit" class="btn btn-primary btn-outline-primary"> Add</button></td>
-
-                              </tr>
-                              <tr>
-
-                              </tr>
-                              <tr>
-                              
-                              </tr>
-                                    @foreach($course as $row)
-                                    <tr>
+                           
+                                    @foreach($courses as $row)
+                                    <tr id="tr_{{$row['id']}}">
                                         <td>{{$row['course_code']}}</td>
                                         <td>{{$row['course_name']}}</td>
                                         <td>{{$row['pre_req']}}</td>
                                         <td>{{$row['credit_hours']}}</td>
-                                        <td> 
-                                     
-                                         <a href="{{url('enrollment/'.$row['id'].'/course')}}" class="btn btn-warning " type="submit"><i class="fa fa-edit"></i></a>
-                                         <a href="{{url('enrollment/'.$row['id'].'/course')}}" class="btn btn-danger btn-outline-primary" type="submit"><i class="fa fa-trash"></i></a>
-                                        
-                                       </td>
+                                        <td><a type="button" class="btn btn-warning" id="edit" idAtt="{{$row['id']}}"><i  class="fa fa-edit"></i></a>
+                                        <a href="" class="btn btn-danger" id="delete" idattr="{{$row['id']}}"><i  class="fa fa-trash"></i></a></td>
                                     </tr>
                                     @endforeach
                                     
-  
-                                </tbody>                    
+                                    
+                                </tbody>
+                                                    
                             </table>
-                           
-                    </form>
-                    <div class="align-right">{{$course->links()}}</div>
+                 
+                  <div class="align-right" style="float:right">{{$courses->links()}}</div>
+              
+                   
 
 
-               
-</div>
-            
-</div>
-        
+    
        
     
 
 
 </div>
 <!-- /#page-wrapper -->
-
+    <!-- delete Modal  -->
+    <div class="modal fade" id="confirmdeleteModal" tabindex="-1" role="dialog" aria-labelledby="delete"
+ aria-hidden="true"> 
+ 
+ <div class="  modal-dialog modal-frame modal-bottom modal-notify modal-success
+ " role="document">
+ 
+ 
+ <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header text-center">
+ 
+         <h4 class="modal-title w-100 font-weight-bold" id="deletemodeltitle"> Are you sure for delete this instructor ?  </h4>
+ 
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <button type="button" id="delete_ok_action" class="btn btn-primary">Delete</button>
+       </div>
+     </div>
+   </div>
+ </div>
+ </div>
 </div>
 
     <!-- /#wrapper -->
@@ -154,6 +212,146 @@
     <main class="py-4">
             @yield('content')
         </main>
+    <script>
+             $('#add').on('click', function(){
+                 event.preventDefault();
+                 $('#form')[0].reset();
+                 $('#form').attr("action", "{{url('/enrollment/course')}}");
+                 $('#form').removeAttr("enctype");
+                 $('#hidden_id').val("");
+                 $('#result').html('');
+
+
+
+            $('#form').attr("method", "post");
+            $('#action').val("Add");
+
+            $('#myModal').modal('show');
+            $('.modal-title').text('Add Course')
+        })
+
+        /* Edit teacher script*/
+        $(document).on('click', '#edit', function(){
+            $('#result').html('');
+            var id = $(this).attr('idAtt');
+            event.preventDefault();
+            $('#form')[0].reset();
+            $('#form').removeAttr("action");
+            $('#form').removeAttr("method");
+            $('#form').attr("enctype","multipart/form-data");
+
+            $.ajax({
+        url:"/courseEdit/"+id,
+        dataType:"json",
+        success:function(html){
+        $('#hidden_id').val(html.data.id);
+        $('#coursecode').val(html.data.course_code);
+        $('#coursename').val(html.data.course_name);
+        $('#credithours').val(html.data.credit_hours);
+        $('#prereq').val(html.data.pre_req);
+        $('#action').val("Edit");
+        $('#myModal').modal('show');
+        $('.modal-title').text('Edit Course')
+        }
+        })
+
+
+         
+        
+        })
+        /** update script*/
+        $('#form').on('submit', function(event){
+       
+        if($('#action').val() == "Edit")
+        {
+            event.preventDefault();
+        $.ajax({
+        url:"{{ route('course.update') }}",
+        method:"POST",
+        data:new FormData(this),
+        contentType: false,
+        cache: false,
+        processData: false,
+        dataType:"json",
+        success:function(data)
+        {
+        var html = '';
+        if(data.errors)
+        {
+         html = '<div class="alert alert-danger">';
+         for(var count = 0; count < data.errors.length; count++)
+         {
+          html += '<p>' + data.errors[count] + '</p>';
+         }
+         html += '</div>';
+        $('#result').html(html);
+        }
+        if(data.success)
+        {
+      $('#myModal').modal('hide');
+      if ($('#tr_' + data.success.id).length) {
+    var newHtml = '<td>' + data.success.course_code +'</td>'
+            + '<td>' + data.success.course_name + '</td>'
+            + '<td>' + data.success.pre_req + '</td>'
+            + '<td>' + data.success.credit_hours + '</td>'
+            + '<td>' + '<a type="button" class="btn btn-danger" id="edit" idAtt="'+data.success.id+'"><i  class="fa fa-edit"></i></a>'
+            +'  <a href="" class="btn btn-danger" id="delete" idattr="'+data.success.id+'"><i  class="fa fa-trash"></i></a>' + '</td>';
+            setTimeout(function(){
+       
+    $('#tr_'+ data.success.id).css("background-color", "#65F3D2");
+    $('#tr_' + data.success.id).html(newHtml);
+
+        }, 1500);
+        setTimeout(function(){
+            $('#tr_'+ data.success.id).css("background-color", "");
+        }, 2000);
+}
+        }
+        
+        }
+        });
+        }
+        });
+
+
+        /**delete script*/
+ 
+        $(document).on('click', '#delete', function(){
+            event.preventDefault();
+      $('#delete_ok_action').text('Delete');
+      $('#deletemodeltitle').text("Are you sure for delete this course?"); 
+        id = $(this).attr('idattr');
+        console.log(id)
+                $('#confirmdeleteModal').modal('show');
+        });
+      
+        $('#delete_ok_action').click(function(){
+        $.ajax({
+        url:"//course/destroy/"+id,
+        beforeSend:function(){
+        $('#delete_ok_action').text('Deleting...');
+        },
+        success:function(data)
+        {
+        $('#confirmdeleteModal').modal('hide');
+        $('#tr_'+id).css('background-color','red');
+
+        setTimeout(function(){
+        $('#tr_'+id).remove();
+        }, 1300);
+      
+        }
+        })
+        });
+
+        function selectElem(elem, val) {
+           $("#"+elem+" option[value='"+val+"']").attr("selected", "selected");
+           $("#"+elem).val(val);
+       
+        }
+
+        </script>
+   
 </body>
 
 </html>

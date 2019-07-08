@@ -7,6 +7,7 @@ use App\Enrollment;
 use App\Session;
 use App\studentinfo;
 use App\Course;
+use App\CourseGroup;
 use App\Degree;
 
 use App\instructor;
@@ -40,11 +41,12 @@ class EnrollmentController extends Controller
       
         $sessions=Session::all();
         $courses=Course::all();
+        $CourseGroups=CourseGroup::all();
         $instructors=instructor::all();
         $degrees=Degree::all();
         $students = new studentinfo();
       
-        return view('enrollment.studentEnroll',compact('sessions','courses','instructors','degrees'));
+        return view('enrollment.studentEnroll',compact('sessions','CourseGroups','courses','instructors','degrees'));
     }
 
     /**

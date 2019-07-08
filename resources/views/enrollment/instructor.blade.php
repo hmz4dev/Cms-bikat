@@ -161,7 +161,7 @@
        <br><br><br>
             <table class="table table-bordered table-responsive-md " id="dtBasicExample" width="100%">
                 <thead>
-                    <tr>
+                    <tr style="background-color:#31B0D5">
                         <th>Teacher Name</th>
                         <th>Email Address</th>
                         <th>Cell No</th>
@@ -178,14 +178,14 @@
                         <td>{{$row['cellno']}}</td>
                         <td>{{$row['type']}}</td>
                         <td>{{$row['department']}}</td>
-                        <td><a type="button" class="btn btn-danger" id="edit" idAtt="{{$row['id']}}"><i  class="fa fa-edit"></i></a>
+                        <td><a type="button" class="btn btn-warning" id="edit" idAtt="{{$row['id']}}"><i  class="fa fa-edit"></i></a>
                         <a href="" class="btn btn-danger" id="delete" idattr="{{$row['id']}}"><i  class="fa fa-trash"></i></a></td>
                         
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-                 
+            <div class="align-right" style="float:right">{{$instructors->links()}}</div> 
 
            
    

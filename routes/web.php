@@ -36,7 +36,7 @@ Route::post('siblings', 'SiblingController@store');
 Route::post('/enrollment/course', 'CourseController@store');
 Route::get('/course', 'CourseController@index');
 Route::get('courseEdit/{id}', 'CourseController@edit');
-Route::get('/courseUupdate', 'CourseController@update')->name('course.update');
+Route::post('/courseUupdate', 'CourseController@update')->name('course.update');
 Route::get('/course/destroy/{id}', 'CourseController@destroy');
 
 

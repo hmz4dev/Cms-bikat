@@ -88,8 +88,9 @@ class CourseController extends Controller
      * @param  \App\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+       
         $rules = array(
             'course_code'    =>  'required',
             'course_name'     =>  'required',
@@ -103,10 +104,10 @@ class CourseController extends Controller
             return response()->json(['errors' => $error->errors()->all()]);
         }
         $form_data = array(
-            'course_code'       =>   $request->Course_code,
-            'course_name'        =>   $request->Course_name,
-            'credit_hours'        =>   $request->Credit_hours,
-            'pre_req'                =>   $request->Pre_req
+            'course_code'       =>   $request->course_code,
+            'course_name'        =>   $request->course_name,
+            'credit_hours'        =>   $request->credit_hours,
+            'pre_req'                =>   $request->pre_req
            
         );
         Course::whereId($request->hidden_id)->update($form_data);

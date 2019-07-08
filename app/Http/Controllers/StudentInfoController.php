@@ -64,7 +64,7 @@ class StudentInfoController extends Controller
             'emergency_cell'=>$request->emergency_cell,
         ]);
         if($request->hasfile('image')){
-            $path=storage::disk('public')->put('images',$request->file('image'));
+            $path=storage::disk('public')->put('imag',$request->file('image'));
         }
         if($create){
             return redirect('/registration')->with('message', 'submitted successfully');

@@ -144,7 +144,7 @@
 </div>
 
                     <div class="column1" >
-                           <img src="../images/face.png" alt="" width="190px;" >
+                           <img src="../images/{{$students->image}}" alt="" width="190px;" >
                           
                            <input type="file" name="image" >
                       </div>    

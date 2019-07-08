@@ -16,7 +16,7 @@ class CreateEnrollmentsTable extends Migration
         Schema::create('enrollments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('enrolldate')->default(date("Y-m-d H:i:s"));
-            $table->integer('enrollsemester');
+            $table->string('enrollsemester');
             $table->string('session');
             $table->string('degree');
             $table->string('student_name');

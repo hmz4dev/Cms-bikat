@@ -70,6 +70,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/12589kur','EnrollmentController@sessiondegree');
+Route::post('/getcources','EnrollmentController@relatedCourses');
 Route::get('/123courses/{name}','OfferedCourseController@getcourses');
 
 Route::get('StudentReport','ReportStudentController@index');

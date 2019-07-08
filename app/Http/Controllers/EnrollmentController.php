@@ -9,7 +9,7 @@ use App\studentinfo;
 use App\Course;
 use App\CourseGroup;
 use App\Degree;
-
+use App\OfferedCourse;
 use App\instructor;
 use Illuminate\Http\Request;
 class EnrollmentController extends Controller
@@ -199,6 +199,17 @@ class EnrollmentController extends Controller
                              ->where('degree', $request->degree)
                             ->get();
                             return response()->json(['students' => $this->students]); 
+     
+     }
+
+
+     public function relatedCourses(Request $request)
+     {
+         
+        $offeredcourses=OfferedCourse::where('semester', $request->semester)
+                             ->where('degree', $request->degree)
+                            ->get();
+                            return response()->json(['courses' => $offeredcourses]); 
      }
 
 

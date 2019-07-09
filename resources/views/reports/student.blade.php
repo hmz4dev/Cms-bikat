@@ -46,6 +46,9 @@
                     <a href="{{url('enrollment')}}" class="btn btn-primary form-control">HOME</a>                
 
                     </div>
+                    <div class="col-md-4 " style="float:left">
+                            <input type="search" name="search" id="search" class="form-control">
+                    </div>
     <div class="row3  ">
         <div>
                   <label for="degree">Degree</label>

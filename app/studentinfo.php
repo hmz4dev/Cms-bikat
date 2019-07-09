@@ -32,7 +32,7 @@ class studentinfo extends Model
         'degree',
         'shift',
         'urban_rural',
-        'decipline_subject',
+        'decipline',
         'domicile',
         'seat_type',
         'image',

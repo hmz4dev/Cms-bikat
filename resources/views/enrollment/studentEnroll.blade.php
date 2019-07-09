@@ -69,9 +69,15 @@
                  <div class="enrol-col1">
                      <label for="">Semester (Enrolling in)</label>
                      <select name="row[0][Enrollsemester]" id="semester" class="form-control" required>
-                     @foreach ($sessions as $session)
-                          <option value="{{$session->session}}">{{$session->session}}</option>
-                          @endforeach
+                     <option value="">N/A</option>
+                     <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                      </select>
                  </div>
               
@@ -205,9 +211,7 @@
                        <input type="text" name="row[{{ $i }}][CourseCode]" class="form-control">
                            
                        @endfor
-                      
-                     
-                       
+                          
                   </div>
                  
                   <div class="row4-col2">

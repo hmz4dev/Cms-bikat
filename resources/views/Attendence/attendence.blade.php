@@ -90,10 +90,15 @@
                    
                       </div>
                       <div class="att-col">
+                       
+
                           <label for="">Section</label>
                           <select name="section" id="section" class="form-control">
-                          <option value="A">Morning</option>
-                          <option value="B">Evening</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                          <option value="D">D</option>
+
                           </select>
                           
                             
@@ -110,7 +115,7 @@
                           </select>
                       </div>
                       <div style="padding-top:25px;"class="att-col">
-                            <label for="">Enrolling Date</label>
+                            <label for="">Attendence Date</label>
                               <p><span id="datetime"></span> </p>
                           
                             </div>

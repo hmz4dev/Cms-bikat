@@ -52,14 +52,14 @@
     <div class="panel panel-default">
         <div class="panel-heading "><i class="fa fa-calendar-check fa-fw"></i>Attendence</div>
         <div class="panel-body">
-                 <form class="form" action="">
-                 
+                 <form class="form" id="form" enctype ="multipart/form-data">
+                 @csrf
                    <div class="att-row-1">
                       <h3>Select Criteria</h3>
                       
                       <div class="att-col">
                       <label for="">Semester</label>
-                        <select name="Semester" id="Semester" class="form-control" >
+                        <select name="semester" id="semester" class="form-control" >
                         <option value="">N/A</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -73,7 +73,7 @@
                       </div>
                       <div class="att-col">
                       <label for="">Degree</label>
-                      <select name="Degree" id="degree" class="form-control">
+                      <select name="degree" id="degree" class="form-control">
                        @foreach($degrees as $degree)
                         <option value="{{$degree->degree}}">{{$degree->degree}}</option>
                         @endforeach
@@ -90,10 +90,10 @@
                    
                       </div>
                       <div class="att-col">
-                          <label for="">Shift</label>
-                          <select name="shift" id="shift" class="form-control">
-                          <option value="">Morning</option>
-                          <option value="">Evening</option>
+                          <label for="">Section</label>
+                          <select name="section" id="section" class="form-control">
+                          <option value="A">Morning</option>
+                          <option value="B">Evening</option>
                           </select>
                           
                             
@@ -101,7 +101,7 @@
                       </div>
                       <div class="att-col">
                       <label for="">Subject</label>
-                      <select name="Subject" id="Subject" class="form-control">
+                      <select name="subject" id="subject" class="form-control">
                           <option value="">N/A</option>
                          @foreach($OfferedCourses as $OfferedCourse)
                                 <option value="{{$OfferedCourse->course_name}}">{{$OfferedCourse->course_name}}</option>
@@ -114,39 +114,20 @@
                               <p><span id="datetime"></span> </p>
                           
                             </div>
-                   </div>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <br>
+                          </div>
+                          <input type="submit" value="Submit" class="btn btn-primary "  style="margin:20px; width:20%">
+                 </form>   
                  <div class="att-row-2">
-                    <h3><i class="fa fa-group fa-fw"> </i>  Student List</h3>
-                    <div class="table-responsive">
-                      <table class="table table-bordered table-responsive-md table-striped  text-center" id="example" width="100%">
-                          <thead>
-                              <tr>
-                                  <th class="att-md-1">#</th>
-                                  <th class="att-md-2">Reg.No</th>
-                                  <th class="att-md-4">Name</th>
-                                  <th class="att-md-4">Attendence</th>
-                                  
-                              </tr>
-                          </thead>
-                          <tbody>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                 <input type="radio" name="attendence" value="P"> Present
-                                 <input type="radio" name="attendence" value="A">  Absent
-                                
-
-                                 </td>
-                               </tr>
-                              
-                          </tbody>
-                      </table>
-                      </div>
+                   <div id="showwResult"></div>
                  </div>
-
-                 </form>                
+             
         </div>
     </div>
     
@@ -177,6 +158,34 @@
         <script>
         var dt = new Date();
 document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+
+$('#form').on('submit', function(event){
+       
+    console.log(new FormData(this))
+           event.preventDefault();
+       $.ajax({
+       url:"{{ route('attence.getstudents') }}",
+       method:"POST",
+       data:new FormData(this),
+       contentType: false,
+       cache: false,
+       processData: false,
+       dataType:"json",
+       success:function(data)
+       {
+       var html = '';
+       if(data.errors)
+       {
+        $("#showwResult").html('<h3>'+data.errors+'</h3>');
+       }
+       else
+       {
+         $("#showwResult").html(data.students);
+       }
+      }
+    });
+  });
+
 </script>
 </body>
 

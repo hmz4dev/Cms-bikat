@@ -228,7 +228,7 @@
                     </div>
                  
                  <div id="ctc">
-                   @include('enrollment.partial._ctc', ['lent' => 6])
+                  
                  </div>
             
 
@@ -492,10 +492,10 @@ $(document).on('click', '#allcourses', function(){
                   var course_incharge = data.courses[i].course_incharge;
                   var credit_hours = data.courses[i].credit_hours;
                   var course_code = data.courses[i].course_code;
-                        htmlcoursename+='<input type="text" name="row[ '+i+' ][courseName]" id="coursename'+i+'" class="form-control" value="'+course_name+'">';
-                        htmlcourseincharge+='<input type="text" name="row[ '+i+' ][courseincharge]" id="courseincharge'+i+'" class="form-control" value="'+course_incharge+'">';
-                        htmlcredithours+='<input type="text" name="row[ '+i+' ][courseCredithours]" id="coursesCredithours'+i+'" class="form-control" value="'+credit_hours+'">';
-                        htmlcoursescode +='<input type="text" name="row[ '+i+' ][courseCode]" id="coursescode'+i+'" class="form-control" value="'+course_code+'">';
+                        htmlcoursename+='<input type="text" name="row['+i+'][courseName]" id="coursename'+i+'" class="form-control" value="'+course_name+'">';
+                        htmlcourseincharge+='<input type="text" name="row['+i+'][courseincharge]" id="courseincharge'+i+'" class="form-control" value="'+course_incharge+'">';
+                        htmlcredithours+='<input type="text" name="row['+i+'][courseCredithours]" id="coursesCredithours'+i+'" class="form-control" value="'+credit_hours+'">';
+                        htmlcoursescode +='<input type="text" name="row['+i+'][courseCode]" id="coursescode'+i+'" class="form-control" value="'+course_code+'">';
 
                 }
        

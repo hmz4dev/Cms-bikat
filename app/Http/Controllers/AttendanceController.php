@@ -9,7 +9,7 @@ use App\Degree;
 use App\Decipline;
 use App\OfferedCourse;
 use Illuminate\Http\Request;
-
+use App\Enrollment;
 class AttendanceController extends Controller
 {
     /**
@@ -19,12 +19,12 @@ class AttendanceController extends Controller
      */
     public function index()
     {   
-        $students=studentinfo::all();
+       // $students=studentinfo::all();
         $sessions=Session::all();
         $degrees=Degree::all();
-        $decipline=Decipline::all();
+       // $decipline=Decipline::all();
         $OfferedCourses=OfferedCourse::all();
-        return view('Attendence.attendence',compact('students ','sessions','degrees','deciplines','OfferedCourses'));
+        return view('Attendence.attendence',compact( 'sessions','degrees','OfferedCourses'));
     }
 
     /**
@@ -91,5 +91,25 @@ class AttendanceController extends Controller
     public function destroy(Attendance $attendance)
     {
         //
+    }
+
+    public function studentsrelated(Request $request) {
+
+
+        $students = Enrollment::where([
+            'enrollsemester' => $request->semester,
+            'degree' => $request->degree,
+            'session' => $request->session,
+            'section' => $request->section,
+            'course_name' => $request->subject])->get();
+        
+            if ($students->count() > 0) {
+                
+                $view = view('Attendence.partial._studentlist', compact('students'))->render();
+                return response()->json(['students' => $view]);
+            } else {
+                return response()->json(['errors' => "we don't have students with this Criteria"]);
+            }
+            
     }
 }

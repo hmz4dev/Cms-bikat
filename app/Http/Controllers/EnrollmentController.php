@@ -68,8 +68,8 @@ class EnrollmentController extends Controller
      */
     public function store(Request $request)
     {
-                 
-            $enrolldate=$request->row[0]['Enrolldate'];
+           
+        
             $enrollsemester=$request->row[0]['Enrollsemester'];
             $session=$request->row[0]['Session'];
             $degree=$request->row[0]['Degree'];
@@ -86,12 +86,17 @@ class EnrollmentController extends Controller
             $Remarks=$request->row[0]['Remarks'];
             $enroll_status=$request->row[0]['Enroll_status'];
             $rows =$request->input('row');
-     foreach($rows as $row)
-     {
-           if(!empty($row['Course_name']))
+    
+           
+            foreach($rows as $row)
+            {
+                
+
+               
+           if(!empty($row['courseName']))
            {
             $records []=array(
-                'enrolldate'=>$enrolldate,
+               
                 'enrollsemester'=>$enrollsemester,
                 'session'=>$session,
                 'degree'=>$degree,
@@ -107,11 +112,11 @@ class EnrollmentController extends Controller
                 'chalan_amount'=>$chalan_amount,
                 'Remarks'=>$Remarks,
                 'enroll_status'=>$enroll_status,
-                'course_name'=>$row['Course_name'],
-                'course_type'=>$row['Course_type'],
-                'course_status'=>$row['Course_Status'],
-                'credit_hours'=>$row['Credit_hours'],
-                'course_incharge'=>$row['Course_incharge'],
+                'course_name'=>$row['courseName'],
+                'course_type'=>$row['CourseType'],
+                'course_status'=>$row['CourseStatus'],
+                'credit_hours'=>$row['courseCredithours'],
+                'course_incharge'=>$row['courseincharge'],
             );
            };
 

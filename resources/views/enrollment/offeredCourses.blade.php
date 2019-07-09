@@ -630,7 +630,7 @@ for (let i = 0; i < 8; i++) {
             {
             
             }
-            if(data)
+            else(data)
             {
               $('#Coursecode'+i).val(data.Coursecode);
               $('#Credithours'+i).val(data.Credithours);

@@ -8,7 +8,6 @@ use App\Session;
 use App\Degree;
 use App\Decipline;
 use App\OfferedCourse;
-use App\Enrollment;
 use Illuminate\Http\Request;
 use App\Enrollment;
 class AttendanceController extends Controller

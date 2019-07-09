@@ -89,7 +89,7 @@
                                                         <div class="cols-sm-10">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"></span>
-                                                                <input type="text" name="Course_code" id="coursecode" class="form-control col-md-1" required>                </div>
+                                                                <input type="text" name="course_code" id="coursecode" class="form-control col-md-1" required>                </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -97,7 +97,7 @@
                                                         <div class="cols-sm-10">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"></span>
-                                                                <input type="text" name="Course_name" id="coursename" class="form-control col-md-4" required>                </div>
+                                                                <input type="text" name="course_name" id="coursename" class="form-control col-md-4" required>                </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -105,7 +105,7 @@
                                                         <div class="cols-sm-10">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"></span>
-                                                                <input type="text" name="Pre_req" id="prereq" class="form-control col-md-1" >
+                                                                <input type="text" name="pre_req" id="prereq" class="form-control col-md-1" >
                                                             </div>
                                                         </div>
                                                     </div>
@@ -114,7 +114,7 @@
                                                         <div class="cols-sm-10">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"></span>
-                                                                <input type="text" name="Credit_hours" id="credithours" class="form-control col-md-1" required>
+                                                                <input type="text" name="credit_hours" id="credithours" class="form-control col-md-1" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -265,14 +265,15 @@
         })
         /** update script*/
         $('#form').on('submit', function(event){
-       
-        if($('#action').val() == "Edit")
-        {
+            var data = new FormData(this);
             event.preventDefault();
+        if($('#action').val() == "Edit")
+        { 
+           
         $.ajax({
         url:"{{ route('course.update') }}",
         method:"POST",
-        data:new FormData(this),
+        data:data,
         contentType: false,
         cache: false,
         processData: false,
@@ -298,7 +299,7 @@
             + '<td>' + data.success.course_name + '</td>'
             + '<td>' + data.success.pre_req + '</td>'
             + '<td>' + data.success.credit_hours + '</td>'
-            + '<td>' + '<a type="button" class="btn btn-danger" id="edit" idAtt="'+data.success.id+'"><i  class="fa fa-edit"></i></a>'
+            + '<td>' + '<a type="button" class="btn btn-warning" id="edit" idAtt="'+data.success.id+'"><i  class="fa fa-edit"></i></a>'
             +'  <a href="" class="btn btn-danger" id="delete" idattr="'+data.success.id+'"><i  class="fa fa-trash"></i></a>' + '</td>';
             setTimeout(function(){
        
@@ -331,7 +332,7 @@
       
         $('#delete_ok_action').click(function(){
         $.ajax({
-        url:"//course/destroy/"+id,
+        url:"/course/destroy/"+id,
         beforeSend:function(){
         $('#delete_ok_action').text('Deleting...');
         },

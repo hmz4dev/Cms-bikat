@@ -11,6 +11,7 @@ use App\CourseGroup;
 use App\Degree;
 use App\OfferedCourse;
 use App\instructor;
+use View;
 use Illuminate\Http\Request;
 class EnrollmentController extends Controller
 {
@@ -205,11 +206,13 @@ class EnrollmentController extends Controller
 
      public function relatedCourses(Request $request)
      {
-         
-        $offeredcourses=OfferedCourse::where('semester', $request->semester)
-                             ->where('degree', $request->degree)
-                            ->get();
-                            return response()->json(['courses' => $offeredcourses]); 
+         $CourseGroups=CourseGroup::all();
+         $offeredcourses=OfferedCourse::where('semester', $request->semester)
+         ->where('degree', $request->degree)
+         ->get();
+         $lent = $offeredcourses->count();
+         $view = view('enrollment.partial._ctc', compact('lent', 'CourseGroups'))->render();
+                            return response()->json(['courses' => $offeredcourses, 'ctc' => $view]); 
      }
 
 

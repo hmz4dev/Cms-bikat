@@ -200,81 +200,49 @@
               <div class="row4 hidden" id="allcourseshide">
 
               <div class="row4-col1">
-                       <label for="">Course Code</label>
-                       @for ($i = 0; $i < 8; $i++)
-                       <input type="text" name="row[{{ $i }}][CourseCode]" class="form-control">
-                           
-                       @endfor
-                      
+                       <label for="" >Course Code</label>
+                       <div id="coursescodep"></div>
+                     
                      
                        
                   </div>
                  
                   <div class="row4-col2">
                        <label for="">Course Name</label>
-                       @for ($i = 0; $i < 8; $i++)
-                  <select name="row[{{$i}}][Course_name]" id="coursesname{{$i}}" class="form-control" required>
                      
-                               </select>
-                       @endfor
+                  <div id="coursesname">
+                     
+                               </div>
+                      
                
                     </div>
                  
-                 
-                  <div class="row4-col3">
-                       <label for="">Course Type</label>
-                       @for ($i = 0; $i < 8; $i++)
-                           
-                       <select name="row[{{$i}}][Course_type]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     
-                    @foreach ($CourseGroups as $row)
-                    <option value="{{$row->Course_type}}">{{$row->course_type}}</option>
-                    @endforeach
-                 </select>
-                       @endfor
-                    </div>
-
-
-
-                  <div class="row4-col3">
-                      <label for="">Course Status</label>
-                      @for ($i = 0; $i < 8; $i++)
-                      <select name="row[{{$i}}][Course_Status]" id="" class="form-control">
-                     <option value="">N/A</option>
-                     @foreach ($CourseGroups as $row)
-                     <option value="{{$row->Course_type}}">{{$row->course_status}}</option>
-                     @endforeach
-                  </select>
-                          
-                      @endfor
-               
-                  </div>
+                 <div id="ctc">
+                   @include('enrollment.partial._ctc', ['lent' => 6])
+                 </div>
+            
 
                   <div class="row4-col3">
                        <label for="">Credit Hours</label>
 
-                       @for ($i = 0; $i < 8; $i++)
-                       <select name="row[{{$i}}][Credit_hours]" id="credithours{{$i}}" class="form-control" required>
+                     
+                       <div id="credithours">
                        
                
-                        </select>
-                           
-                       @endfor
+                        </div>
+                
                       
                         
-                  </div>
+                </div>
 
 
 
-                  <div class="row4-col4">
+             <div class="row4-col4">
                        <label for="">Course Incharge</label>
-                       @for ($i = 0; $i < 7; $i++)
-                           
-                       <select name="row[{{$i}}][Course_incharge]" id="courseincharge{{$i}}" class="form-control" required>
+                        <div id="courseincharge">
                        
-                        </select>
-                       @endfor
+                        </div>
+                     
              </div>
                   <div class="row col-md-12">
                        <div style="padding:20px 0px 20px 40px; width:100%" class="btn ">
@@ -505,27 +473,30 @@ $(document).on('click', '#allcourses', function(){
                 len = data.courses.length;
               }
               if(len > 0){
-                var htmlcoursename = '<option value="noselect">N/A</option>';
-                var htmlcourseincharge = '<option value="noselect">N/A</option>';
-                var htmlcredithours = '<option value="noselect">N/A</option>';
+                var htmlcoursename = '';
+                var htmlcourseincharge = '';
+                var htmlcredithours = '';
+                var htmlcoursescode ='';
                 for(var i=0; i<len; i++){
                   var course_name = data.courses[i].course_name;
                   var course_incharge = data.courses[i].course_incharge;
                   var credit_hours = data.courses[i].credit_hours;
-                        htmlcoursename+='<option value="'+course_name+'">'+course_name +'</option>';
-                        htmlcourseincharge+='<option value="'+course_incharge+'">'+course_incharge +'</option>';
-                        htmlcredithours+='<option value="'+credit_hours+'">'+credit_hours +'</option>';
+                  var course_code = data.courses[i].course_code;
+                        htmlcoursename+='<input type="text" name="row[ '+i+' ][courseName]" id="coursename'+i+'" class="form-control" value="'+course_name+'">';
+                        htmlcourseincharge+='<input type="text" name="row[ '+i+' ][courseincharge]" id="courseincharge'+i+'" class="form-control" value="'+course_incharge+'">';
+                        htmlcredithours+='<input type="text" name="row[ '+i+' ][courseCredithours]" id="coursesCredithours'+i+'" class="form-control" value="'+credit_hours+'">';
+                        htmlcoursescode +='<input type="text" name="row[ '+i+' ][courseCode]" id="coursescode'+i+'" class="form-control" value="'+course_code+'">';
 
                 }
-                for (let i = 0; i < 8; i++) {
-                 
-              $("#coursesname"+i).html(htmlcoursename);
-              $("#courseincharge"+i).html(htmlcourseincharge);
-              $("#credithours"+i).html(htmlcredithours);
-                  
-                }
+       
+              $("#coursescodep").html(htmlcoursescode);
+              $("#coursesname").html(htmlcoursename);
+              $("#courseincharge").html(htmlcourseincharge);
+              $("#credithours").html(htmlcredithours);
+              console.log(data.ctc)
+            $("#ctc").html(data.ctc);
  $('#allcourseshide').removeClass('hidden')
-              console.log(len)
+             
               }
             }
           

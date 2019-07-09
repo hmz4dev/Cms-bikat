@@ -53,34 +53,67 @@
         <div class="panel-heading "><i class="fa fa-calendar-check fa-fw"></i>Attendence</div>
         <div class="panel-body">
                  <form class="form" action="">
+                 
                    <div class="att-row-1">
                       <h3>Select Criteria</h3>
+                      
                       <div class="att-col">
                       <label for="">Semester</label>
-                      <input type="text" name="semester" class="form-control">
+                        <select name="Semester" id="Semester" class="form-control" >
+                        <option value="">N/A</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        </select>
                       </div>
                       <div class="att-col">
-                      <label for="">Department</label>
-                      <select name="shift" id="shift" class="form-control">
-                      <option value="">Computer Science</option>
-                      <option value="">Bussiness Administration</option>
+                      <label for="">Degree</label>
+                      <select name="Degree" id="degree" class="form-control">
+                       @foreach($degrees as $degree)
+                        <option value="{{$degree->degree}}">{{$degree->degree}}</option>
+                        @endforeach
                       </select>                     
                        </div>
                       <div class="att-col">
                       <label for="">Session</label>
-                      <input type="text" name="semester" class="form-control">
-                      </div>
-                      <div class="att-col">
-                      <label for="">Shift</label>
-                      <select name="shift" id="shift" class="form-control">
-                      <option value="">Morning</option>
-                      <option value="">Evening</option>
+                      <select name="session" id="session" class="form-control">
+                      <option value="">N/A</option>
+                      @foreach($sessions as $session)
+                        <option value="{{$session->session}}">{{$session->session}}</option>
+                        @endforeach
                       </select>
+                   
                       </div>
                       <div class="att-col">
-                      <label for="">Attendence Date</label>
-                      <input type="date" name="semester" class="form-control">
+                          <label for="">Shift</label>
+                          <select name="shift" id="shift" class="form-control">
+                          <option value="">Morning</option>
+                          <option value="">Evening</option>
+                          </select>
+                          
+                            
+                        
                       </div>
+                      <div class="att-col">
+                      <label for="">Subject</label>
+                      <select name="Subject" id="Subject" class="form-control">
+                          <option value="">N/A</option>
+                         @foreach($OfferedCourses as $OfferedCourse)
+                                <option value="{{$OfferedCourse->course_name}}">{{$OfferedCourse->course_name}}</option>
+
+                         @endforeach
+                          </select>
+                      </div>
+                      <div style="padding-top:25px;"class="att-col">
+                            <label for="">Enrolling Date</label>
+                              <p><span id="datetime"></span> </p>
+                          
+                            </div>
                    </div>
                  <div class="att-row-2">
                     <h3><i class="fa fa-group fa-fw"> </i>  Student List</h3>
@@ -101,120 +134,13 @@
                                  <td class="att-md-2">15-arid-1234434325</td>
                                  <td class="att-md-4">Naseeb ul Hassan </td>
                                  <td class="att-md-4"> 
-                               
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                    
+                                 <input type="radio" name="attendence" value="P"> Present
+                                 <input type="radio" name="attendence" value="A">  Absent
+                                
+
                                  </td>
                                </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td class="att-md-1">1</td>
-                                 <td class="att-md-2">15-arid-1234434325</td>
-                                 <td class="att-md-4">Naseeb ul Hassan </td>
-                                 <td class="att-md-4"> 
-                                        Present &nbsp;&nbsp;<input type="radio">&nbsp;&nbsp;
-                                        Absent &nbsp;&nbsp;<input type="radio">
-                                 </td>
-                               </tr>
+                              
                           </tbody>
                       </table>
                       </div>
@@ -248,6 +174,10 @@
     <main class="py-4">
             @yield('content')
         </main>
+        <script>
+        var dt = new Date();
+document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+</script>
 </body>
 
 </html>

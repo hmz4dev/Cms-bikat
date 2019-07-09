@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\ReportStudent;
+use App\Attendance;
 use App\studentinfo;
-use App\Degree;
 use App\Session;
-use Freshbitsweb\Laratables\Laratables;
+use App\Degree;
+use App\Decipline;
+use App\OfferedCourse;
 use Illuminate\Http\Request;
 
-class ReportStudentController extends Controller
+class AttendanceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +18,13 @@ class ReportStudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $students=studentinfo::all();
-        $Degrees=Degree::all();
         $sessions=Session::all();
-        return view('reports.student',compact('students','Degrees','sessions'));
+        $degrees=Degree::all();
+        $decipline=Decipline::all();
+        $OfferedCourses=OfferedCourse::all();
+        return view('Attendence.attendence',compact('students ','sessions','degrees','deciplines','OfferedCourses'));
     }
 
     /**
@@ -48,10 +51,10 @@ class ReportStudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ReportStudent  $reportStudent
+     * @param  \App\Attendance  $attendance
      * @return \Illuminate\Http\Response
      */
-    public function show(ReportStudent $reportStudent)
+    public function show(Attendance $attendance)
     {
         //
     }
@@ -59,10 +62,10 @@ class ReportStudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ReportStudent  $reportStudent
+     * @param  \App\Attendance  $attendance
      * @return \Illuminate\Http\Response
      */
-    public function edit(ReportStudent $reportStudent)
+    public function edit(Attendance $attendance)
     {
         //
     }
@@ -71,10 +74,10 @@ class ReportStudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ReportStudent  $reportStudent
+     * @param  \App\Attendance  $attendance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ReportStudent $reportStudent)
+    public function update(Request $request, Attendance $attendance)
     {
         //
     }
@@ -82,10 +85,10 @@ class ReportStudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ReportStudent  $reportStudent
+     * @param  \App\Attendance  $attendance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ReportStudent $reportStudent)
+    public function destroy(Attendance $attendance)
     {
         //
     }

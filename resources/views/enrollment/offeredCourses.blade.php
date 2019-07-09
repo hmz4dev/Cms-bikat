@@ -75,9 +75,14 @@
                 <label for="Semester">Semester</label>
                 <select name="row[0][Semester]" id="" class="form-control">
                        <option value="">N/A</option>
-                        @foreach($sessions as $session)
-                        <option value="{{$session->session}}">{{$session->session}}</option>
-                        @endforeach
+                       <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
                      </select>
                 </div>
                             

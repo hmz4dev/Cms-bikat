@@ -68,7 +68,7 @@
                                             <h4 class="text-center">Add Courses <span ></span></h4>
                                         </div>
                                         <div class="panel-body">
-                                        <button class="btn btn-info btn-lg"  id="add" >Add Course</button>
+                                        <button class="btn btn-primary active btn-lg"  id="add" >Add Course</button>
 
                                                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">

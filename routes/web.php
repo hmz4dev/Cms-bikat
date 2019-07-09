@@ -64,7 +64,7 @@ Route::get('studentEnroll','EnrollmentController@index');
 Route::post('StudentEnrollment','EnrollmentController@store');
 Route::get('offeredCourses','OfferedCourseController@index');
 Route::post('offeredCourses','OfferedCourseController@store');
-Route::get('attendence','AttendenceController@attendence');
+Route::get('attendence','AttendanceController@index');
 Route::get('/125987dese/{name}','EnrollmentController@spisifierStudent');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

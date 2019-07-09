@@ -16,7 +16,7 @@ class StudentInfoController extends Controller
         $sessions=Session::all();
         $degrees=Degree::all();
         $deciplines=Decipline::all();
-        return view('enrollment.studentRegistration.registration',compact('students','sessions','degrees','deciplines'));
+        return view('enrollment.studentRegistration.registration',compact(' ','sessions','degrees','deciplines'));
     }
    
  
@@ -30,7 +30,7 @@ class StudentInfoController extends Controller
             'degree'=>$request->degree,
             'shift'=>$request->shift,
             'urban_rural'=>$request->urban_rural,
-            'decipline_subject'=>$request->decipline_subject,
+            'decipline'=>$request->decipline,
             'domicile'=>$request->domicile,
             'seat_type'=>$request->seat_type,
             'image'=>$request->image,
@@ -64,7 +64,7 @@ class StudentInfoController extends Controller
             'emergency_cell'=>$request->emergency_cell,
         ]);
         if($request->hasfile('image')){
-            $path=storage::disk('public')->put('images',$request->file('image'));
+            $path=storage::disk('public')->put('imag',$request->file('image'));
         }
         if($create){
             return redirect('/registration')->with('message', 'submitted successfully');

@@ -107,7 +107,7 @@ class EnrollmentController extends Controller
                 'chalan_amount'=>$chalan_amount,
                 'Remarks'=>$Remarks,
                 'enroll_status'=>$enroll_status,
-                'Course_name'=>$row['Course_name'],
+                'course_name'=>$row['Course_name'],
                 'course_type'=>$row['Course_type'],
                 'course_status'=>$row['Course_Status'],
                 'credit_hours'=>$row['Credit_hours'],

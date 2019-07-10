@@ -473,7 +473,7 @@
                 <label for="">Course Name</label>
                 @for ($i = 0; $i < 8; $i++)
                     
-                <input type="text" name="row[{{$i}}][Course_code]" id="Prereq{{$i}}" class="form-control"  >
+                <input type="text" name="row[{{$i}}][Pre_req]" id="Prereq{{$i}}" class="form-control"  >
                 @endfor
                 
                               

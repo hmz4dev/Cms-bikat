@@ -31,7 +31,8 @@ class CreateEnrollmentsTable extends Migration
             $table->string('chalan_amount');
             $table->string('Remarks');
             $table->string('enroll_status');
-            $table->string('Course_name');
+            $table->string('course_code');
+            $table->string('course_name');
             $table->string('course_type');
             $table->string('course_status');
             $table->string('credit_hours');

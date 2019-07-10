@@ -68,8 +68,7 @@ class EnrollmentController extends Controller
      */
     public function store(Request $request)
     {
-                 
-            $enrolldate=$request->row[0]['Enrolldate'];
+     
             $enrollsemester=$request->row[0]['Enrollsemester'];
             $session=$request->row[0]['Session'];
             $degree=$request->row[0]['Degree'];
@@ -86,12 +85,13 @@ class EnrollmentController extends Controller
             $Remarks=$request->row[0]['Remarks'];
             $enroll_status=$request->row[0]['Enroll_status'];
             $rows =$request->input('row');
+           
      foreach($rows as $row)
      {
-           if(!empty($row['Course_name']))
+           if(!empty($row['Student_name']))
            {
-            $records []=array(
-                'enrolldate'=>$enrolldate,
+            $record []=array(
+               
                 'enrollsemester'=>$enrollsemester,
                 'session'=>$session,
                 'degree'=>$degree,
@@ -107,19 +107,21 @@ class EnrollmentController extends Controller
                 'chalan_amount'=>$chalan_amount,
                 'Remarks'=>$Remarks,
                 'enroll_status'=>$enroll_status,
-                'course_name'=>$row['Course_name'],
-                'course_type'=>$row['Course_type'],
-                'course_status'=>$row['Course_Status'],
-                'credit_hours'=>$row['Credit_hours'],
-                'course_incharge'=>$row['Course_incharge'],
+                'course_code'=>$row['courseCode'],
+                'course_name'=>$row['courseName'],
+                'course_type'=>$row['course_type'],
+                'course_status'=>$row['course_Status'],
+                'credit_hours'=>$row['courseCredithours'],
+                'course_incharge'=>$row['courseincharge'],
             );
+           
            };
 
-          
            
      }
+  
     
-     Enrollment::insert($records);
+     Enrollment::insert($record);
 
      return redirect('studentEnroll')->with('message', 'submitted successfully');
 

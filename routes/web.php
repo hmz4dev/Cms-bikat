@@ -40,7 +40,7 @@ Route::post('/courseUupdate', 'CourseController@update')->name('course.update');
 Route::get('/course/destroy/{id}', 'CourseController@destroy');
 
 
-/**------------------------------------instructor routes----------------------------------*/
+/**------------------------------------courses routes----------------------------------*/
 
 
 
@@ -76,4 +76,3 @@ Route::get('/123courses/{name}','OfferedCourseController@getcourses');
 Route::get('StudentReport','ReportStudentController@index');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

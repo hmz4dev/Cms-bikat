@@ -91,7 +91,7 @@
                       </div>
                       <div class="att-col">
                           <label for="">Section</label>
-                          <select name="shift" id="shift" class="form-control">
+                          <select name="Section" id="Section" class="form-control">
                           <option value="A">A</option>
                           <option value="B">B</option>
                           <option value="C">C</option>

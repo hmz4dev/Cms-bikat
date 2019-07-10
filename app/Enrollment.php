@@ -24,7 +24,7 @@ class Enrollment extends Model
     }
 
     protected $fillable=[
-        'enrolldate',
+        
 'enrollsemester',
 'session',
 'degree',
@@ -40,6 +40,7 @@ class Enrollment extends Model
 'chalan_amount',
 'Remarks',
 'enroll_status',
+'courseCode',
 'Course_name',
 'course_type',
 'course_status',

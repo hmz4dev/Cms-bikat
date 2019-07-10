@@ -82,9 +82,12 @@
         </div>
         <!-- /.col-lg-12 -->
         <div class="col-lg-12">
+            @can('Admin')
         <div class="enrl col-md-5">
-               <a href="{{url('enrollment')}}"><h4>Student Enrollment</h4> <i class="fa fa-address-book"></i></a> 
-        </div>
+                
+            <a href="{{url('enrollment')}}"><h4>Student Enrollment</h4> <i class="fa fa-address-book"></i></a> 
+     </div>
+            @endcan
             <div class="enrl col-md-5">
                <a href="{{url('attendence')}}"> <h4>Attendance</h4> <i class="fa fa-user-edit"></i></a>
             </div>

@@ -13,6 +13,8 @@ use App\OfferedCourse;
 use App\instructor;
 use View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+
 class EnrollmentController extends Controller
 {
 
@@ -35,10 +37,12 @@ class EnrollmentController extends Controller
      //   return view('enrollment.offeredCourses');
     //}
     public function enrollment(){
+      
         return view('enrollment.enrollment');
     }
     public function index(Request $request)
     {
+       
       
         $sessions=Session::all();
         $courses=Course::all();
@@ -112,7 +116,7 @@ class EnrollmentController extends Controller
                 'chalan_amount'=>$chalan_amount,
                 'Remarks'=>$Remarks,
                 'enroll_status'=>$enroll_status,
-                'course_name'=>$row['courseCode'],
+                'course_code'=>$row['courseCode'],
                 'course_name'=>$row['courseName'],
                 'course_type'=>$row['CourseType'],
                 'course_status'=>$row['CourseStatus'],

@@ -145,8 +145,8 @@
            </div>
            <div class="row col-md-12">
                        <div style="padding:50px 0px 20px 40px; width:100%" class="btn ">
-                        <input type="submit" value="Submit" class="btn btn-primary btn-outline-primary " style="float:left; width:50%">
-                        <input type="button" value="Cancel" class="btn btn-danger btn-outline-primary " style="float:left; padding-left:10px; width:50%">
+                        <input type="submit" value="Submit" class="btn btn-primary  " style="float:left; width:50%">
+                        <a href="{{url('enrollment')}}" class="btn btn-danger btn-outline-primary " style="float:left; padding:10px; width:50%">Cancel</a>
                        </div>
                        
                    </div>

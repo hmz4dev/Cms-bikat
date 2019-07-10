@@ -21,4 +21,7 @@ class OfferedCourse extends Model
     public function instructor(){
         return $this->belongsTo('\App\instructor');
     }
+    public function Attendance(){
+        return $this->hasMany('\App\Attendance');
+    }
 }

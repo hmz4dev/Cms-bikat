@@ -75,5 +75,5 @@ Route::post('/getcources','EnrollmentController@relatedCourses');
 Route::get('/123courses/{name}','OfferedCourseController@getcourses');
 
 Route::get('StudentReport','ReportStudentController@index');
-Auth::routes();
+
 

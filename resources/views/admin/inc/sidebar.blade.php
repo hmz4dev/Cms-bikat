@@ -32,13 +32,14 @@
                 <li>
                     <a href="#"><i class="fa fa-school"></i> &nbsp;Enrollment<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="{{url('studentEnroll')}}"><i class="fa fa-angle-double-right"></i> Student Enrollment</a>
-                        </li>
-                        <li>
+                    <li>
                             <a href="{{url('offeredCourses')}}"><i class="fa fa-angle-double-right"></i>   All Offered Courses</a>
                         </li>
                       
+                        <li>
+                            <a href="{{url('studentEnroll')}}"><i class="fa fa-angle-double-right"></i> Student Enrollment</a>
+                        </li>
+                       
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>

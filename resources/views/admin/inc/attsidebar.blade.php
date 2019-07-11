@@ -12,7 +12,7 @@
                             <a href="{{ url('attendence')}}"><i class="fa fa-angle-double-right"></i> &nbsp;&nbsp; Attendence by Date</a>
                         </li>
                         <li>
-                            <a href="{{ url('attendence') }}"><i class="fa fa-angle-double-right"> </i>  &nbsp;&nbsp; Attendence Report </a>
+                            <a href="{{ url('attendence/report') }}"><i class="fa fa-angle-double-right"> </i>  &nbsp;&nbsp; Attendence Report </a>
                         </li>
                        
                     </ul>

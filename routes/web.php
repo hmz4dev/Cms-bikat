@@ -78,10 +78,5 @@ Route::group(['middleware' => ['auth']], function () {
 });    
 
 
-<<<<<<< HEAD
-Route::get('StudentReport','ReportStudentController@index');
-
-=======
 Auth::routes();
->>>>>>> 6354b4a7bd98e6adbcc0f7fe57fc1f2938bd2fe1
 

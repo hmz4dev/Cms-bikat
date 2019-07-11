@@ -40,6 +40,16 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group row">
+                        <label for="email" class="col-md-4 col-form-label text-md-right">Add Status</label>
+
+                            <div class="col-md-8">
+                                <select name="statut" id="" class="form-control">
+                                    <option value="adminaccess">adminaccess</option>
+                                    <option value="teacheraccess">teacheraccess</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

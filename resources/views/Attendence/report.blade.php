@@ -56,7 +56,7 @@
 
 <div id="page-wrapper">
     <div class="panel panel-default">
-        <div class="panel-heading "><i class="fa fa-calendar-check fa-fw"></i>Attendence</div>
+        <div class="panel-heading "><i class="fa fa-calendar-check fa-fw"></i>Attendence Report</div>
         <div class="panel-body">
                  <form class="form" id="form" enctype ="multipart/form-data">
                  @csrf

@@ -11,13 +11,13 @@
           </tr>
       </thead>
       <tbody>
-          @foreach ($students as $student)
+          @if ($students)
               
           
            <tr>
-           <td class="att-md-1">{{ $student->id}}</td>
-             <td class="att-md-2">{{$student->Regno}}</td>
-             <td class="att-md-4">{{ $student->student_name}} </td>
+           <td class="att-md-1">{{ $students->id}}</td>
+             <td class="att-md-2">{{$students->Regno}}</td>
+             <td class="att-md-4">{{ $students->student_name}} </td>
              <td class="att-md-4"> 
              <input type="radio" name="attendence" value="P"> Present
              <input type="radio" name="attendence" value="A">  Absent
@@ -25,7 +25,7 @@
 
              </td>
            </tr>
-           @endforeach
+           @endif
       </tbody>
   </table>
   </div>

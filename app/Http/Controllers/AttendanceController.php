@@ -101,14 +101,14 @@ class AttendanceController extends Controller
             'degree' => $request->degree,
             'session' => $request->session,
             'section' => $request->section,
-            'course_name' => $request->subject])->get();
+            'course_name' => $request->subject])->first();
         
-            if ($students->count() > 0) {
+            if ($students != null) {
                 
                 $view = view('Attendence.partial._studentlist', compact('students'))->render();
                 return response()->json(['students' => $view]);
             } else {
-                return response()->json(['errors' => "we don't have students with this Criteria"]);
+                return response()->json(['errors' => "we don't have student with this Criteria"]);
             }
             
     }

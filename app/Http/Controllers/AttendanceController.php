@@ -105,7 +105,7 @@ class AttendanceController extends Controller
     public function studentsrelated(Request $request)
     {
        
-        $this->studentreport = Enrollment::where([
+        $attendances = Enrollment::where([
             'enrollsemester' => $request->semester,
             'degree' => $request->degree,
             'session' => $request->session,
@@ -113,9 +113,9 @@ class AttendanceController extends Controller
             'course_name' => $request->subject
         ])->first();
 
-        if ($this->studentreport != null) {
+        if ($attendances != null) {
 
-            $view = view('Attendence.partial._studentlist', compact('students'))->render();
+            $view = view('Attendence.partial._studentlist', compact('attendances'))->render();
             return response()->json(['students' => $view]);
         } else {
             return response()->json(['errors' => "we don't have student with this Criteria"]);
@@ -141,8 +141,13 @@ class AttendanceController extends Controller
                 Export in excel</a>';
                 return $button;
             }
+        }
+        )->addColumn('attendence', function($data) {
+            $colum= '<input type="radio" name="attendence" value="P"> Present';
+            $colum.='<input type="radio" name="attendence" value="A">  Absent';
+            return $colum;
         })
-        ->rawColumns(['action'])
+        ->rawColumns(['attendence','action'])
         ->make(true);
        
 $dataenrollment = Enrollment::where($critairia)->first();

@@ -145,6 +145,7 @@
                 <th width="10%">#</th>
                 <th width="35%">Reg.No</th>
                 <th width="35%">Name</th>
+                <th width="35%">attendence</th>
                 <th width="30%"></th>
             </tr>
            </thead>
@@ -193,6 +194,7 @@ $(document).ready(function(){
 function loaddata(){  $('#attendance_table').DataTable({
  processing: true,
  serverSide: true,
+ searching: false, paging: false, info: false,
  ajax:{
   url: "{{ route('report.select') }}",
   type:"POST",
@@ -215,13 +217,17 @@ data : {
    name: 'id'
   },
   {
+   data: 'Regno',
+   name: 'Regno'
+  },
+  {
    data: 'student_name',
    name: 'name'
   },
   
   {
-   data: 'Regno',
-   name: 'Regno'
+   data: 'attendence',
+   name: 'attendence',
   },
   {
    data: 'action',
@@ -231,45 +237,7 @@ data : {
  ]
 });
 }
- /*   var formdata;
-    $("form#form :input").each(function(){
-  formdata = $(this); 
-});
-    getData(formdata);
-    function getData(criatair){
-       var datatable = $('#attendance_table').DataTable({
- processing: true,
- serverSide: true,
- ajax:{
-  url: "{{ route('report.select') }}",
-  type:"POST",
-  data: criatair
- },
- columns:[
-  
-  {
-   data: 'id',
-   name: 'id'
-  },
-  {
-   data: 'student_name',
-   name: 'name'
-  },
-  
-  {
-   data: 'Regno',
-   name: 'Regno'
-  },
-  {
-   data: 'action',
-   name: 'action',
-   orderable: false
-  }
- ]
-});
-    }
-  
-*/
+ 
 $('#form').on('submit', function(event){
     event.preventDefault();
     var data = new FormData(this);
@@ -278,40 +246,7 @@ $('#form').on('submit', function(event){
     $(".tableadd").removeClass('hidden');
 });
 })
- /*  var $attendance_table = $('#attendance_table').DataTable({
- processing: true,
- serverSide: true,
- ajax:{
-  url: "{{ route('report.select') }}",
-  type: "POST",
-  data:new FormData(this),
- },
- 
-});*/
-  /*  console.log(new FormData(this))
-           event.preventDefault();
-       $.ajax({
-       url:"{{ route('report.select') }}",
-       method:"POST",
-       data:new FormData(this),
-       contentType: false,
-       cache: false,
-       processData: false,
-       dataType:"json",
-       success:function(data)
-       {
-           $("#showwResult").removeClass('hidden');
-           $('#attendance_table').dataTable( {
-  "ajax": {
-    "url": data.data,
-   
-  }
-} ).ajax.reload();
 
-       }
-       });
-    });
-*/
 
 </script>
 </body>

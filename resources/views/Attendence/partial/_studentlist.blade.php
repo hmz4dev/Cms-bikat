@@ -11,13 +11,13 @@
           </tr>
       </thead>
       <tbody>
-          @if ($students)
+          @if ($attendances)
               
           
            <tr>
-           <td class="att-md-1">{{ $students->id}}</td>
-             <td class="att-md-2">{{$students->Regno}}</td>
-             <td class="att-md-4">{{ $students->student_name}} </td>
+           <td class="att-md-1">{{ $attendances->id}}</td>
+             <td class="att-md-2">{{$attendances->Regno}}</td>
+             <td class="att-md-4">{{ $attendances->student_name}} </td>
              <td class="att-md-4"> 
              <input type="radio" name="attendence" value="P"> Present
              <input type="radio" name="attendence" value="A">  Absent

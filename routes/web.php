@@ -65,6 +65,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('offeredCourses','OfferedCourseController@index')->middleware('can:Admin');
     Route::post('offeredCourses','OfferedCourseController@store')->middleware('can:Admin');
     Route::get('attendence','AttendanceController@index')->middleware('can:Teacher');
+    Route::get('attendence/report','AttendanceController@report')->middleware('can:Teacher')->name('report');
+    Route::get('attendence/export/{id}','AttendanceController@export')->middleware('can:Teacher');
+    Route::post('attendence/report/post','AttendanceController@reportselect')->middleware('can:Teacher')->name('report.select');
     Route::post('attendencstudents','AttendanceController@studentsrelated')->name('attence.getstudents')->middleware('can:Teacher');
     Route::get('/125987dese/{name}','EnrollmentController@spisifierStudent')->middleware('can:Admin');
     Auth::routes();

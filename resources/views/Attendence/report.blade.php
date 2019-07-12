@@ -56,7 +56,7 @@
 
 <div id="page-wrapper">
     <div class="panel panel-default">
-        <div class="panel-heading "><i class="fa fa-calendar-check fa-fw"></i>Attendence</div>
+        <div class="panel-heading "><i class="fa fa-calendar-check fa-fw"></i>Attendence Report</div>
         <div class="panel-body">
                  <form class="form" id="form" enctype ="multipart/form-data">
                  @csrf
@@ -142,11 +142,11 @@
     <table class="table table-bordered " id="attendance_table">
            <thead>
             <tr>
-                <th width="10%">#</th>
-                <th width="35%">Reg.No</th>
+                <th width="5%">#</th>
+                <th width="20%">Reg.No</th>
                 <th width="35%">Name</th>
-                <th width="35%">attendence</th>
-                <th width="30%"></th>
+                <th width="55%">attendence</th>
+                <th width="20%"></th>
             </tr>
            </thead>
        </table>

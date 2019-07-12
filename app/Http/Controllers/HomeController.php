@@ -24,5 +24,9 @@ class HomeController extends Controller
     public function index()
     {
         return view('pages.index');
+        
+    }
+    public function register(){
+        return view('admin.register');
     }
 }

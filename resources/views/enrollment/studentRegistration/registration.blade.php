@@ -161,7 +161,7 @@
                         <option value="other">other</option>
                     </select>
                     <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control" required>
+                    <input type="text" name="name" id="alpha" class="form-control" required>
                     
                     <label for="name">CNIC</label>
                     <input type="text" name="st_cnic" class="form-control" id="cnic" maxlength="15" required>
@@ -212,9 +212,9 @@
                 <div class="column1">
                     <h3>Father's info</h3>
                     <label for="fname">Father Name</label>
-                    <input type="text" name="father_name" class="form-control" required>
+                    <input type="text" name="father_name" id="fname" class="form-control" required>
                     <label for="income">Father Income</label>
-                    <input type="integer" name="father_income" class="form-control">
+                    <input type="integer" name="father_income"  class="form-control">
                 </div>
                 <div class="column1">
                 <h3>   &nbsp;&nbsp;&nbsp;</h3>
@@ -277,7 +277,7 @@
                     <div class="column2">
                                            
                     <label for="">Guardian Name</label>
-                                <input type="text" name="guardian" class="form-control" required>
+                                <input type="text" name="guardian" id="gname" class="form-control" required>
                                 <label for="">Relation</label>
                                 <select name="relation" id="" class="form-control" required>
                                         <option value="N/A">N/A</option>
@@ -293,12 +293,12 @@
                                         <option value="Sister">Sister</option>
                                 </select> 
                                 <label for="">Guardian Cell</label>
-                                <input type="text" name="guardian_phone" id="guardian_phone" maxlength="12" class="form-control" required>
+                                <input type="text" name="guardian_phone" id="guardian_phone"  maxlength="12" class="form-control" required>
                                 
                     </div>
                     <div class="column2">
                     <label for="">Emergency Person</label>
-                                <input type="text" name="emergency_person" class="form-control" required>
+                                <input type="text" name="emergency_person" id="ename" class="form-control" required>
                                 <label for="">Emergency Tel#</label>
                                 <input type="integer" name="emergency_tel" id="emergency_tel" maxlength="11" class="form-control">
                                 <label for="">Emergency Cell</label>
@@ -347,6 +347,9 @@
     <main class="py-4">
             @yield('content')
         </main>
+        <script>
+  
+        </script>
 </body>
 
 </html>

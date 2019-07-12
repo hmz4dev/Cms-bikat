@@ -79,6 +79,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/123courses/{name}','OfferedCourseController@getcourses')->middleware('can:Admin');
     
     Route::get('StudentReport','ReportStudentController@index')->middleware('can:Admin');
+    Route::get('registeruser','HomeController@register');
 });    
 
 

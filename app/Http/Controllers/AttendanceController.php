@@ -53,6 +53,7 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
+
         $enrollment = Enrollment::whereId($request->enrollment)->first();
        
         $attendancedata= [
@@ -80,6 +81,9 @@ class AttendanceController extends Controller
          $OfferedCourses = OfferedCourse::all();
          return response()->json(['done' => 'store action done']);
         
+
+    
+
     }
 
     /**

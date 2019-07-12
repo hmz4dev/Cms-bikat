@@ -249,3 +249,49 @@ $('#emergency_tel').keydown(function() {
     };
 
 })(jQuery, window, document);
+
+$('#alpha').keypress(function(e) {
+    var regex = new RegExp("^[a-zA-Z]+$");
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+        return true;
+    } else {
+        e.preventDefault();
+        alert('Please Enter Alphabat');
+        return false;
+    }
+});
+$('#fname').keypress(function(e) {
+    var regex = new RegExp("^[a-zA-Z]+$");
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+        return true;
+    } else {
+        e.preventDefault();
+        alert('Please Enter Alphabat');
+        return false;
+    }
+});
+
+$('#gname').keypress(function(e) {
+    var regex = new RegExp("^[a-zA-Z]+$");
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+        return true;
+    } else {
+        e.preventDefault();
+        alert('Please Enter Alphabat');
+        return false;
+    }
+});
+$('#ename').keypress(function(e) {
+    var regex = new RegExp("^[a-zA-Z]+$");
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+        return true;
+    } else {
+        e.preventDefault();
+        alert('Please Enter Alphabat');
+        return false;
+    }
+});

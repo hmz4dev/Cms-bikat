@@ -48,13 +48,24 @@
                     <a href="#"><i class="fa fa-files-o fa-fw"></i> Reports<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#"><i class="fa fa-angle-double-right"></i>Total Enrolled</a>
+                            <a href="#"><i class="fa fa-angle-double-right"></i> Total Enrolled</a>
                         </li>
                         <li>
-                            <a href="{{url('StudentReport')}}"><i class="fa fa-angle-double-right"></i>Student Registered</a>
+                            <a href="{{url('StudentReport')}}"><i class="fa fa-angle-double-right"></i> Student Registered</a>
                         </li>
                     </ul>
+                   
                     <!-- /.nav-second-level -->
+                </li>
+                <li>
+                <a href="#"><i class="fa fa-users"></i> Register Users<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                       
+                        <li>
+                            <a href="{{url('registeruser')}}"><i class="fa fa-angle-double-right"></i> Register Users</a>
+                        </li>
+                    </ul>
+                
                 </li>
             </ul>
         </div>

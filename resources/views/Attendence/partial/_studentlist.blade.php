@@ -3,7 +3,7 @@
   <table class="table table-bordered table-responsive-md table-striped  text-center" id="example" width="100%">
       <thead>
           <tr>
-              <th class="att-md-1">#</th>
+              <th class="att-md-1 hidden">#</th>
               <th class="att-md-2">Reg.No</th>
               <th class="att-md-4">Name</th>
               <th class="att-md-4">Attendence</th>
@@ -13,18 +13,20 @@
       <tbody>
           @if ($attendances)
               
-          
-           <tr>
-           <td class="att-md-1 id_att" id="{{ $attendances->id}}">1</td>
-             <td class="att-md-2">{{$attendances->Regno}}</td>
-             <td class="att-md-4">{{ $attendances->student_name}} </td>
-             <td class="att-md-4"> 
-             <input type="radio" name="attendence" id="attendencep" value="P"> Present
-             <input type="radio" name="attendence" id="attendencea" value="A">  Absent
-            
-
-             </td>
-           </tr>
+          @foreach ($attendances as $attendance)
+              
+          <tr>
+           <td class="att-md-1 id_att[{{$attendance->id}}] " id="{{ $attendance->id}}">{{ $attendance->id}}</td>
+             <td class="att-md-2">{{$attendance->Regno}}</td>
+             <td class="att-md-4">{{ $attendance->student_name}} </td>
+             <td class="att-md-4 attendaceradion" > 
+                 <input type="radio" name="attendence[{{$attendance->id}}]" atid="{{ $attendance->id}}" id="attendencep" value="P"> Present
+                 <input type="radio" name="attendence[{{$attendance->id}}]" atid="{{ $attendance->id}}" id="attendencea" value="A">  Absent
+                 
+                 
+                </td>
+            </tr>
+            @endforeach
            @endif
       </tbody>
   </table>

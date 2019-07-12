@@ -192,8 +192,36 @@ $('#form').on('submit', function(event){
   });
 
   $(document).on('click', '#saveattendance', function(){
-  var radioValue = $("input[name='attendence']:checked").val();
-  var enrollment = $(".id_att").attr('id');
+   // $(".attendaceradion").keyup(function(){
+    var allattsele = [];
+    $(".attendaceradion").find("input:checked").each(function () {
+      var atrid = $(this).attr('atid')
+     
+      allattsele.push(atrid)
+    })
+    var allselect = new Array()
+    var idwithattendance =[];
+    $.each(allattsele, function(key, value ) {
+      var val = $("input[name='attendence["+value+"]']:checked").val()
+      idwithattendance[value] ={value,val}
+      allselect.push(idwithattendance)
+    })
+    console.log(idwithattendance.shift())
+    $.ajax({
+                 url: "{{ route('attendence.store') }}",
+                 method: "POST",
+                 headers: {
+'X-CSRF-TOKEN': '{{ csrf_token() }}'
+},
+                 data:{data:idwithattendance},
+                 success:function(data){
+                  location.reload();
+  
+       }
+                });
+//});
+  //var radioValue = $("input[name='attendence[]']:checked").val();
+  /*var enrollment = $(".id_att").attr('id');
   
   if(radioValue){
     $.ajax({
@@ -208,7 +236,7 @@ $('#form').on('submit', function(event){
   
        }
                 });
-            }
+            }*/
  
 })
 </script>

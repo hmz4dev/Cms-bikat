@@ -1,11 +1,15 @@
 @extends('layouts.app')
  <!-- Bootstrap Core CSS -->
- <link href="{{asset('admin')}}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+ <link href="{{asset('css/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
+  
+    <link href="{{asset('css/sb-admin-2.css')}}" rel="stylesheet">
+    <link href="{{asset('fonts/css/all.css')}}" rel="stylesheet" >
 @section('content')
 
       
-<div class="container">
+<div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-4 col-md-offset-4 ">
             <div class="login-panel panel panel-default">
@@ -87,5 +91,13 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('js/jquery/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{asset('js/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/script.js')}}"></script>
+    <script src="{{asset('js/metisMenu.min.js')}}"></script>
+    <script src="{{asset('js/raphael.min.js')}}"></script>
+    <script src="{{asset('js/morris.min.js')}}"></script>
+    <script src="{{asset('js/sb-admin-2.js')}}"></script>
 </div>
 @endsection

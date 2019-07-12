@@ -15,12 +15,12 @@
               
           
            <tr>
-           <td class="att-md-1">{{ $attendances->id}}</td>
+           <td class="att-md-1 id_att" id="{{ $attendances->id}}">1</td>
              <td class="att-md-2">{{$attendances->Regno}}</td>
              <td class="att-md-4">{{ $attendances->student_name}} </td>
              <td class="att-md-4"> 
-             <input type="radio" name="attendence" value="P"> Present
-             <input type="radio" name="attendence" value="A">  Absent
+             <input type="radio" name="attendence" id="attendencep" value="P"> Present
+             <input type="radio" name="attendence" id="attendencea" value="A">  Absent
             
 
              </td>
@@ -28,4 +28,5 @@
            @endif
       </tbody>
   </table>
+  <input type="button" value="save" class="btn btn-primary " id="saveattendance"  style="margin:20px; width:20%">
   </div>

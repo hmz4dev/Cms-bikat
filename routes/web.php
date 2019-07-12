@@ -69,6 +69,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('attendence/export/{id}','AttendanceController@export')->middleware('can:Teacher');
     Route::post('attendence/report/post','AttendanceController@reportselect')->middleware('can:Teacher')->name('report.select');
     Route::post('attendencstudents','AttendanceController@studentsrelated')->name('attence.getstudents')->middleware('can:Teacher');
+    Route::post('/attendence/storage','AttendanceController@store')->name('attendence.store')->middleware('can:Teacher');
     Route::get('/125987dese/{name}','EnrollmentController@spisifierStudent')->middleware('can:Admin');
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');

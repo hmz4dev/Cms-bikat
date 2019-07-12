@@ -85,7 +85,7 @@
                         @endforeach
                       </select>                     
                        </div>
-                      <div class="att-col">
+                      {{-- <div class="att-col">
                       <label for="">Session</label>
                       <select name="session" id="session" class="form-control">
                       <option value="">N/A</option>
@@ -94,8 +94,8 @@
                         @endforeach
                       </select>
                    
-                      </div>
-                      <div class="att-col">
+                      </div> --}}
+                      {{-- <div class="att-col">
                        
 
                           <label for="">Section</label>
@@ -109,7 +109,7 @@
                           
                             
                         
-                      </div>
+                      </div> --}}
                       <div class="att-col">
                       <label for="">Subject</label>
                       <select name="subject" id="subject" class="form-control">
@@ -217,17 +217,17 @@ data : {
    name: 'id'
   },
   {
-   data: 'Regno',
-   name: 'Regno'
+   data: 'regno',
+   name: 'regno'
   },
   {
-   data: 'student_name',
+   data: 'name',
    name: 'name'
   },
   
   {
-   data: 'attendence',
-   name: 'attendence',
+   data: 'attendences',
+   name: 'attendences',
   },
   {
    data: 'action',

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attendance extends Model
 {
+    protected $fillable = ['enrollment_id', 'semester', 'subject', 'name', 'attendance', 'teacher_id', 'regno', 'degree'];
     public function Degree(){
         return $this->belongsTo('\App\Degree');
     }

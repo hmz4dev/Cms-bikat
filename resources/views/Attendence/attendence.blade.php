@@ -132,8 +132,7 @@
                  <div class="att-row-2">
                    <div id="showwResult"></div>
                  </div>
-             
-        </div>
+                </div>
     </div>
     
 <!-- /#page-wrapper -->
@@ -143,6 +142,7 @@
 
     <!-- jQuery -->
     <script src="../css/jquery/jquery.min.js"></script>
+    @include('flashy::message')
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../css/bootstrap/js/bootstrap.min.js"></script>
@@ -166,7 +166,7 @@ document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
 
 $('#form').on('submit', function(event){
        
-    console.log(new FormData(this))
+ 
            event.preventDefault();
        $.ajax({
        url:"{{ route('attence.getstudents') }}",
@@ -191,6 +191,26 @@ $('#form').on('submit', function(event){
     });
   });
 
+  $(document).on('click', '#saveattendance', function(){
+  var radioValue = $("input[name='attendence']:checked").val();
+  var enrollment = $(".id_att").attr('id');
+  
+  if(radioValue){
+    $.ajax({
+                 url: "{{ route('attendence.store') }}",
+                 method: "POST",
+                 headers: {
+'X-CSRF-TOKEN': '{{ csrf_token() }}'
+},
+                 data:{enrollment: enrollment, attendance: radioValue},
+                 success:function(data){
+                  location.reload();
+  
+       }
+                });
+            }
+ 
+})
 </script>
 </body>
 

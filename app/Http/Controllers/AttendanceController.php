@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Attendance;
-use App\studentinfo;
 use App\Session;
 use App\Degree;
-use App\Decipline;
 use App\OfferedCourse;
 use Illuminate\Http\Request;
 use App\Enrollment;
 use Illuminate\Support\Facades\DB;
 use App\Exports\EnrollmentExport;
-
+use Illuminate\Support\Facades\Auth;
+use MercurySeries\Flashy\Flashy;
 class AttendanceController extends Controller
 {
 
@@ -54,7 +53,33 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $enrollment = Enrollment::whereId($request->enrollment)->first();
+       
+        $attendancedata= [
+            'teacher_id' => Auth::user()->id,
+            'degree'     => $enrollment->degree,
+            'semester'     => $enrollment->enrollsemester,
+            'subject'     => $enrollment->course_name,
+            'name'     => $enrollment->student_name,
+            'enrollment_id'     => $enrollment->id,
+            'regno'     => $enrollment->Regno,
+            'attendance'     => $request->attendance,
+        ];
+        
+        $hasenroll = Attendance::where('enrollment_id', $request->enrollment)->first();
+        if ($hasenroll == null) {
+            Attendance::create($attendancedata);
+            Flashy::success('You have been seccessfuly add attendance.');
+        } else {
+            $hasenroll->update($attendancedata);
+            
+            Flashy::success('You have been update attendance.');
+        }
+         $sessions = Session::all();
+         $degrees = Degree::all();
+         $OfferedCourses = OfferedCourse::all();
+         return response()->json(['done' => 'store action done']);
+        
     }
 
     /**
@@ -124,13 +149,11 @@ class AttendanceController extends Controller
     public function reportselect(Request $request)
     {
         $critairia = [
-            'enrollsemester' => $request->semester,
+            'semester' => $request->semester,
             'degree' => $request->degree,
-            'session' => $request->session,
-            'section' => $request->section,
-            'course_name' => $request->subject
+            'subject' => $request->subject
         ];
-        $enroll = DB::table('enrollments')->where($critairia)->first();
+        $enroll = DB::table('attendances')->where($critairia)->first();
         $enrolldata = ["0" =>$enroll];
         if ($enroll == null) $enrolldata = Enrollment::where('id', 0);
         return datatables()->of($enrolldata)
@@ -142,12 +165,12 @@ class AttendanceController extends Controller
                 return $button;
             }
         }
-        )->addColumn('attendence', function($data) {
-            $colum= '<input type="radio" name="attendence" value="P"> Present';
-            $colum.='<input type="radio" name="attendence" value="A">  Absent';
+        
+        )->addColumn('attendences', function($data) {
+            $colum= $retVal = ($data->attendance == "P") ? "Present" : "Absent";
             return $colum;
         })
-        ->rawColumns(['attendence','action'])
+        ->rawColumns(['attendences','action'])
         ->make(true);
        
 $dataenrollment = Enrollment::where($critairia)->first();

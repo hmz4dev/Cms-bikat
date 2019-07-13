@@ -137,16 +137,19 @@
                  </form>   
                  <div class="att-row-2">
                    <div id="showwResult ">
+                   
                         <br />
    <div class="table-responsive tableadd hidden">
+      <div id="exportbutton"><a type="button" href="/attendence/export/" name="export" id="" class="export btn btn-success btn-sm"><i class="fa fa-file-excel-o"></i>
+        Export in excel</a></div>
     <table class="table table-bordered " id="attendance_table">
            <thead>
             <tr>
-                <th width="5%">#</th>
+              
                 <th width="20%">Reg.No</th>
                 <th width="35%">Name</th>
                 <th width="55%">attendence</th>
-                <th width="20%"></th>
+               
             </tr>
            </thead>
        </table>
@@ -212,10 +215,7 @@ data : {
  },
  columns:[
   
-  {
-   data: 'id',
-   name: 'id'
-  },
+ 
   {
    data: 'regno',
    name: 'regno'
@@ -228,11 +228,6 @@ data : {
   {
    data: 'attendences',
    name: 'attendences',
-  },
-  {
-   data: 'action',
-   name: 'action',
-   orderable: false
   }
  ]
 });

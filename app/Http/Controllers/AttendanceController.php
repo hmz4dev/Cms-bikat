@@ -53,10 +53,12 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
-
-        $enrollment = Enrollment::whereId($request->enrollment)->first();
-       
-        $attendancedata= [
+      //  dd($request->data);
+foreach ($request->data as $key => $value) {
+    if ($value != null) {
+        
+        $enrollment  = Enrollment::whereId($request->data[$key]["value"])->first();
+        $attendancedata []= [
             'teacher_id' => Auth::user()->id,
             'degree'     => $enrollment->degree,
             'semester'     => $enrollment->enrollsemester,
@@ -64,12 +66,18 @@ class AttendanceController extends Controller
             'name'     => $enrollment->student_name,
             'enrollment_id'     => $enrollment->id,
             'regno'     => $enrollment->Regno,
-            'attendance'     => $request->attendance,
+            'attendance'     => $request->data[$key]['val'],
         ];
+    }
+}
+
         
         $hasenroll = Attendance::where('enrollment_id', $request->enrollment)->first();
         if ($hasenroll == null) {
-            Attendance::create($attendancedata);
+            foreach ($attendancedata as $attendan) {
+                
+                Attendance::create($attendan);
+            }
             Flashy::success('You have been seccessfuly add attendance.');
         } else {
             $hasenroll->update($attendancedata);
@@ -140,9 +148,9 @@ class AttendanceController extends Controller
             'session' => $request->session,
             'section' => $request->section,
             'course_name' => $request->subject
-        ])->first();
+        ])->get();
 
-        if ($attendances != null) {
+        if ($attendances->count() > 0) {
 
             $view = view('Attendence.partial._studentlist', compact('attendances'))->render();
             return response()->json(['students' => $view]);
@@ -157,24 +165,19 @@ class AttendanceController extends Controller
             'degree' => $request->degree,
             'subject' => $request->subject
         ];
-        $enroll = DB::table('attendances')->where($critairia)->first();
-        $enrolldata = ["0" =>$enroll];
-        if ($enroll == null) $enrolldata = Enrollment::where('id', 0);
-        return datatables()->of($enrolldata)
+        $enroll = DB::table('attendances')->where($critairia);
+        // $enrolldata = ["0" =>$enroll];
+        // if ($enroll == null) $enrolldata = Enrollment::where('id', 0);
+        return datatables()->of($enroll)
         ->addColumn('action', function ($data) {
-            if (isset($data->id)) {
-                
-                $button = '<a type="button" href="/attendence/export/'.$data->id .'" name="export" id="' . $data->id . '" class="export btn btn-success btn-sm"><i class="fa fa-file-excel-o"></i>
-                Export in excel</a>';
-                return $button;
-            }
+          
         }
         
         )->addColumn('attendences', function($data) {
             $colum= $retVal = ($data->attendance == "P") ? "Present" : "Absent";
             return $colum;
         })
-        ->rawColumns(['attendences','action'])
+        ->rawColumns(['attendences'])
         ->make(true);
        
 $dataenrollment = Enrollment::where($critairia)->first();

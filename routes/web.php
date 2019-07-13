@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('offeredCourses','OfferedCourseController@store')->middleware('can:Admin');
     Route::get('attendence','AttendanceController@index')->middleware('can:Teacher');
     Route::get('attendence/report','AttendanceController@report')->middleware('can:Teacher')->name('report');
+    Route::get('attendence/exportPdf','AttendanceController@generatePdf')->middleware('can:Teacher')->name('exportPdf');
     Route::get('attendence/export/{id}','AttendanceController@export')->middleware('can:Teacher');
     Route::post('attendence/report/post','AttendanceController@reportselect')->middleware('can:Teacher')->name('report.select');
     Route::post('attendencstudents','AttendanceController@studentsrelated')->name('attence.getstudents')->middleware('can:Teacher');

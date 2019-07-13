@@ -161,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -231,6 +231,8 @@ return [
         'Datatables' => Yajra\Datatables\DatatablesServiceProvider::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Flashy' => MercurySeries\Flashy\Flashy::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+
     ],
 
 ];

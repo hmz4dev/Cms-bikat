@@ -4,6 +4,8 @@
 <head>
 
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -139,21 +141,19 @@
                    <div id="showwResult ">
                    
                         <br />
-   <div class="table-responsive tableadd hidden">
-      <div id="exportbutton"><a type="button" href="/attendence/export/" name="export" id="" class="export btn btn-success btn-sm"><i class="fa fa-file-excel-o"></i>
-        Export in excel</a></div>
-    <table class="table table-bordered " id="attendance_table">
+  
+        <div id="reporttable"></div>
+    {{-- <table class="table table-bordered " id="attendance_table">
            <thead>
             <tr>
               
-                <th width="20%">Reg.No</th>
+               
                 <th width="35%">Name</th>
-                <th width="55%">attendence</th>
+                <th width="10%">attendence</th>
                
             </tr>
            </thead>
-       </table>
-   </div>
+       </table> --}}
    <br />
                    </div>
                  </div>
@@ -186,61 +186,93 @@
         </main>
         <script>
         var dt = new Date();
-        $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    
 document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
-$(document).ready(function(){
-
-function loaddata(){  $('#attendance_table').DataTable({
- processing: true,
- serverSide: true,
- searching: false, paging: false, info: false,
- ajax:{
-  url: "{{ route('report.select') }}",
-  type:"POST",
-  headers: {
-'X-CSRF-TOKEN': '{{ csrf_token() }}'
-},
-data : {
+$.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+$('#form').on('submit', function(event){
+  event.preventDefault();
+       $.ajax({
+       url:"{{ route('report.select') }}",
+       method:"POST",
+       dataType: "json",
+       data:{
   semester: $("#semester").val(),
   degree: $("#degree").val(),
   session: $("#session").val(),
   section: $("#section").val(),
   subject: $("#subject").val()
 },
+       success:function(data)
+       {
+      if (data.error) {
+        $('.tableadd').addClass('hidden')
+        $('#reporttable').html('<h5> There is no attendance with these criteria there !</h5>')
+      } else {
+        
+        $('#reporttable').html(data.view)
+                  $('.tableadd').removeClass('hidden')
+      
+      }
+      }
+    });
+   
+});
+
+
+
+// $(document).ready(function(){
+
+// function loaddata(){  $('#attendance_table').DataTable({
+//  processing: true,
+//  serverSide: true,
+//  searching: false, paging: false, info: false,
+//  rowGroup: {
+//         dataSrc: 'name'
+//     },
+//  ajax:{
+//   url: "{{ route('report.select') }}",
+//   type:"POST",
+//   headers: {
+// 'X-CSRF-TOKEN': '{{ csrf_token() }}'
+// },
+// data : {
+//   semester: $("#semester").val(),
+//   degree: $("#degree").val(),
+//   session: $("#session").val(),
+//   section: $("#section").val(),
+//   subject: $("#subject").val()
+// },
   
- },
- columns:[
+//  },
+//  columns:[
   
  
-  {
-   data: 'regno',
-   name: 'regno'
-  },
-  {
-   data: 'name',
-   name: 'name'
-  },
+
+//   {
+//    data: 'name',
+//    name: 'name'
+//   },
   
-  {
-   data: 'attendences',
-   name: 'attendences',
-  }
- ]
-});
-}
+//   {
+//    data: 'attendences',
+//    name: 'attendences',
+//   }
+//  ]
+// });
+// }
  
-$('#form').on('submit', function(event){
-    event.preventDefault();
-    var data = new FormData(this);
-    $('#attendance_table').DataTable().destroy();
-    loaddata()
-    $(".tableadd").removeClass('hidden');
-});
-})
+// $('#form').on('submit', function(event){
+//     event.preventDefault();
+//     var data = new FormData(this);
+//     $('#attendance_table').DataTable().destroy();
+//     loaddata()
+//     $(".tableadd").removeClass('hidden');
+// });
+// })
 
 
 </script>

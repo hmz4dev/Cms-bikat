@@ -83,8 +83,8 @@
                       <label for="">Session</label>
                       <select name="session" id="session" class="form-control">
                       <option value="">N/A</option>
-                      @foreach($sessions as $session)
-                        <option value="{{$session->session}}">{{$session->session}}</option>
+                      @foreach($sessions as $sess)
+                        <option value="{{$sess->session}}">{{$sess->session}}</option>
                         @endforeach
                       </select>
                    
@@ -192,7 +192,8 @@ $('#form').on('submit', function(event){
   });
 
   $(document).on('click', '#saveattendance', function(){
-   // $(".attendaceradion").keyup(function(){
+    var $this = $(this);
+  $this.button('loading');
     var allattsele = [];
     $(".attendaceradion").find("input:checked").each(function () {
       var atrid = $(this).attr('atid')

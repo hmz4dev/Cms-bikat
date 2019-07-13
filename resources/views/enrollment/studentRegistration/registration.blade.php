@@ -166,7 +166,7 @@
                     <label for="name">CNIC</label>
                     <input type="text" name="st_cnic" class="form-control" id="cnic" maxlength="15" required>
                     <label for="name">Cell No</label>
-                        <input type="integer" name="cellno" id="cellno" maxlength="12" class="form-control" required>
+                        <input type="integer" name="cellno" id="cellnophp" maxlength="12" class="form-control" required>
                         
                 </div>
                 <div class="column1">

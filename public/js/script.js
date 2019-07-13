@@ -251,7 +251,7 @@ $('#emergency_tel').keydown(function() {
 })(jQuery, window, document);
 
 $('#alpha').keypress(function(e) {
-    var regex = new RegExp("^[a-zA-Z]+$");
+    var regex = new RegExp("^[a-zA-Z ]+$");
     var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
     if (regex.test(str)) {
         return true;
@@ -262,7 +262,7 @@ $('#alpha').keypress(function(e) {
     }
 });
 $('#fname').keypress(function(e) {
-    var regex = new RegExp("^[a-zA-Z]+$");
+    var regex = new RegExp("^[a-zA-Z ]+$");
     var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
     if (regex.test(str)) {
         return true;
@@ -274,7 +274,7 @@ $('#fname').keypress(function(e) {
 });
 
 $('#gname').keypress(function(e) {
-    var regex = new RegExp("^[a-zA-Z]+$");
+    var regex = new RegExp("^[a-zA-Z ]+$");
     var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
     if (regex.test(str)) {
         return true;
@@ -285,7 +285,7 @@ $('#gname').keypress(function(e) {
     }
 });
 $('#ename').keypress(function(e) {
-    var regex = new RegExp("^[a-zA-Z]+$");
+    var regex = new RegExp("^[a-zA-Z- ]+$");
     var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
     if (regex.test(str)) {
         return true;

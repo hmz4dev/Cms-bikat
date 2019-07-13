@@ -33,14 +33,14 @@ class CreateStudentinfosTable extends Migration
             $table->string('previous_degree')->nullable();
             $table->string('section');
             $table->string('father_name');
-            $table->biginteger('father_income');
+            $table->biginteger('father_income')->nullable();
             $table->string('father_cnic');
-            $table->string('father_occupation');
+            $table->string('father_occupation')->nullable();
             $table->string('nationality');
             $table->string('religion');
             $table->string('telephone')->nullable();
             $table->string('cellno');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('city');
             $table->string('temporary_address');
             $table->string('permanent_address');
@@ -52,7 +52,7 @@ class CreateStudentinfosTable extends Migration
             $table->string('guardian_phone');
             $table->string('emergency_person');
             $table->string('emergency_tel')->nullable();
-            $table->string('emergency_cell');
+            $table->string('emergency_cell')->nullable();
             $table->timestamps();
         });
         

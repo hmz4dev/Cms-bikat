@@ -78,7 +78,7 @@ class AttendanceController extends Controller
         }
          $sessions = Session::all();
          $degrees = Degree::all();
-         $OfferedCourses = OfferedCourse::all();
+         $OfferedCourses =OfferedCourse::all();
          return response()->json(['done' => 'store action done']);
         
 

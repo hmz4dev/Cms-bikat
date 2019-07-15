@@ -3,20 +3,19 @@
   <table class="table table-bordered table-responsive-md   text-center" id="example" width="100%">
       <thead>
           <tr>
-              <th width="20%">Reg.No</th>
-              <th width="40%">Name</th>
-              <th width="40%">Attendence</th>
+              <td width="10%" style=" border-spacing: 0px;"></td>
+              <th width="45%">Name</th>
+              <td width="40%">Attendence</td>
               
           </tr>
       </thead>
       <tbody>
           @if ($attendances)
-              
-          @foreach ($attendances as $attendance)
+          @foreach ($attendances as $key=>$attendance)
               
           <tr>
            <td class="att-md-1 id_att[{{$attendance->id}}] hidden" id="{{ $attendance->id}}">{{ $attendance->id}}</td>
-             <td >{{$attendance->Regno}}</td>
+             <td >{{$key+1}}</td>
              <td >{{ $attendance->student_name}} </td>
              <td class="attendaceradion" > 
                  <input type="radio" name="attendence[{{$attendance->id}}]" atid="{{ $attendance->id}}" id="attendencep" value="P"> Present

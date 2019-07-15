@@ -139,7 +139,7 @@
                     <br><br>
                     <table class="table table-bordered table-responsive-md table-responsive " id="dtBasicExample" width="100%">
                                                 <thead >
-                                                <tr style="background-color:#31B0D5">
+                                                <tr style="background-color:#004783">
                                                 <th class="col-md-1">Course Code</th>
                                                 <th class="col-md-4">Course Name</th>
                                                 <th class="col-md-1">Pre-Req</th>

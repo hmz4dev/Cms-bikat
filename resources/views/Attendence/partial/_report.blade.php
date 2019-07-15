@@ -2,12 +2,12 @@
 <div class="table-responsive tableadd hidden">
         <div id="exportbutton"><a type="button" href="/attendence/exportPdf" name="export" id="" class="export btn btn-danger btn-sm"><i class="fa fa-file-pdf-o"></i>
           Export in PDF</a></div>
-<table class="table table-bordered " id="attendance_table">
+<table class="table table-bordered text-center" id="attendance_table">
         <thead>
-         <tr>
+         <tr style="background-color:#004783">
             
-             <th width="35%">Name</th>
-             <th colspan="{{$count}}">Attendances</th>
+             <th width="25%">Name</th>
+             <th colspan="{{$count}}">Attendance</th>
            
          </tr>
          @foreach ($attendancesgroup as $item => $val )

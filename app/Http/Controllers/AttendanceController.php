@@ -53,52 +53,12 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-      //  dd($request->data);
-foreach ($request->data as $key => $value) {
-    if ($value != null) {
-        
-        $enrollment  = Enrollment::whereId($request->data[$key]["value"])->first();
-        $attendancedata []= [
-            'teacher_id' => Auth::user()->id,
-            'degree'     => $enrollment->degree,
-            'semester'     => $enrollment->enrollsemester,
-            'subject'     => $enrollment->course_name,
-            'name'     => $enrollment->student_name,
-            'enrollment_id'     => $enrollment->id,
-            'regno'     => $enrollment->Regno,
-            'attendance'     => $request->data[$key]['val'],
-        ];
-    }
-}
-
-        
-        $hasenroll = Attendance::where('enrollment_id', $request->enrollment)->first();
-        if ($hasenroll == null) {
-            foreach ($attendancedata as $attendan) {
-                
-                Attendance::create($attendan);
-            }
-            Flashy::success('You have been seccessfuly add attendance.');
-        } else {
-            $hasenroll->update($attendancedata);
-            
-            Flashy::success('You have been update attendance.');
-        }
-         $sessions = Session::all();
-         $degrees = Degree::all();
-         $OfferedCourses =OfferedCourse::all();
-         return response()->json(['done' => 'store action done']);
-        
-
-=======
        if (!$request->data) {
            # code...
        } else {
            
            foreach ($request->data as $key => $value) {
                if ($value != null) {
->>>>>>> 6dc0b70c5969ad17934656734aa803aeaf66fe2a
     
                    $enrollment  = Enrollment::whereId($request->data[$key]["value"])->first();
                    $attendancedata[] = [

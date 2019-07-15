@@ -35,7 +35,7 @@
     width: 40%;
     height: 110px;
     background-color: #424F63;
-    margin-top: 100px;
+    margin-top: 50px;
 
     border-radius: 1em;
     padding-left: 10px;
@@ -83,6 +83,7 @@
         <!-- /.col-lg-12 -->
         <div class="col-lg-12">
             @can('Admin')
+          
         <div class="enrl col-md-5">
                 
             <a href="{{url('enrollment')}}"><h4>Student Enrollment</h4> <i class="fa fa-address-book"></i></a> 

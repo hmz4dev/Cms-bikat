@@ -44,9 +44,9 @@
                     <!-- /.nav-second-level -->
                 </li>
              
-                <li>
-                    <a href="#"><i class="fa fa-files-o fa-fw"></i> Reports<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+           <!-- <li>
+                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Reports<span class="fa arrow"></span></a>
+                  <ul class="nav nav-second-level">
                         <li>
                             <a href="#"><i class="fa fa-angle-double-right"></i> Total Enrolled</a>
                         </li>
@@ -56,7 +56,7 @@
                     </ul>
                    
                     <!-- /.nav-second-level -->
-                </li>
+                </li>  -->
                 <li>
                 <a href="#"><i class="fa fa-users"></i> Register Users<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">

@@ -1,7 +1,7 @@
 <h3><i class="fa fa-group fa-fw"> </i>  Student List</h3>
 <div class="table-responsive">
   <table class="table table-bordered table-responsive-md   text-center" id="example" width="100%">
-      <thead>
+      <thead style="background-color:#004783">
           <tr>
               <th width="20%">Reg.No</th>
               <th width="40%">Name</th>

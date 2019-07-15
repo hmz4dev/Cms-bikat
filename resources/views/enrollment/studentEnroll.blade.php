@@ -95,7 +95,7 @@
               <div class="row2">
                   <h3>Student Selection</h3>
                   <div class="row2-enrol-col1">
-                  <label for="session">Session (Student Admitted in)</label>
+                  <label for="session">Session(Student Admitted in)</label>
                   <select name="row[0][Session]" id="session" class="form-control" required>
                   <option value="noselect">N/A</option>
 

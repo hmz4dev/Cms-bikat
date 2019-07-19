@@ -147,13 +147,13 @@
               <div class="row2-enrol-col5">
                   <br><br><br>
                   <label for="approval">Sup. Committee Approved</label>
-                  <select name="row[0][Approval]" id="" class="form-control" required>
+                  <select name="row[0][Approval]" id="" class="form-control" >
                     <option value="">N/A</option>                  
                       <option value="No">No</option>
                       <option value="yes">yes</option>
                   </select>
                   <label for="course_work">Course Work Submitted</label>
-                  <select name="row[0][Course_work]" id="" class="form-control" required>
+                  <select name="row[0][Course_work]" id="" class="form-control" >
                   <option value="">N/A</option>
                   <option value="No">No</option>
                       <option value="yes">yes</option>
@@ -174,9 +174,9 @@
                  <div class="row2-enrol-col5">
                  <br><br><br>
                    <label for="chalan">Chalan #</label>
-                   <input type="text" name="row[0][Chalan_no]" class="form-control" required>
+                   <input type="text" name="row[0][Chalan_no]" class="form-control">
                    <label for="chalan">Chalan Amount</label>
-                   <input type="text" name="row[0][Chalan_amount]" class="form-control" required>
+                   <input type="text" name="row[0][Chalan_amount]" class="form-control">
                    <label for="Remarks">Remarks</label>
                    <textarea name="row[0][Remarks]" id="" class="form-control" rows="4"></textarea>
                  </div>

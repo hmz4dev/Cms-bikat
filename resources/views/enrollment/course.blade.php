@@ -120,9 +120,9 @@
                                                     </div>
 
                                                     <div class="row col-md-8 ">
-                                                    <input name="hidden_id" id="hidden_id"  type="hidden" >
-                                                                <input type="hidden" id="action" >    
-                                                    <input type="submit" value="Submit" class="btn btn-primary "  style="float:left;margin-left:100px; width:100%">
+                                                        <input name="hidden_id" id="hidden_id"  type="hidden" >
+                                                                    <input type="hidden" id="action" >    
+                                                        <input type="submit" value="Submit" class="btn btn-primary "  style="float:left;margin-left:100px; width:100%">
                                                                         
                                                                         
                                                     </div>
@@ -220,7 +220,7 @@
              $('#add').on('click', function(){
                  event.preventDefault();
                  $('#form')[0].reset();
-                 $('#form').attr("action", "{{url('/enrollment/course')}}");
+                 $('#form').attr("action", "{{url('enrollment/course')}}");
                  $('#form').removeAttr("enctype");
                  $('#hidden_id').val("");
                  $('#result').html('');
@@ -234,7 +234,7 @@
             $('.modal-title').text('Add Course')
         })
 
-        /* Edit teacher script*/
+        /* Edit course script*/
         $(document).on('click', '#edit', function(){
             $('#result').html('');
             var id = $(this).attr('idAtt');

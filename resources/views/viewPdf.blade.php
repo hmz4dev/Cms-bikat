@@ -8,6 +8,8 @@
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #000;
+  
+
 }
 .g-container:after {
 	content: "";
@@ -32,14 +34,14 @@
 
 th{
 
-  min-width: 50px;
+  min-width: 10px;
 
 
 }
 
 th{
 
-  padding: 8px;
+  padding: 2px;
 
 
 }
@@ -47,6 +49,11 @@ th{
 .tableadd table th, .tableadd table td {
     border: 1px solid #000;
 }
+.non-b{
+	border-top: 2px solid #ffffff !important; 
+	border-left: 2px solid #ffffff !important; 
+}
+
 	</style>
 </head>
 <body>
@@ -62,15 +69,24 @@ th{
 		<table class="table table-bordered " id="attendance_table">
 				<thead>
 				 <tr>
+					<th class="non-b" rowspan="2"></th>
+					 <th width="25%" rowspan="2">Name</th>
 					
-					 <th width="25%">Name</th>
-					 <th colspan="{{$count}}">Attendances</th>
-				   
+					<th colspan="{{$count}}">Attendance</th>
+						
+							   
 				 </tr>
+				 <tr>
+					@for ($i = 0; $i < $count; $i++)
+				 <th>{{$i+1}}</th>
+				@endfor
+				 </tr>
+				 {{$key=1}}
 				 @foreach ($enrollments as $item => $val )
 				 <tr>
+				 <th>{{$key}}</th>
 					 <th>{{$item}}</th>
-				 @foreach ($val as $a)
+				 @foreach ($val->take(32) as $a)
 				 <th>{{$a->attendance}}</th>
 				 @if ($loop->last &&$val->count() < $count)
 				 @for ($i = 0; $i < $count-$val->count(); $i++)
@@ -79,6 +95,7 @@ th{
 				 @endif
 					 
 				 @endforeach
+				 {{$key++}}
 				</tr>
 				 @endforeach
 				</thead>

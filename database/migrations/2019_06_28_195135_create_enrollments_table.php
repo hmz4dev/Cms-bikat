@@ -23,18 +23,18 @@ class CreateEnrollmentsTable extends Migration
             $table->string('father_name');
             $table->string('Regno');
             $table->string('section');
-            $table->string('approval');
-            $table->string('course_work');
-            $table->string('synopsis');
-            $table->string('after_ceased');
-            $table->string('chalan_no');
-            $table->string('chalan_amount');
-            $table->string('Remarks');
+            $table->string('approval')->nullable();
+            $table->string('course_work')->nullable();
+            $table->string('synopsis')->nullable();
+            $table->string('after_ceased')->nullable();
+            $table->string('chalan_no')->nullable();
+            $table->string('chalan_amount')->nullable();
+            $table->string('Remarks')->nullable();
             $table->string('enroll_status');
             $table->string('course_code');
             $table->string('course_name');
-            $table->string('course_type');
-            $table->string('course_status');
+            $table->string('course_type')->nullable();
+            $table->string('course_status')->nullable();
             $table->string('credit_hours');
             $table->string('course_incharge');
         

@@ -54,7 +54,7 @@ class AttendanceController extends Controller
     public function store(Request $request)
     {
        if (!$request->data) {
-           # code...
+          
        } else {
            
            foreach ($request->data as $key => $value) {
@@ -170,14 +170,16 @@ class AttendanceController extends Controller
             'degree' => $request->degree,
             'subject' => $request->subject
         ];
-        $attendances = Attendance::where($critairia)->select('name', 'attendance')->get();
-        $attendancesgroup = $attendances->groupBy('name');
+        $attendances= Attendance::where($critairia)->get();
+        $attendancesgrou = Attendance::where($critairia)->select('name', 'attendance','created_at')->get();
+        $attendancesgroup = $attendancesgrou->groupBy('name');
         $count = 0;
         foreach ($attendancesgroup as $item => $val) {
             if ($val->count() > $count) $count = $val->count();
         }
 
         if ($attendances->count() > 0) {
+           
             sess::put([
                 'enrollments' => $attendancesgroup,
                 'count' => $count,
@@ -185,7 +187,7 @@ class AttendanceController extends Controller
                 'degree' => $request->degree,
                 'subject' => $request->subject
             ]);
-
+            if($count > 32) sess::put('count',32);
             $view = view('Attendence.partial._report', compact('attendancesgroup', 'count'))->render();
             return response()->json(['view' => $view]);
         } else {
@@ -243,9 +245,9 @@ class AttendanceController extends Controller
             ];
     
             $pdf = PDF::loadView('viewPdf', $data);
-            sess::forget(['enrollments', 'count','degree','semester','subject']);
+           // sess::forget(['enrollments', 'count','degree','semester','subject']);
     
-            return $pdf->download('attendance'.Carbon::now().'.pdf');
+            return $pdf->stream('attendance'.Carbon::now().'.pdf');
         }
         return abort(404);
         }

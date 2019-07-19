@@ -43,10 +43,10 @@ class CourseController extends Controller
        
         
         $create=Course::create([
-            'course_code'=>$request->Course_code,
-            'course_name'=>$request->Course_name,
-            'credit_hours'=>$request->Credit_hours,
-            'pre_req'=>$request->Pre_req,
+            'course_code'=>$request->course_code,
+            'course_name'=>$request->course_name,
+            'credit_hours'=>$request->credit_hours,
+            'pre_req'=>$request->pre_req,
            
         ]);
         if($create){
@@ -95,7 +95,7 @@ class CourseController extends Controller
             'course_code'    =>  'required',
             'course_name'     =>  'required',
             'credit_hours'     =>  'required',
-            'pre_req'          =>   'required'
+           
             
         );
         $error = Validator::make($request->all(), $rules);

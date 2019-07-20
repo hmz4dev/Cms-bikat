@@ -40,7 +40,6 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-       
         
         $create=Course::create([
             'course_code'=>$request->course_code,
@@ -49,9 +48,9 @@ class CourseController extends Controller
             'pre_req'=>$request->pre_req,
            
         ]);
-        if($create){
+        
             return redirect('/course')->with('message', 'submitted successfully');
-        }
+      
     }
 
     /**
@@ -90,6 +89,7 @@ class CourseController extends Controller
      */
     public function update(Request $request)
     {
+       // $data = $request->all();
        
         $rules = array(
             'course_code'    =>  'required',

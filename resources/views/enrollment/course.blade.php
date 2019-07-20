@@ -6,6 +6,8 @@
 <head>
 
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -80,7 +82,7 @@
                                                             <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-                                                        <form class="form col-md-12" id="form" >
+                                                        <form class="form col-md-12" name="form" id="form" >
                                                             {{csrf_field()}}
                                             
                                                 
@@ -122,7 +124,7 @@
                                                     <div class="row col-md-8 ">
                                                         <input name="hidden_id" id="hidden_id"  type="hidden" >
                                                                     <input type="hidden" id="action" >    
-                                                        <input type="submit" value="Submit" class="btn btn-primary "  style="float:left;margin-left:100px; width:100%">
+                                                        <input type="submit" value="Submit" id="submit" class="btn btn-primary "  style="float:left;margin-left:100px; width:100%">
                                                                         
                                                                         
                                                     </div>
@@ -218,16 +220,16 @@
         </main>
     <script>
              $('#add').on('click', function(){
-                 event.preventDefault();
+                
                  $('#form')[0].reset();
                  $('#form').attr("action", "{{url('enrollment/course')}}");
+            $('#form').attr("method", "post");
                  $('#form').removeAttr("enctype");
                  $('#hidden_id').val("");
                  $('#result').html('');
 
 
 
-            $('#form').attr("method", "post");
             $('#action').val("Add");
 
             $('#myModal').modal('show');
@@ -264,20 +266,24 @@
         
         })
         /** update script*/
-        $('#form').on('submit', function(event){
-            var data = new FormData(this);
-            event.preventDefault();
+        $('#submit').on('click', function(event){
+           // event.preventDefault();
         if($('#action').val() == "Edit")
         { 
+            var data = $("#form").serializeArray();
+           console.log(data);
            
         $.ajax({
         url:"{{ route('course.update') }}",
         method:"POST",
         data:data,
-        contentType: false,
-        cache: false,
-        processData: false,
-        dataType:"json",
+      //  contentType: false,
+       // cache: false,
+       // processData: false,
+       // dataType:"json",
+        headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
         success:function(data)
         {
         var html = '';
@@ -315,6 +321,8 @@
         
         }
         });
+        }else {
+            $('#form').submit();
         }
         });
 

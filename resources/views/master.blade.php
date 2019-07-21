@@ -15,6 +15,9 @@
     @yield('styles')
 </head>
 <body>
+
+
+
 @yield('content')
 <script src="{{URL::to('js/jquery/jquery-3.4.1.min.js')}}"></script>
 <script src="{{URL::to('js/jquery/jquery.min.js')}}"></script>

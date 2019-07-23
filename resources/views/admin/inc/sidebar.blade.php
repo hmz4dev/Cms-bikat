@@ -12,6 +12,9 @@
                             <a href="{{ url('registration')}}"><i class="fa fa-angle-double-right"></i> &nbsp;&nbsp;Student Registration</a>
                         </li>
                         <li>
+                            <a href="{{ route('registration.list')}}"><i class="fa fa-angle-double-right"></i> &nbsp;&nbsp;Students list</a>
+                        </li>
+                        <li>
                             <a href="{{ url('Qualification') }}"><i class="fa fa-angle-double-right"> </i>&nbsp;&nbsp;Qualification</a>
                         </li>
                         <li>
@@ -55,8 +58,8 @@
                         </li>
                     </ul>
                    
-                    <!-- /.nav-second-level -->
-                </li>  -->
+                    {{-- <!-- /.nav-second-level -->
+                </li>   --}}
                 <li>
                 <a href="#"><i class="fa fa-users"></i> Register Users<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">

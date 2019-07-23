@@ -19,6 +19,10 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::get('registration', 'StudentInfoController@registration');
     Route::post('/enrollment/studentRegistration/registration', 'StudentInfoController@store')->middleware('can:Admin');
+    Route::get('/enrollment/studentRegistration/list', 'StudentInfoController@list')->name('registration.list')->middleware('can:Admin');
+    Route::get('/enrollment/studentRegistration/{id}/edit', 'StudentInfoController@edit')->middleware('can:Admin');
+    Route::get('/enrollment/studentRegistration/{id}/delete', 'StudentInfoController@delete')->middleware('can:Admin');
+    Route::post('/enrollment/studentRegistration/update', 'StudentInfoController@update')->middleware('can:Admin');
     
     Route::get('Qualification', 'QualificationinfoController@index');
     Route::post('Qualification', 'QualificationinfoController@store');
@@ -80,7 +84,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/123courses/{name}','OfferedCourseController@getcourses')->middleware('can:Admin');
     
     Route::get('StudentReport','ReportStudentController@index')->middleware('can:Admin');
-    Route::get('registeruser','HomeController@register');
+    Route::get('registeruser','HomeController@register')->name('admin.register')->middleware('can:Admin');
+    Route::post('registeruser/add','HomeController@store')->name('register.user')->middleware('can:Admin');
 });    
 
 

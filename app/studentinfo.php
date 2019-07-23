@@ -25,7 +25,9 @@ class studentinfo extends Model
     public function Degree(){
         return $this->belongsTo('\App\Degree');
     }
+    protected $primaryKey = 'st_id';
     protected  $fillable=[
+     
         'status',
         'session',
         'semester',

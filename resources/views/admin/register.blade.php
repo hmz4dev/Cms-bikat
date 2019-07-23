@@ -16,7 +16,7 @@
                 <div class="panel-heading">{{ __('Register') }}</div>
 
                 <div class="panel-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register.user') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -51,9 +51,14 @@
 
                             <div class="col-md-8">
                                 <select name="statut" id="" class="form-control">
-                                    <option value="adminaccess">adminaccess</option>
-                                    <option value="teacheraccess">teacheraccess</option>
+                                    <option value="adminaccess"   {{ (old('statut')== 'adminaccess' )? 'selected' : '' }}>adminaccess</option>
+                                    <option value="teacheraccess" {{ (old('statut')== 'teacheraccess' )? 'selected' : '' }}>teacheraccess</option>
                                 </select>
+                                @if ($errors->has('statut'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                             </div>
                         </div>
 
